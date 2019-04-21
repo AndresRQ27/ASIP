@@ -1,0 +1,20 @@
+/**
+* Costa Rica Institute of Technology
+* @author Kendall González
+* Computer Architecture
+* ASIP
+*/
+
+`include "constants.sv"
+
+
+module ALUAdderCarry (a,b,Cin,s,Cout);
+
+	input logic [ALUSize-1:0] a, b;
+	input logic Cin;
+	output logic [ALUSize-1:0] s;
+	output logic Cout;
+							
+	assign {Cout, s} = a + b + Cin;
+
+endmodule

@@ -1,0 +1,42 @@
+# Reading C:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do ASIP_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+C:/Quartus/ASIP {C:/Quartus/ASIP/Registers.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:23:35 on Apr 19,2019
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Quartus/ASIP" C:/Quartus/ASIP/Registers.sv 
+# -- Compiling module Registers
+# 
+# Top level modules:
+# 	Registers
+# End time: 23:23:36 on Apr 19,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+vlog -reportprogress 300 -work work C:/Quartus/ASIP/Registers_tb.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:30:21 on Apr 19,2019
+# vlog -reportprogress 300 -work work C:/Quartus/ASIP/Registers_tb.sv 
+# -- Compiling module Registers_tb
+# 
+# Top level modules:
+# 	Registers_tb
+# End time: 23:30:22 on Apr 19,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vsim work.Registers_tb
+# vsim work.Registers_tb 
+# Start time: 23:30:25 on Apr 19,2019
+# Loading sv_std.std
+# Loading work.Registers_tb
+# Loading work.Registers
+add wave -position end  sim:/Registers_tb/DUT/Array
+# End time: 12:24:24 on Apr 20,2019, Elapsed time: 12:53:59
+# Errors: 0, Warnings: 0

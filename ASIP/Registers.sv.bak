@@ -1,0 +1,58 @@
+/**
+* Costa Rica Institute of Technology
+* @author Kendall González
+* Computer Architecture
+* ASIP
+*/
+
+// This module handles the processor registers
+// Are 15 based on the ARM Architecture
+
+module Registers #(	parameter RegisterSize = 32, 
+							parameter AmountofRegisters = 15)
+						(	clk, reset, pc, writeRegister, writeValue, readRegister, readValue);
+	
+	// Inputs and outputs
+	input logic clk, reset;
+	input logic [3:0] writeRegister;
+	input logic [RegisterSize-1:0] writeValue;
+	input logic [3:0] readRegister;
+	
+	output logic [RegisterSize-1:0] pc;
+	output logic [RegisterSize-1:0] readValue;
+	
+	// Auxiliar for initialization
+	integer initCount;
+	
+	// Module Data
+	reg [RegisterSize-1:0] RegisterBank [AmountOfRegisters-1:0];	//16 registers, 32 bits each of it
+	
+	// Run once at initialization
+	initial begin
+		
+		// Set each register in 0
+		for (initCount = 0; initCount < AmountofRegisters-1; initCount = initCount + 1) begin
+			RegisterBank[initCount] = 0;
+		end
+	end
+	
+	always @(posedge clk)
+		
+		// reset signal 1 sets all the registers in 0, except pc
+		if(reset) begin
+			// Set each register in 0
+			for (initCount = 0; initCount < AmountofRegisters-2; initCount = initCount + 1) begin
+				RegisterBank[initCount] = 0;
+			end
+		end
+		
+		
+		
+		
+	
+	
+	end
+	
+	
+	
+endmodule

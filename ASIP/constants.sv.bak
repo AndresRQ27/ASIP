@@ -1,0 +1,12 @@
+/**
+* Costa Rica Institute of Technology
+* @author Kendall González
+* Computer Architecture
+* ASIP
+*/
+
+
+// This file will be included in the other system verilog components
+// will allow the change of the processor parameters easily
+
+`define 

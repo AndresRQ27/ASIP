@@ -1,0 +1,154 @@
+/**
+* Costa Rica Institute of Technology
+* @author Kendall González
+* Computer Architecture
+* ASIP
+*/
+
+// Registers's testbench
+
+module Registers_tb ();
+
+	// Parameters
+	parameter RegisterSize = 32;
+	parameter AmountOfRegisters = 15;
+	
+	/* Clock Signal */
+	reg CLOCK;
+
+	// Components
+	logic clk, reset;
+	logic [3:0] writeRegister;
+	logic [RegisterSize-1:0] writeValue;
+	logic [3:0] readRegister;
+	
+	logic [RegisterSize-1:0] pc;
+	logic [RegisterSize-1:0] readValue;
+
+
+// Device Under Test
+Registers #(	RegisterSize, AmountOfRegisters ) 
+			DUT (	clk, reset, pc, writeRegister, writeValue, readRegister, readValue);
+
+
+initial 
+	begin
+	
+		$display("Testbench para Sumador");
+		Control = 4'b0100; A = 4'b0001; B = 4'b1110; 
+		#10;
+		assert (Result === 4'b1111) $display("Test OK"); else $error("Test Failed");
+		assert (Flags[2] === 0) $display("Test OK"); else $error("Test Failed");
+		assert (Flags[3] === 1) $display("Test OK"); else $error("Test Failed");
+		assert (Flags[1] === 0) $display("Test OK"); else $error("Test Failed");
+		assert (Flags[0] === 0) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b0100; A = 4'b0000; B = 4'b0000; 
+		#10;
+		assert (Result === 4'b0000) $display("Test OK"); else $error("Test Failed");
+		assert (Flags[2] === 1) $display("Test OK"); else $error("Test Failed");
+		assert (Flags[3] === 0) $display("Test OK"); else $error("Test Failed");
+		assert (Flags[0] === 0) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b0100; A = 4'b0001; B = 4'b1111; 
+		#10;
+		assert (Result === 4'b0000) $display("Test OK"); else $error("Test Failed");
+		assert (Flags[2] === 1) $display("Test OK"); else $error("Test Failed");
+		assert (Flags[3] === 0) $display("Test OK"); else $error("Test Failed");
+		assert (Flags[1] === 1) $display("Test OK"); else $error("Test Failed");
+		assert (Flags[0] === 0) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b0100; A = 4'b0100; B = 4'b0101; 
+		#10;
+		assert (Result === 4'b1001) $display("Test OK"); else $error("Test Failed");
+		assert (Flags[2] === 0) $display("Test OK"); else $error("Test Failed");
+		assert (Flags[3] === 1) $display("Test OK"); else $error("Test Failed");
+		assert (Flags[1] === 0) $display("Test OK"); else $error("Test Failed");
+		assert (Flags[0] === 1) $display("Test OK"); else $error("Test Failed");
+		#10;
+		
+		$display("Testbench para Restador");
+		Control = 4'b0010; A = 4'b0010; B = 4'b0001; 
+		#10;
+		assert (Result === 4'b0001) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b0010; A = 4'b0000; B = 4'b1101; 
+		#10;
+		assert (Result === 4'b0011) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b0010; A = 4'b0111; B = 4'b0010; 
+		#10;
+		assert (Result === 4'b0101) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b0010; A = 4'b0100; B = 4'b0010; 
+		#10;
+		assert (Result === 4'b0010) $display("Test OK"); else $error("Test Failed");
+		#10;
+		
+		$display("Testbench para AND");
+		Control = 4'b0000; A = 4'b0100; B = 4'b0010; 
+		#10;
+		assert (Result === 4'b0000) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b0000; A = 4'b0110; B = 4'b0010; 
+		#10;
+		assert (Result === 4'b0010) $display("Test OK"); else $error("Test Failed");
+		#10;
+		
+		$display("Testbench para OR");
+		Control = 4'b1100; A = 4'b0001; B = 4'b1110;
+		#10;
+		assert (Result === 4'b1111) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b1100; A = 4'b1001; B = 4'b0101; 
+		#10;
+		assert (Result === 4'b1101) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b1100; A = 4'b0111; B = 4'b0100;
+		#10;
+		assert (Result === 4'b0111) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b1100; A = 4'b0011; B = 4'b0011; 
+		#10;
+		assert (Result === 4'b0011) $display("Test OK"); else $error("Test Failed");
+		#10;
+	
+		$display("Testbench para NOT");
+		Control = 4'b1111; B = 4'b0001;
+		#10;
+		assert (Result === 4'b1110) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b1111; B = 4'b1001; 
+		#10;
+		assert (Result === 4'b0110) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b1111; B = 4'b0111;
+		#10;
+		assert (Result === 4'b1000) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b1111; B = 4'b0011;
+		#10;
+		assert (Result === 4'b1100) $display("Test OK"); else $error("Test Failed");
+		#10;
+		
+		$display("Testbench para XOR");
+		Control = 4'b0001; A = 4'b0001; B = 4'b1110;
+		#10;
+		assert (Result === 4'b1111) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b0001; A = 4'b1001; B = 4'b0101; 
+		#10;
+		assert (Result === 4'b1100) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b0001; A = 4'b0111; B = 4'b0100;
+		#10;
+		assert (Result === 4'b0011) $display("Test OK"); else $error("Test Failed");
+		#10;
+		Control = 4'b0001; A = 4'b0011; B = 4'b0011; 
+		#10;
+		assert (Result === 4'b0000) $display("Test OK"); else $error("Test Failed");
+		#10;
+		
+	end
+
+endmodule 
