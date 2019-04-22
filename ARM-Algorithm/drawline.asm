@@ -28,8 +28,8 @@ swap:		SUB		R8,R8,R8 		;swap in r8
 		MOV		r11, r12
 		MOV		r12, r0
 		ADD		r8, r8, #1
-eabvars:	LSL		r7,r11, #1		;r7 = 2*dx
-		LSL		r6,r12, #1		;r6 = 2*dy      a
+eabvars:	ADD		r7,r11, r11		;r7 = 2*dx
+		ADD		r6,r12, r12		;r6 = 2*dy      a
 		SUB		r5,r6,r7		;r5 = 2dy-2dx   b
 		SUB		r7,r6,r11		;r7 = 2dy-dx    e
 		;PLOT     r2,r3
