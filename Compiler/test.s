@@ -1,3 +1,13 @@
+
+		;plotline	(5,6)- (15,1) used to store the temporary values of points
+		ADD		r7,r7,#5
+		ADD		r8,r8,#6 ; y0
+		ADD		r9,r9,#2 ; x1
+		ADD		r10,r10,#20 ; y1
+		MOV		r2,r7 ; x starts in x0 IN    R2
+		MOV		r3,r8 ; y starts in y0 IN    R3		
+
+
 b my_instruction
 plot R1,R5
 mov R1, R4

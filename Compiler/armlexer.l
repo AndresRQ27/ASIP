@@ -11,9 +11,9 @@
 
 %option yylineno
 
-comment ;.*
+comment ;[^\n]*
 label  [a-zA-Z_][a-zA-Z0-9_]*
-immedec   \#(0|-?[1-9][0-9]+)
+immedec   \#(0|-?[1-9][0-9]*)
 immehex   0x[0-9A-Fa-f]{1,4}
 numero [0-9]+
 ADD  (A|a)(D|d)(D|d)
@@ -63,7 +63,7 @@ allmodifiers (eq|EQ|ne|NE|cs|CS|hs|HS|cc|CC|lo|LO|mi|MI|PL|pl|vs|VS|vc|VC|hi|HI|
 {immehex}                     {yylval.id=strdup(yytext); return immehex;}
 {label}:                      {yylval.id=strdup(yytext); return memory_direction_tag;}
 {label}                       {yylval.id=strdup(yytext); return label;}
-{comment}                     {yylval.id=strdup(yytext); return commentary;}
+{comment}                     {return commentary;}
 
 {black}                       {yylval.id=strdup(yytext);return black;}
 {blue}                        {yylval.id=strdup(yytext);return blue;}
