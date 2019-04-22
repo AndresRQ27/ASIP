@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ASIP
-Sun Apr 21 23:53:18 2019
+Mon Apr 22 15:48:18 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -50,7 +50,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Apr 21 23:53:18 2019       ;
+; Analysis & Synthesis Status     ; Successful - Mon Apr 22 15:48:18 2019       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; ASIP                                        ;
 ; Top-level Entity Name           ; ASIP                                        ;
@@ -359,7 +359,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Apr 21 23:52:58 2019
+    Info: Processing started: Mon Apr 22 15:47:58 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ASIP -c ASIP
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -917,7 +917,7 @@ Info (10041): Inferred latch for "RegisterBank[15][31]" at Registers.sv(41) File
 Info (12128): Elaborating entity "Memory" for hierarchy "Memory:MemoryDevice" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv Line: 66
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "Image" into its bus
 Info (12128): Elaborating entity "InstructionMemory" for hierarchy "InstructionMemory:InstructionMemoryDevice" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv Line: 68
-Warning (10850): Verilog HDL warning at InstructionMemory.sv(24): number of words (12) in memory file does not match the number of elements in the address range [0:127] File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 24
+Warning (10850): Verilog HDL warning at InstructionMemory.sv(24): number of words (14) in memory file does not match the number of elements in the address range [0:127] File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 24
 Warning (10855): Verilog HDL warning at InstructionMemory.sv(23): initial value for variable Data should be constant File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 23
 Warning (10230): Verilog HDL assignment warning at InstructionMemory.sv(32): truncated value with size 9 to match size of target (8) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 32
 Warning (10030): Net "Data[127][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
@@ -1049,258 +1049,288 @@ Warning (10030): Net "Data[2][7..0]" at InstructionMemory.sv(20) has no driver o
 Warning (10030): Net "Data[1][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
 Warning (10030): Net "Data[0][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
 Info (12128): Elaborating entity "CPU" for hierarchy "CPU:core" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv Line: 85
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(82): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 82
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(83): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 83
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(87): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 87
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(87): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 87
 Warning (10235): Verilog HDL Always Construct warning at CPU.sv(88): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 88
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(90): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 90
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(94): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 94
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(96): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 96
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(98): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 98
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(100): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 100
-Warning (10230): Verilog HDL assignment warning at CPU.sv(100): truncated value with size 32 to match size of target (3) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 100
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(102): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 102
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(104): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 104
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(106): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 106
-Warning (10230): Verilog HDL assignment warning at CPU.sv(106): truncated value with size 32 to match size of target (3) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 106
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(108): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 108
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(109): variable "readValue" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 109
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(92): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(93): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 93
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(95): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 95
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(99): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 99
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(101): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 101
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(103): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 103
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(105): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 105
+Warning (10230): Verilog HDL assignment warning at CPU.sv(105): truncated value with size 32 to match size of target (3) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 105
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(107): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 107
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(109): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 109
 Warning (10235): Verilog HDL Always Construct warning at CPU.sv(111): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 111
 Warning (10230): Verilog HDL assignment warning at CPU.sv(111): truncated value with size 32 to match size of target (3) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 111
 Warning (10235): Verilog HDL Always Construct warning at CPU.sv(113): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 113
 Warning (10235): Verilog HDL Always Construct warning at CPU.sv(114): variable "readValue" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 114
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(116): variable "Op1" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 116
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(120): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 120
-Warning (10230): Verilog HDL assignment warning at CPU.sv(120): truncated value with size 32 to match size of target (3) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 120
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(122): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 122
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(123): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 123
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(124): variable "Result" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 124
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(128): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 128
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(138): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 138
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(143): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 143
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(145): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 145
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(147): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 147
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(149): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 149
-Warning (10230): Verilog HDL assignment warning at CPU.sv(149): truncated value with size 32 to match size of target (3) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 149
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(151): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 151
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(153): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 153
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(155): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 155
-Warning (10230): Verilog HDL assignment warning at CPU.sv(155): truncated value with size 32 to match size of target (3) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 155
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(157): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 157
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(158): variable "readValue" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 158
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(116): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 116
+Warning (10230): Verilog HDL assignment warning at CPU.sv(116): truncated value with size 32 to match size of target (3) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 116
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(118): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 118
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(119): variable "readValue" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 119
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(121): variable "Op1" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 121
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(125): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 125
+Warning (10230): Verilog HDL assignment warning at CPU.sv(125): truncated value with size 32 to match size of target (3) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 125
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(127): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 127
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(128): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 128
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(129): variable "Result" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 129
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(133): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 133
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(143): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 143
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(148): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 148
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(150): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 150
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(152): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 152
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(154): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 154
+Warning (10230): Verilog HDL assignment warning at CPU.sv(154): truncated value with size 32 to match size of target (3) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 154
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(156): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 156
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(158): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 158
 Warning (10235): Verilog HDL Always Construct warning at CPU.sv(160): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 160
 Warning (10230): Verilog HDL assignment warning at CPU.sv(160): truncated value with size 32 to match size of target (3) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 160
 Warning (10235): Verilog HDL Always Construct warning at CPU.sv(162): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 162
 Warning (10235): Verilog HDL Always Construct warning at CPU.sv(163): variable "readValue" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 163
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(165): variable "Op1" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 165
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(169): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 169
-Warning (10230): Verilog HDL assignment warning at CPU.sv(169): truncated value with size 32 to match size of target (3) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 169
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(171): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 171
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(172): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 172
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(173): variable "Result" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 173
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(177): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 177
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(187): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 187
-Warning (10235): Verilog HDL Always Construct warning at CPU.sv(191): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 191
-Warning (10240): Verilog HDL Always Construct warning at CPU.sv(80): inferring latch(es) for variable "MOVRegisterOrigin", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 80
-Warning (10240): Verilog HDL Always Construct warning at CPU.sv(80): inferring latch(es) for variable "MOVRegisterDestiny", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 80
-Warning (10240): Verilog HDL Always Construct warning at CPU.sv(80): inferring latch(es) for variable "PC", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 80
-Warning (10240): Verilog HDL Always Construct warning at CPU.sv(80): inferring latch(es) for variable "readRegister", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 80
-Warning (10240): Verilog HDL Always Construct warning at CPU.sv(80): inferring latch(es) for variable "SUB_State", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 80
-Warning (10240): Verilog HDL Always Construct warning at CPU.sv(80): inferring latch(es) for variable "Op1", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 80
-Warning (10240): Verilog HDL Always Construct warning at CPU.sv(80): inferring latch(es) for variable "Op2", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 80
-Warning (10240): Verilog HDL Always Construct warning at CPU.sv(80): inferring latch(es) for variable "A", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 80
-Warning (10240): Verilog HDL Always Construct warning at CPU.sv(80): inferring latch(es) for variable "B", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 80
-Warning (10240): Verilog HDL Always Construct warning at CPU.sv(80): inferring latch(es) for variable "Control", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 80
-Warning (10240): Verilog HDL Always Construct warning at CPU.sv(80): inferring latch(es) for variable "writeRegister", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 80
-Warning (10240): Verilog HDL Always Construct warning at CPU.sv(80): inferring latch(es) for variable "writeValue", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 80
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(165): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 165
+Warning (10230): Verilog HDL assignment warning at CPU.sv(165): truncated value with size 32 to match size of target (3) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 165
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(167): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 167
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(168): variable "readValue" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 168
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(170): variable "Op1" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 170
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(174): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 174
+Warning (10230): Verilog HDL assignment warning at CPU.sv(174): truncated value with size 32 to match size of target (3) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 174
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(176): variable "SUB_State" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 176
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(177): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 177
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(178): variable "Result" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 178
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(182): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 182
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(192): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 192
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(196): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 196
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(197): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 197
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(198): variable "COLOR" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 198
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(199): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 199
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(202): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 202
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(203): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 203
+Warning (10235): Verilog HDL Always Construct warning at CPU.sv(206): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 206
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "MOVRegisterOrigin", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "MOVRegisterDestiny", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "PC", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "readRegister", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "SUB_State", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "Op1", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "Op2", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "A", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "B", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "Control", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "writeRegister", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "writeValue", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "XWrite", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "YWrite", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "writeValueMemory", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
+Warning (10240): Verilog HDL Always Construct warning at CPU.sv(85): inferring latch(es) for variable "COLOR", which holds its previous value in one or more paths through the always construct File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 85
 Warning (10034): Output port "C" at CPU.sv(31) has no driver File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 31
-Warning (10034): Output port "XWrite" at CPU.sv(44) has no driver File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 44
-Warning (10034): Output port "YWrite" at CPU.sv(45) has no driver File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 45
-Warning (10034): Output port "writeValueMemory" at CPU.sv(46) has no driver File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 46
 Warning (10034): Output port "XRead" at CPU.sv(47) has no driver File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 47
 Warning (10034): Output port "YRead" at CPU.sv(48) has no driver File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 48
 Warning (10034): Output port "reset" at CPU.sv(35) has no driver File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 35
-Info (10041): Inferred latch for "SUB_State[0]" at CPU.sv(195) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 195
-Info (10041): Inferred latch for "SUB_State[1]" at CPU.sv(195) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 195
-Info (10041): Inferred latch for "SUB_State[2]" at CPU.sv(195) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 195
-Info (10041): Inferred latch for "writeValue[0]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[1]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[2]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[3]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[4]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[5]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[6]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[7]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[8]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[9]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[10]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[11]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[12]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[13]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[14]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[15]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[16]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[17]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[18]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[19]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[20]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[21]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[22]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[23]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[24]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[25]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[26]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[27]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[28]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[29]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[30]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeValue[31]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeRegister[0]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeRegister[1]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeRegister[2]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "writeRegister[3]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Control[0]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Control[1]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Control[2]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Control[3]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[0]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[1]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[2]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[3]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[4]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[5]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[6]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[7]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[8]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[9]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[10]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[11]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[12]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[13]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[14]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[15]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[16]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[17]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[18]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[19]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[20]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[21]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[22]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[23]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[24]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[25]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[26]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[27]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[28]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[29]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[30]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "B[31]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[0]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[1]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[2]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[3]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[4]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[5]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[6]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[7]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[8]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[9]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[10]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[11]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[12]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[13]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[14]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[15]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[16]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[17]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[18]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[19]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[20]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[21]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[22]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[23]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[24]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[25]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[26]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[27]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[28]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[29]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[30]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "A[31]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[0]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[1]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[2]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[3]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[4]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[5]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[6]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[7]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[8]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[9]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[10]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[11]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[12]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[13]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[14]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[15]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[16]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[17]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[18]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[19]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[20]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[21]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[22]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[23]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[24]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[25]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[26]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[27]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[28]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[29]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[30]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "Op1[31]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "readRegister[0]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "readRegister[1]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "readRegister[2]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "readRegister[3]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[2]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[3]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[4]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[5]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[6]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[7]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[8]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[9]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[10]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[11]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[12]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[13]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[14]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[15]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[16]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[17]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[18]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[19]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[20]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[21]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[22]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[23]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[24]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[25]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[26]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[27]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[28]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[29]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[30]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "PC[31]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "MOVRegisterDestiny[0]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "MOVRegisterDestiny[1]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "MOVRegisterDestiny[2]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "MOVRegisterDestiny[3]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "MOVRegisterOrigin[0]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "MOVRegisterOrigin[1]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "MOVRegisterOrigin[2]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Info (10041): Inferred latch for "MOVRegisterOrigin[3]" at CPU.sv(92) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
+Info (10041): Inferred latch for "SUB_State[0]" at CPU.sv(210) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 210
+Info (10041): Inferred latch for "SUB_State[1]" at CPU.sv(210) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 210
+Info (10041): Inferred latch for "SUB_State[2]" at CPU.sv(210) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 210
+Info (10041): Inferred latch for "COLOR[0]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "COLOR[1]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "COLOR[2]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValueMemory[0]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValueMemory[1]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValueMemory[2]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "YWrite[0]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "YWrite[1]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "YWrite[2]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "YWrite[3]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "YWrite[4]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "YWrite[5]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "YWrite[6]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "YWrite[7]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "XWrite[0]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "XWrite[1]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "XWrite[2]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "XWrite[3]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "XWrite[4]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "XWrite[5]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "XWrite[6]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "XWrite[7]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "XWrite[8]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[0]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[1]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[2]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[3]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[4]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[5]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[6]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[7]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[8]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[9]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[10]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[11]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[12]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[13]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[14]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[15]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[16]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[17]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[18]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[19]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[20]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[21]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[22]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[23]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[24]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[25]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[26]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[27]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[28]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[29]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[30]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeValue[31]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeRegister[0]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeRegister[1]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeRegister[2]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "writeRegister[3]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Control[0]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Control[1]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Control[2]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Control[3]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[0]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[1]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[2]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[3]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[4]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[5]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[6]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[7]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[8]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[9]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[10]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[11]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[12]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[13]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[14]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[15]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[16]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[17]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[18]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[19]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[20]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[21]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[22]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[23]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[24]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[25]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[26]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[27]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[28]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[29]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[30]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "B[31]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[0]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[1]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[2]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[3]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[4]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[5]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[6]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[7]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[8]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[9]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[10]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[11]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[12]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[13]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[14]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[15]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[16]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[17]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[18]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[19]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[20]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[21]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[22]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[23]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[24]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[25]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[26]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[27]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[28]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[29]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[30]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "A[31]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[0]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[1]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[2]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[3]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[4]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[5]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[6]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[7]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[8]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[9]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[10]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[11]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[12]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[13]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[14]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[15]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[16]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[17]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[18]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[19]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[20]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[21]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[22]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[23]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[24]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[25]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[26]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[27]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[28]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[29]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[30]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "Op1[31]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "readRegister[0]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "readRegister[1]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "readRegister[2]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "readRegister[3]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[2]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[3]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[4]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[5]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[6]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[7]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[8]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[9]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[10]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[11]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[12]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[13]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[14]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[15]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[16]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[17]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[18]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[19]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[20]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[21]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[22]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[23]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[24]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[25]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[26]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[27]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[28]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[29]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[30]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "PC[31]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "MOVRegisterDestiny[0]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "MOVRegisterDestiny[1]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "MOVRegisterDestiny[2]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "MOVRegisterDestiny[3]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "MOVRegisterOrigin[0]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "MOVRegisterOrigin[1]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "MOVRegisterOrigin[2]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (10041): Inferred latch for "MOVRegisterOrigin[3]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
 Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
 Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
 Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
@@ -1735,69 +1765,69 @@ Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][28]
 Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
 Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
 Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "CPU:core|writeValue[31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|writeValue[0]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|A[31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|Op1[1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
-Warning (14025): LATCH primitive "CPU:core|Op1[2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
+Warning (14025): LATCH primitive "CPU:core|writeValue[31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|writeValue[0]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14025): LATCH primitive "CPU:core|Op1[31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
 Warning (14026): LATCH primitive "Registers:RegistersDevice|RegisterBank[0][2]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
 Warning (14026): LATCH primitive "Registers:RegistersDevice|RegisterBank[0][1]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
 Warning (14026): LATCH primitive "Registers:RegistersDevice|RegisterBank[0][0]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
@@ -1809,11 +1839,11 @@ Warning (21074): Design contains 1 input pin(s) that do not drive logic
 Info (21057): Implemented 1 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 1 input pins
     Info (21059): Implemented 0 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 715 warnings
-    Info: Peak virtual memory: 653 megabytes
-    Info: Processing ended: Sun Apr 21 23:53:18 2019
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 722 warnings
+    Info: Peak virtual memory: 655 megabytes
+    Info: Processing ended: Mon Apr 22 15:48:18 2019
     Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:40
+    Info: Total CPU time (on all processors): 00:00:41
 
 
 +------------------------------------------+

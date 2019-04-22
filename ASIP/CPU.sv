@@ -65,6 +65,10 @@ module CPU #(	parameter ALUSize =  32,
 	//logic [RegisterSize-1:0] Result;
 	
 	
+	// CANVAS
+	logic [ColorBits-1:0] COLOR;
+	
+	
 	
 	initial begin
 		
@@ -72,6 +76,7 @@ module CPU #(	parameter ALUSize =  32,
 		PC = 0;
 		InstructionId = 0;
 		SUB_State = 0;
+		COLOR = 3'b101;
 		
 		PC_Get = PC;
 		
@@ -186,6 +191,16 @@ module CPU #(	parameter ALUSize =  32,
 				end else begin // SUBS from Inmediate
 					PC = PC;
 				end
+
+		end else if (InstructionId == 4'b1001) begin // PLOT instruction
+				XWrite = Instruction[27:19];
+				YWrite = Instruction[18:11];
+				writeValueMemory = COLOR;
+				PC = PC + 4;
+
+		end else if (InstructionId == 4'b1000) begin // COL instruction
+				COLOR = Instruction[27:25];
+				PC = PC + 4;
 
 		end else begin
 			PC = PC;
