@@ -66,7 +66,18 @@ module ASIP ( clk );
 										XRead, YRead, readValueMemory );
 	InstructionMemory 		#(	PCSize, InstructionSize, AmountOfInstructions) 
 	InstructionMemoryDevice	(	PC_Get, Instruction );
-	
+	VGA #( ColorBits )
+	VGADevice(	
+		.clk(clk), 
+		.readValueMemory(readValueMemory),
+		.hsync(hsync), 
+		.vsync(vsync), 
+		.red(red), 
+		.green(green), 
+		.blue(blue), 
+		.blank(blank), 
+		.clkVGA(clkVGA)
+	);
 	
 	// Main Core
 	CPU #(	ALUSize,
