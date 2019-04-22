@@ -13,8 +13,8 @@ module ASIP ( clk );
 	parameter ALUSize =  32; // size of the operands in bits that can handle the ALU
 	parameter RegisterSize =  32; // register's size in bits
 	parameter AmountOfRegisters =  16; // quantity of registers in the processor
-	parameter ImageWidth =  10; // Canvas size
-	parameter ImageHeight =  5; // Canvas size
+	parameter ImageWidth =  320; // Canvas size
+	parameter ImageHeight =  240; // Canvas size
 	parameter ColorBits =  3; // Code of 3 bits => 8 colors
 	parameter PCSize =  32; // Equal to register size
 	parameter InstructionSize =  32; // Instruction size in bits
