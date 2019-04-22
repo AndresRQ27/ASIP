@@ -10,10 +10,12 @@
 
 module Registers #(	parameter RegisterSize = 32, 
 							parameter AmountOfRegisters = 16)
-						(	clk, reset, pc, writeRegister, writeValue, readRegister, readValue);
+						(	clk, reset, pc, MOVRegisterOrigin, MOVRegisterDestiny, writeRegister, writeValue, readRegister, readValue);
 	
 	// Inputs and outputs
 	input logic clk, reset;
+	input logic [3:0] MOVRegisterOrigin;
+	input logic [3:0] MOVRegisterDestiny;
 	input logic [3:0] writeRegister;
 	input logic [RegisterSize-1:0] writeValue;
 	input logic [3:0] readRegister;
@@ -32,11 +34,11 @@ module Registers #(	parameter RegisterSize = 32,
 		
 		// Set each register in 0
 		for (initCount = 0; initCount < AmountOfRegisters; initCount = initCount + 1) begin
-			RegisterBank[initCount] = 0;
+			RegisterBank[initCount] = initCount;
 		end
 	end	
 	
-	always @(posedge clk) begin
+	always @(clk, writeRegister) begin
 		
 		// reset signal 1 sets all the registers in 0, except pc
 		if(reset) begin
@@ -45,6 +47,9 @@ module Registers #(	parameter RegisterSize = 32,
 				RegisterBank[initCount] = 0;
 			end
 		end
+		
+		// MOV
+		RegisterBank[MOVRegisterDestiny] <= RegisterBank[MOVRegisterOrigin];
 		
 		// Write Process
 		RegisterBank[writeRegister] <= writeValue;

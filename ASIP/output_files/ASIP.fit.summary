@@ -1,13 +1,13 @@
-Fitter Status : Successful - Fri Apr 19 22:05:30 2019
+Fitter Status : Successful - Sun Apr 21 19:29:12 2019
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : ASIP
-Top-level Entity Name : Registers
+Top-level Entity Name : ASIP
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 281 / 32,070 ( < 1 % )
-Total registers : 544
-Total pins : 106 / 457 ( 23 % )
+Logic utilization (in ALMs) : 1 / 32,070 ( < 1 % )
+Total registers : 0
+Total pins : 1 / 457 ( < 1 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 4,065,280 ( 0 % )
 Total RAM Blocks : 0 / 397 ( 0 % )

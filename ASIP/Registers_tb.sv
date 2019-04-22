@@ -18,6 +18,8 @@ module Registers_tb ();
 
 	// Components
 	logic reset;
+	logic [3:0] MOVRegisterOrigin;
+	logic [3:0] MOVRegisterDestiny;
 	logic [3:0] writeRegister;
 	logic [RegisterSize-1:0] writeValue;
 	logic [3:0] readRegister;
@@ -27,7 +29,7 @@ module Registers_tb ();
 
 	// Device Under Test
 	Registers #(	RegisterSize, AmountOfRegisters ) 
-			DUT (	clk, reset, pc, writeRegister, writeValue, readRegister, readValue);
+			DUT (	clk, reset, pc, MOVRegisterOrigin, MOVRegisterDestiny, writeRegister, writeValue, readRegister, readValue);
 
 
 	// The testbench values

@@ -10,32 +10,28 @@
 module Memory_tb ();
 
 	// Parameters
-	parameter Width = 320;
-	parameter Height = 240;
-	parameter ColorBits = 8;
+	parameter Width = 5;
+	parameter Height = 10;
+	parameter ColorBits = 3;
 	
 	/* Clock Signal */
 	reg clk;
 
 	// Components
-	logic [$ceil($clog2(Width))-1:0] XWrite;
-	logic [$ceil($clog2(Height))-1:0] YWrite;
-	logic [ColorBits-1:0] RWrite;
-	logic [ColorBits-1:0] GWrite;
-	logic [ColorBits-1:0] BWrite;
+	logic [9-1:0] XWrite;
+	logic [8-1:0] YWrite;
+	logic [ColorBits-1:0] WriteValue;
 	
-	logic [$ceil($clog2(Width))-1:0] XRead;
-	logic [$ceil($clog2(Height))-1:0] YRead;
-	logic [ColorBits-1:0] RRead;
-	logic [ColorBits-1:0] GRead;
-	logic [ColorBits-1:0] BRead;
+	logic [9-1:0] XRead;
+	logic [8-1:0] YRead;
+	logic [ColorBits-1:0] ReadValue;
 
 
 	// Device Under Test
 	Memory #(	Width, Height, ColorBits) 
 			DUT (	clk, 
-							XWrite, YWrite, RWrite, GWrite, BWrite,
-							XRead, YRead, RRead, GRead, BRead);
+						XWrite, YWrite, WriteValue,
+						XRead, YRead, ReadValue);
 
 
 	// The testbench values
@@ -44,14 +40,16 @@ module Memory_tb ();
 		$display("Testbench for Memory");
 		
 		clk = 1'b0;
-
+		
+		#1; WriteValue = 3'b101; XWrite = 9'b0; YWrite = 9'b0;
+		#1; XRead = 0; YRead = 0;
+		#1; WriteValue = 3'b010; XWrite = 9'b10; YWrite = 9'b100;
+		#1; XRead = 9'b10; YRead = 9'b100;
+		#1; WriteValue = 3'b111; XWrite = 9'b100; YWrite = 9'b1001;
+		#1; XRead = 9'b100; YRead = 9'b1001;
+		#3;
 		
 		$finish;
-		
-		
-		
-		
-		
 		
 	end
 	

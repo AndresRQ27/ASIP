@@ -1,0 +1,61 @@
+/**
+* Costa Rica Institute of Technology
+* @author Kendall González
+* Computer Architecture
+* ASIP
+*/
+
+// Top Module
+
+module Core #(	parameter ALUSize =  32,
+					parameter RegisterSize =  32,
+					parameter AmountOfRegisters =  16,
+					parameter ImageWidth =  10,
+					parameter ImageHeight =  5,
+					parameter ColorBits =  3,
+					parameter PCSize =  32,
+					parameter InstructionSize =  32,
+					parameter AmountOfInstructions =  128) 
+				( 	clk, 
+					Control, A,B,C,Result, Flags,
+					reset, writeRegister, writeValue, readRegister, PC, readValue,
+					XWrite, YWrite, writeValueMemory, XRead, YRead, readValueMemory,
+					Instruction );
+
+	
+	
+	// Inputs by Group
+	input logic clk;
+	// ALU
+	input logic [3:0] Control;
+	input logic [ALUSize-1:0] A,B,C,Result;
+	input logic [3:0] Flags;
+	// Registers
+	input logic reset;
+	input logic [3:0] writeRegister;
+	input logic [RegisterSize-1:0] writeValue;
+	input logic [3:0] readRegister;
+	input logic [RegisterSize-1:0] PC;
+	input logic [RegisterSize-1:0] readValue;
+	// Memory
+	input logic [9-1:0] XWrite;
+	input logic [8-1:0] YWrite;
+	input logic [ColorBits-1:0] writeValueMemory;
+	input logic [9-1:0] XRead;
+	input logic [8-1:0] YRead;
+	input logic [ColorBits-1:0] readValueMemory;
+	//Instruction Memory
+	input logic [InstructionSize-1:0] Instruction;
+	
+	
+	initial begin
+		
+		
+		
+	end
+
+	always @(clk) begin
+		
+	end
+
+endmodule

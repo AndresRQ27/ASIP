@@ -1,0 +1,35 @@
+/**
+* Costa Rica Institute of Technology
+* @author Kendall González
+* Computer Architecture
+* ASIP
+*/
+
+// This module will store the instruction memory for the processor
+
+module InstructionMemory#(	parameter PCSize = 32, 
+									parameter InstructionSize = 32,
+									parameter AmountOfInstructions = 128)
+						(	PC, Instruction );
+	
+	// Inputs and outputs
+	input logic [PCSize-1:0] PC;
+	output logic [InstructionSize-1:0] Instruction;
+	
+	// Data storage
+	reg [8:0] Data [AmountOfInstructions-1:0];
+	
+	
+	initial begin
+		$readmemb("InstructionMemory.mem", Data);
+		
+	end
+
+	always @(PC) begin
+		Instruction[8:0] = Data[PC+3];
+		Instruction[16:8] = Data[PC+2];
+		Instruction[24:16] = Data[PC+1];
+		Instruction[31:24] = Data[PC];
+	end
+	
+endmodule

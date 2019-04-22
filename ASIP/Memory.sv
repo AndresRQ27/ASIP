@@ -6,38 +6,28 @@
 */
 
 // This module will store the memory for the processor
-// Will be able to store a 320 x 240 image
+// Will be able to store a Width x Height image
 
-module Memory#(	parameter Width = 320, 
-						parameter Height = 240,
-						parameter ColorBits = 8)
+module Memory#(	parameter Width = 5, 
+						parameter Height = 10,
+						parameter ColorBits = 3)
 						(	clk, 
-									XWrite, YWrite, RWrite, GWrite, BWrite,
-									XRead, YRead, RRead, GRead, BRead);
+									XWrite, YWrite, WriteValue,
+									XRead, YRead, ReadValue);
 	
 	// Inputs and outputs
 	input logic clk;
 	
-	//input logic [$ceil($clog2(Width))-1:0] XWrite;
 	input logic [9-1:0] XWrite;
-	//input logic [$ceil($clog2(Height))-1:0] YWrite;
 	input logic [8-1:0] YWrite;
-	input logic [ColorBits-1:0] RWrite;
-	input logic [ColorBits-1:0] GWrite;
-	input logic [ColorBits-1:0] BWrite;
+	input logic [ColorBits-1:0] WriteValue;
 	
-	//output logic [$ceil($clog2(Width))-1:0] XRead;
-	output logic [9-1:0] XRead;
-	//output logic [$ceil($clog2(Height))-1:0] YRead;
-	output logic [8-1:0] YRead;
-	output logic [ColorBits-1:0] RRead;
-	output logic [ColorBits-1:0] GRead;
-	output logic [ColorBits-1:0] BRead;
-	
-	
+	input logic [9-1:0] XRead;
+	input logic [8-1:0] YRead;
+	output logic [ColorBits-1:0] ReadValue;
 	
 	// 2D Array definition
-	reg [(ColorBits*3):0] Image [0:Height-1] [0:Width-1];
+	reg [ColorBits-1:0] Image [0:Width-1] [0:Height-1];
 	
 	// Auxiliar for initialization
 	integer x_iterator;
@@ -47,29 +37,26 @@ module Memory#(	parameter Width = 320,
 	
 	// Run once at initialization
 	initial begin
+	
+		//ReadValue = 0;
 		
 		// Initialize the image in 0 => Goes to black
-		/*for (x_iterator = 0; x_iterator < Width; x_iterator = x_iterator + 1) begin
+		for (x_iterator = 0; x_iterator < Width; x_iterator = x_iterator + 1) begin
 			for (y_iterator = 0; y_iterator < Height; y_iterator = y_iterator + 1) begin
 				Image[x_iterator][y_iterator] = 0;
 			end
-		end*/
+		end
 	end	
 	
 	always @(posedge clk) begin
 		
-		// Write Process
-		Image[XWrite][YWrite][8:0] <= RWrite;
-		Image[XWrite][YWrite][16:8] <= GWrite;
-		Image[XWrite][YWrite][24:16] <= BWrite;
-		
 		// Read Process
-		RRead <= Image[XRead][YRead][8:0];
-		GRead <= Image[XRead][YRead][16:8];
-		BRead <= Image[XRead][YRead][24:16];		
+		ReadValue = Image[XRead][YRead];
 		
+		// Write Process
+		Image[XWrite][YWrite] = WriteValue;
 	
-	end
+	end 
 	
 	
 endmodule
