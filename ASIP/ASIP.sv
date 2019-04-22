@@ -7,7 +7,15 @@
 
 // Top Module
 
-module ASIP ( clk );
+module ASIP ( 
+	clk, 
+	hsync,
+    vsync,
+    red,
+    green,
+    blue,
+    blank,
+    clkVGA );
 
 	// constants
 	parameter ALUSize =  32; // size of the operands in bits that can handle the ALU
@@ -23,6 +31,14 @@ module ASIP ( clk );
 		// Inputs
 	input logic clk;
 	
+		//Output
+	output logic hsync;
+	output logic vsync;
+	output logic [7:0] red;
+	output logic [7:0] green;
+	output logic [7:0]  blue;
+	output logic blank;
+	output logic clkVGA;
 	
 	// SubModules
 	
@@ -96,7 +112,8 @@ module ASIP ( clk );
 					PC_Get, Instruction );
 	
 	initial begin
-		
+	
+	logic adc
 		
 	end
 
