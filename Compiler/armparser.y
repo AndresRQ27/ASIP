@@ -230,9 +230,6 @@ void setImmDecPlot(std::string imm_dec,bool isSecondOperand){
   if (0 <= imm_int && imm_int <= 511 && !isSecondOperand || isSecondOperand && 0 <= imm_int && imm_int <= 255){
     imm_int = imm_int;
     std::string imm_str = isSecondOperand? std::bitset<8>(imm_int).to_string():std::bitset<9>(imm_int).to_string();
-    std::string optype = isSecondOperand?"S":"F";
-    int my_pos = 4 + (isSecondOperand?9:0);
-    int my_len = isSecondOperand?8:9;
     current_instruction.replace( 4 + (isSecondOperand?9:0), (isSecondOperand?8:9), imm_str);
   }
   else {
