@@ -10,208 +10,114 @@
 # Copying C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
+# vlog -sv -work work +incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA {C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/VGA.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:09:08 on Apr 22,2019
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA" C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/VGA.sv 
+# -- Compiling module VGA
+# 
+# Top level modules:
+# 	VGA
+# End time: 21:09:08 on Apr 22,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA {C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/regionPantalla.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:09:09 on Apr 22,2019
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA" C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/regionPantalla.sv 
+# -- Compiling module regionPantalla
+# 
+# Top level modules:
+# 	regionPantalla
+# End time: 21:09:09 on Apr 22,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA {C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/divisorFrecuencia.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:09:09 on Apr 22,2019
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA" C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/divisorFrecuencia.sv 
+# -- Compiling module divisorFrecuencia
+# 
+# Top level modules:
+# 	divisorFrecuencia
+# End time: 21:09:09 on Apr 22,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA {C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/controladorVGA.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:09:09 on Apr 22,2019
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA" C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/controladorVGA.sv 
+# -- Compiling module controladorVGA
+# 
+# Top level modules:
+# 	controladorVGA
+# End time: 21:09:09 on Apr 22,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP {C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ALU.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:57:38 on Apr 22,2019
+# Start time: 21:09:09 on Apr 22,2019
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP" C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ALU.sv 
 # -- Compiling module ALU
 # 
 # Top level modules:
 # 	ALU
-# End time: 15:57:38 on Apr 22,2019, Elapsed time: 0:00:00
+# End time: 21:09:09 on Apr 22,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP {C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ALUAdderCarry.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:57:39 on Apr 22,2019
+# Start time: 21:09:09 on Apr 22,2019
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP" C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ALUAdderCarry.sv 
 # -- Compiling module ALUAdderCarry
 # 
 # Top level modules:
 # 	ALUAdderCarry
-# End time: 15:57:39 on Apr 22,2019, Elapsed time: 0:00:00
+# End time: 21:09:10 on Apr 22,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP {C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:57:39 on Apr 22,2019
+# Start time: 21:09:10 on Apr 22,2019
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP" C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv 
 # -- Compiling module ASIP
 # 
 # Top level modules:
 # 	ASIP
-# End time: 15:57:39 on Apr 22,2019, Elapsed time: 0:00:00
+# End time: 21:09:10 on Apr 22,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP {C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:57:39 on Apr 22,2019
+# Start time: 21:09:10 on Apr 22,2019
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP" C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv 
 # -- Compiling module Registers
 # 
 # Top level modules:
 # 	Registers
-# End time: 15:57:39 on Apr 22,2019, Elapsed time: 0:00:00
+# End time: 21:09:10 on Apr 22,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP {C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Memory.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:57:39 on Apr 22,2019
+# Start time: 21:09:10 on Apr 22,2019
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP" C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Memory.sv 
 # -- Compiling module Memory
 # 
 # Top level modules:
 # 	Memory
-# End time: 15:57:39 on Apr 22,2019, Elapsed time: 0:00:00
+# End time: 21:09:11 on Apr 22,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP {C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:57:39 on Apr 22,2019
+# Start time: 21:09:11 on Apr 22,2019
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP" C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv 
 # -- Compiling module CPU
 # 
 # Top level modules:
 # 	CPU
-# End time: 15:57:39 on Apr 22,2019, Elapsed time: 0:00:00
+# End time: 21:09:11 on Apr 22,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP {C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:57:39 on Apr 22,2019
+# Start time: 21:09:11 on Apr 22,2019
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP" C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv 
 # -- Compiling module InstructionMemory
 # 
 # Top level modules:
 # 	InstructionMemory
-# End time: 15:57:39 on Apr 22,2019, Elapsed time: 0:00:00
+# End time: 21:09:11 on Apr 22,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-vlog -reportprogress 300 -work work C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP_tb.sv
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:57:59 on Apr 22,2019
-# vlog -reportprogress 300 -work work C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP_tb.sv 
-# -- Compiling module ASIP_tb
-# 
-# Top level modules:
-# 	ASIP_tb
-# End time: 15:57:59 on Apr 22,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim work.ASIP_tb
-# vsim work.ASIP_tb 
-# Start time: 15:58:01 on Apr 22,2019
-# Loading sv_std.std
-# Loading work.ASIP_tb
-# Loading work.ASIP
-# Loading work.ALU
-# Loading work.ALUAdderCarry
-# Loading work.Registers
-# Loading work.Memory
-# Loading work.InstructionMemory
-# Loading work.CPU
-add wave -position end  sim:/ASIP_tb/clk
-add wave -position end  sim:/ASIP_tb/DUT/MemoryDevice/Image
-add wave -position end  sim:/ASIP_tb/DUT/core/ALUSize
-add wave -position end  sim:/ASIP_tb/DUT/core/RegisterSize
-add wave -position end  sim:/ASIP_tb/DUT/core/AmountOfRegisters
-add wave -position end  sim:/ASIP_tb/DUT/core/ImageWidth
-add wave -position end  sim:/ASIP_tb/DUT/core/ImageHeight
-add wave -position end  sim:/ASIP_tb/DUT/core/ColorBits
-add wave -position end  sim:/ASIP_tb/DUT/core/PCSize
-add wave -position end  sim:/ASIP_tb/DUT/core/InstructionSize
-add wave -position end  sim:/ASIP_tb/DUT/core/AmountOfInstructions
-add wave -position end  sim:/ASIP_tb/DUT/core/clk
-add wave -position end  sim:/ASIP_tb/DUT/core/Control
-add wave -position end  sim:/ASIP_tb/DUT/core/A
-add wave -position end  sim:/ASIP_tb/DUT/core/B
-add wave -position end  sim:/ASIP_tb/DUT/core/C
-add wave -position end  sim:/ASIP_tb/DUT/core/Result
-add wave -position end  sim:/ASIP_tb/DUT/core/Flags
-add wave -position end  sim:/ASIP_tb/DUT/core/reset
-add wave -position end  sim:/ASIP_tb/DUT/core/MOVRegisterOrigin
-add wave -position end  sim:/ASIP_tb/DUT/core/MOVRegisterDestiny
-add wave -position end  sim:/ASIP_tb/DUT/core/writeRegister
-add wave -position end  sim:/ASIP_tb/DUT/core/writeValue
-add wave -position end  sim:/ASIP_tb/DUT/core/readRegister
-add wave -position end  sim:/ASIP_tb/DUT/core/PC_Read
-add wave -position end  sim:/ASIP_tb/DUT/core/readValue
-add wave -position end  sim:/ASIP_tb/DUT/core/XWrite
-add wave -position end  sim:/ASIP_tb/DUT/core/YWrite
-add wave -position end  sim:/ASIP_tb/DUT/core/writeValueMemory
-add wave -position end  sim:/ASIP_tb/DUT/core/XRead
-add wave -position end  sim:/ASIP_tb/DUT/core/YRead
-add wave -position end  sim:/ASIP_tb/DUT/core/readValueMemory
-add wave -position end  sim:/ASIP_tb/DUT/core/PC_Get
-add wave -position end  sim:/ASIP_tb/DUT/core/Instruction
-add wave -position end  sim:/ASIP_tb/DUT/core/PC
-add wave -position end  sim:/ASIP_tb/DUT/core/InstructionId
-add wave -position end  sim:/ASIP_tb/DUT/core/SUB_State
-add wave -position end  sim:/ASIP_tb/DUT/core/Op1
-add wave -position end  sim:/ASIP_tb/DUT/core/Op2
-add wave -position end  sim:/ASIP_tb/DUT/core/COLOR
-vlog -reportprogress 300 -work work C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP_tb.sv
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:58:59 on Apr 22,2019
-# vlog -reportprogress 300 -work work C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP_tb.sv 
-# -- Compiling module ASIP_tb
-# 
-# Top level modules:
-# 	ASIP_tb
-# End time: 15:58:59 on Apr 22,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim work.ASIP_tb
-# End time: 15:59:04 on Apr 22,2019, Elapsed time: 0:01:03
-# Errors: 0, Warnings: 0
-# vsim work.ASIP_tb 
-# Start time: 15:59:04 on Apr 22,2019
-# Loading sv_std.std
-# Loading work.ASIP_tb
-# Loading work.ASIP
-# Loading work.ALU
-# Loading work.ALUAdderCarry
-# Loading work.Registers
-# Loading work.Memory
-# Loading work.InstructionMemory
-# Loading work.CPU
-add wave -position end  sim:/ASIP_tb/clk
-add wave -position end  sim:/ASIP_tb/DUT/MemoryDevice/Image
-add wave -position end  sim:/ASIP_tb/DUT/core/ALUSize
-add wave -position end  sim:/ASIP_tb/DUT/core/RegisterSize
-add wave -position end  sim:/ASIP_tb/DUT/core/AmountOfRegisters
-add wave -position end  sim:/ASIP_tb/DUT/core/ImageWidth
-add wave -position end  sim:/ASIP_tb/DUT/core/ImageHeight
-add wave -position end  sim:/ASIP_tb/DUT/core/ColorBits
-add wave -position end  sim:/ASIP_tb/DUT/core/PCSize
-add wave -position end  sim:/ASIP_tb/DUT/core/InstructionSize
-add wave -position end  sim:/ASIP_tb/DUT/core/AmountOfInstructions
-add wave -position end  sim:/ASIP_tb/DUT/core/clk
-add wave -position end  sim:/ASIP_tb/DUT/core/Control
-add wave -position end  sim:/ASIP_tb/DUT/core/A
-add wave -position end  sim:/ASIP_tb/DUT/core/B
-add wave -position end  sim:/ASIP_tb/DUT/core/C
-add wave -position end  sim:/ASIP_tb/DUT/core/Result
-add wave -position end  sim:/ASIP_tb/DUT/core/Flags
-add wave -position end  sim:/ASIP_tb/DUT/core/reset
-add wave -position end  sim:/ASIP_tb/DUT/core/MOVRegisterOrigin
-add wave -position end  sim:/ASIP_tb/DUT/core/MOVRegisterDestiny
-add wave -position end  sim:/ASIP_tb/DUT/core/writeRegister
-add wave -position end  sim:/ASIP_tb/DUT/core/writeValue
-add wave -position end  sim:/ASIP_tb/DUT/core/readRegister
-add wave -position end  sim:/ASIP_tb/DUT/core/PC_Read
-add wave -position end  sim:/ASIP_tb/DUT/core/readValue
-add wave -position end  sim:/ASIP_tb/DUT/core/XWrite
-add wave -position end  sim:/ASIP_tb/DUT/core/YWrite
-add wave -position end  sim:/ASIP_tb/DUT/core/writeValueMemory
-add wave -position end  sim:/ASIP_tb/DUT/core/XRead
-add wave -position end  sim:/ASIP_tb/DUT/core/YRead
-add wave -position end  sim:/ASIP_tb/DUT/core/readValueMemory
-add wave -position end  sim:/ASIP_tb/DUT/core/PC_Get
-add wave -position end  sim:/ASIP_tb/DUT/core/Instruction
-add wave -position end  sim:/ASIP_tb/DUT/core/PC
-add wave -position end  sim:/ASIP_tb/DUT/core/InstructionId
-add wave -position end  sim:/ASIP_tb/DUT/core/SUB_State
-add wave -position end  sim:/ASIP_tb/DUT/core/Op1
-add wave -position end  sim:/ASIP_tb/DUT/core/Op2
-add wave -position end  sim:/ASIP_tb/DUT/core/COLOR
-run -all
-# Testbench for ASIP
-# ** Note: $finish    : C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP_tb.sv(28)
-#    Time: 30 ps  Iteration: 0  Instance: /ASIP_tb
-# 1
-# Break in Module ASIP_tb at C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP_tb.sv line 28
-# End time: 16:00:11 on Apr 22,2019, Elapsed time: 0:01:07
-# Errors: 0, Warnings: 0

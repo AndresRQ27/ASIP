@@ -31,17 +31,17 @@ always @(posedge clock)
 	begin
 		if(posicionX < screenX) begin
 			if(posicionY < screenY) begin
-				if(readValueMemory[0] == 0) begin
+				if(readValueMemory[0] == 1) begin
 					red <= 8'hFF;
 				end else begin
 					red <= 8'h00;
 				end
-				if(readValueMemory[1] == 0) begin
+				if(readValueMemory[1] == 1) begin
 					green <= 8'hFF;
 				end else begin
 					green <= 8'h00;
 				end
-				if(readValueMemory[2] == 0) begin
+				if(readValueMemory[2] == 1) begin
 					blue <= 8'hFF;
 				end else begin
 					blue <= 8'h00;

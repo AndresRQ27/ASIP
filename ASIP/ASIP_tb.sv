@@ -23,7 +23,7 @@ module ASIP_tb ();
 		
 		clk = 1'b0;
 		
-		#30;
+		#100;
 		
 		$finish;
 		
