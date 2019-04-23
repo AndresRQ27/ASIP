@@ -60,6 +60,9 @@ int  immToInt(std::string);
 void buildPlotInstruction(int,int);
 
 void bresenham(int x0, int y0, int x1, int y1);
+void drawRect(int x, int y, int w, int h);
+void fillRect(int x, int y, int w, int h);
+
 
 
 /*Setting instruction*/
@@ -105,7 +108,7 @@ context current_context;
 
 %token END 0 "end of file"
 %token <id> addition subtra mv plot branch brancheq branchmi col eor endline memory_direction_tag reg immedec immehex label commentary
-%token <id> black blue green cyan red magenta yellow white immehexplot drawline immehex_plot
+%token <id> black blue green cyan red magenta yellow white immehexplot drawline immehex_plot drawrect fillrect
 %token <num> number
 %type  <id> data_params_sr2 branch_operation reg_operand immediate_plot_x immediate_plot_y immedec immehex_plot routine_immediate
 %start body
@@ -178,15 +181,27 @@ color:
 | white {setColor("111");}
 ;
 
-
+/*Routines*/
 
 routine:
   drawline draw_line_params
+|  drawrect draw_rect_params
+|  fillrect fill_rect_params
 ;
 
 draw_line_params:
   routine_immediate comma routine_immediate comma routine_immediate comma routine_immediate
   {bresenham(immToInt($1),immToInt($3),immToInt($5), immToInt($7));}
+;
+
+draw_rect_params:
+  routine_immediate comma routine_immediate comma routine_immediate comma routine_immediate
+  {drawRect(immToInt($1),immToInt($3),immToInt($5), immToInt($7));}
+;
+
+fill_rect_params:
+  routine_immediate comma routine_immediate comma routine_immediate comma routine_immediate
+  {fillRect(immToInt($1),immToInt($3),immToInt($5), immToInt($7));}
 ;
 
 routine_immediate:
@@ -206,6 +221,27 @@ int immToInt(std::string imm_dec){
   int imm_int = atoi(imm_dec.c_str());
   return imm_int;
 }
+
+
+void drawRect(int x, int y, int w, int h){
+  for (int i = x; i < x+w;i++){
+    buildPlotInstruction(i,y);
+    buildPlotInstruction(i,y+h);
+  }
+  for (int i = y; i < y+h;i++){
+    buildPlotInstruction(x,i);
+    buildPlotInstruction(x+w,i);
+  }
+
+}
+void fillRect(int x, int y, int w, int h){
+  for (int i = x; i < x+w;i++){
+    for (int j = y; j < y+h;j++){
+      buildPlotInstruction(i,j);
+    }
+  }
+}
+
 
 
 void bresenham(int x1,int y1, int x2, int y2){
@@ -382,11 +418,11 @@ void verifyBranchCalls(){
     }
 
     if(error_count==0){
-      fs<<current_instruction<<'\n';
-      //fs<<current_instruction.substr(0,8)<<'\n';
-      //fs<<current_instruction.substr(8,8)<<'\n';
-      //fs<<current_instruction.substr(16,8)<<'\n';
-      //fs<<current_instruction.substr(24,8)<<'\n';
+      //fs<<current_instruction<<'\n';
+      fs<<current_instruction.substr(0,8)<<'\n';
+      fs<<current_instruction.substr(8,8)<<'\n';
+      fs<<current_instruction.substr(16,8)<<'\n';
+      fs<<current_instruction.substr(24,8)<<'\n';
     }
 
   }

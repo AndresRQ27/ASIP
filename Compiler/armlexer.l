@@ -20,6 +20,8 @@ Hex       [0-9A-Fa-f]
 numero [0-9]+
 
 DRAWL  (D|d)(R|r)(a|A)(w|W)(l|L)(i|I)(n|N)(E|e)
+DRAWR  (DRAWRECT|Drawrect|drawrect)
+FILLR  (FILLRECT|Fillrect|fillrect)
 ADD  (A|a)(D|d)(D|d)
 SUB  (S|s)(U|u)(B|b)
 MOV  (M|m)(O|o)(V|v)
@@ -60,9 +62,9 @@ allmodifiers (eq|EQ|ne|NE|cs|CS|hs|HS|cc|CC|lo|LO|mi|MI|PL|pl|vs|VS|vc|VC|hi|HI|
 {BXX}(m|M)(i|I)               {yylval.id=strdup(yytext); return branchmi;}
 {COL}                         {yylval.id=strdup(yytext); return col;}
 {EOR}                         {yylval.id=strdup(yytext); return eor;}
-
-
 {DRAWL}                       {yylval.id=strdup(yytext);return drawline;}
+{DRAWR}                       {yylval.id=strdup(yytext);return drawrect;}
+{FILLR}                       {yylval.id=strdup(yytext);return fillrect;}
 
 
 (r|R)([0-9]|1[0-5])           {yylval.id=strdup(yytext); return reg;}
