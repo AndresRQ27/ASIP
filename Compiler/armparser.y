@@ -147,7 +147,7 @@ col_params:  {current_context=READING_COLOR;} color;
 mov_params:  reg_operand comma reg_operand {setRd($1);setRn($3);};
 plot_params:  
   reg_operand comma reg_operand {setRd($1);setRn($3);}
-| immediate_plot_x comma immediate_plot_y {setOp(OP_PLOTI);}
+| {current_context=READING_IMMEDIATE;} immediate_plot_x comma {current_context=READING_IMMEDIATE;} immediate_plot_y {setOp(OP_PLOTI);}
 ;
 eor_params: reg_operand comma reg_operand comma reg_operand {setRd($1);setRn($3);setRs($5);};
 data_params_sr2: {current_context=READING_IMMEDIATE;} immediate {setInstructionI();} | reg_operand {setRs($1);};

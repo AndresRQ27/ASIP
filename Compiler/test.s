@@ -1,7 +1,6 @@
-plot #0,#0
+plot #0,#_0
 plot #222,#45
 plot #444,#128
-
 
 
 ;plotline	(5,6)- (15,1) used to store the temporary values of points
