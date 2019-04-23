@@ -14,7 +14,9 @@
 comment ;[^\n]*
 label  [a-zA-Z_][a-zA-Z0-9_]*
 immedec   \#(0|-?[1-9][0-9]*)
-immehex   0x[0-9A-Fa-f]{1,4}
+zeroX     0x
+Hex       [0-9A-Fa-f]
+
 numero [0-9]+
 ADD  (A|a)(D|d)(D|d)
 SUB  (S|s)(U|u)(B|b)
@@ -60,7 +62,8 @@ allmodifiers (eq|EQ|ne|NE|cs|CS|hs|HS|cc|CC|lo|LO|mi|MI|PL|pl|vs|VS|vc|VC|hi|HI|
 
 (r|R)([0-9]|1[0-5])           {yylval.id=strdup(yytext); return reg;}
 {immedec}                     {yylval.id=strdup(yytext); return immedec;}
-{immehex}                     {yylval.id=strdup(yytext); return immehex;}
+{zeroX}{Hex}{1,4}             {yylval.id=strdup(yytext); return immehex;}
+{zeroX}[0-1]?{Hex}{1,4}       {yylval.id=strdup(yytext); return immehexplot;}
 {label}:                      {yylval.id=strdup(yytext); return memory_direction_tag;}
 {label}                       {yylval.id=strdup(yytext); return label;}
 {comment}                     {return commentary;}

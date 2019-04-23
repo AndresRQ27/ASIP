@@ -1,10 +1,10 @@
 		;plotline	(5,6)- (15,1) used to store the temporary values of points
-		ADD		r7,r7,#5 ;x0
-		ADD		r8,r8,#6 ; y0
-		ADD		r9,r9,#2 ; x1
-		ADD		r10,r10,#20 ; y1
-		MOV		r2,r7 ; x starts in x0 IN    R2
-		MOV		r3,r8 ; y starts in y0 IN    R3		
+		ADD		r7,r7,#5 		; x0
+		ADD		r8,r8,#6 		; y0
+		ADD		r9,r9,#2 		; x1
+		ADD		r10,r10,#20 		; y1
+		MOV		r2,r7 			; x starts in x0 IN    R2
+		MOV		r3,r8 			; y starts in y0 IN    R3		
 		SUBS		r11,r9,r7 		;dx in r11
 		BMI		changedx
 		SUB		r9,r9,r9
@@ -23,7 +23,7 @@ changedy:	SUBS		r12,r8,r10 		;abs dy
 		SUB		r10,r10,#1
 swap:		SUB		R8,R8,R8 		;swap in r8
 		SUBS		r0, r12, r11
-		BMI		eabvars		;if dy<dx branch
+		BMI		eabvars			;if dy<dx branch
 		MOV		r0,r11			;if dy>dy swaps dy and dx
 		MOV		r11, r12
 		MOV		r12, r0
@@ -32,7 +32,7 @@ eabvars:	ADD		r7,r11, r11		;r7 = 2*dx
 		ADD		r6,r12, r12		;r6 = 2*dy      a
 		SUB		r5,r6,r7		;r5 = 2dy-2dx   b
 		SUB		r7,r6,r11		;r7 = 2dy-dx    e
-		PLOT     r2,r3
+		PLOT     	r2,r3
 		SUB		r4,r4, r4		;i for loop
 while:		SUBS		r0,r11,r4
 		BEQ		finish
@@ -42,16 +42,16 @@ while:		SUBS		r0,r11,r4
 		ADD		r3,r3,r10
 		ADD		r2,r2,r9
 		ADD		r7,r7,r5
-		PLOT     r2,r3
+		PLOT     	r2,r3
 		B		while
 lesse:		ADD		r7,r7,r6
 		ADDS		r8,r8,#0
 		BEQ		noswap
 		ADD		r3,r3,r10
-		PLOT     r2,r3
+		PLOT     	r2,r3
 		B		while
 noswap:		ADD		r2,r2,r9
-		PLOT     r2,r3
+		PLOT     	r2,r3
 		B		while
 finish:		SUB		r0,r0,r0
 		
