@@ -1,5 +1,5 @@
 Flow report for ASIP
-Mon Apr 22 21:29:22 2019
+Mon Apr 22 23:18:33 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,20 +40,20 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Apr 22 21:29:22 2019       ;
+; Flow Status                        ; Successful - Mon Apr 22 23:18:33 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; ASIP                                        ;
 ; Top-level Entity Name              ; ASIP                                        ;
 ; Family                             ; Cyclone IV GX                               ;
 ; Device                             ; EP4CGX150DF31C7                             ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 152 / 149,760 ( < 1 % )                     ;
-;     Total combinational functions  ; 129 / 149,760 ( < 1 % )                     ;
-;     Dedicated logic registers      ; 46 / 149,760 ( < 1 % )                      ;
-; Total registers                    ; 46                                          ;
+; Total logic elements               ; 175 / 149,760 ( < 1 % )                     ;
+;     Total combinational functions  ; 151 / 149,760 ( < 1 % )                     ;
+;     Dedicated logic registers      ; 50 / 149,760 ( < 1 % )                      ;
+; Total registers                    ; 50                                          ;
 ; Total pins                         ; 29 / 508 ( 6 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 7,500 / 6,635,520 ( < 1 % )                 ;
+; Total memory bits                  ; 230,400 / 6,635,520 ( 3 % )                 ;
 ; Embedded Multiplier 9-bit elements ; 0 / 720 ( 0 % )                             ;
 ; Total GXB Receiver Channel PCS     ; 0 / 8 ( 0 % )                               ;
 ; Total GXB Receiver Channel PMA     ; 0 / 8 ( 0 % )                               ;
@@ -68,7 +68,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/22/2019 21:28:16 ;
+; Start date & time ; 04/22/2019 22:50:23 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; ASIP                ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 229056132519546.155599009607732        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 10995770589188.155599502313288         ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation ;
@@ -101,26 +101,26 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:23     ; 1.0                     ; 677 MB              ; 00:00:45                           ;
-; Fitter               ; 00:00:26     ; 1.0                     ; 1345 MB             ; 00:00:36                           ;
-; Assembler            ; 00:00:06     ; 1.0                     ; 622 MB              ; 00:00:06                           ;
-; Timing Analyzer      ; 00:00:03     ; 1.0                     ; 660 MB              ; 00:00:03                           ;
-; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 591 MB              ; 00:00:02                           ;
-; Total                ; 00:01:00     ; --                      ; --                  ; 00:01:32                           ;
+; Analysis & Synthesis ; 00:27:15     ; 1.0                     ; 4872 MB             ; 00:27:19                           ;
+; Fitter               ; 00:00:39     ; 1.0                     ; 5915 MB             ; 00:01:02                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 4781 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4844 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4751 MB             ; 00:00:02                           ;
+; Total                ; 00:28:03     ; --                      ; --                  ; 00:28:30                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+-------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                     ;
-+----------------------+------------------+-------------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name     ; OS Version ; Processor type ;
-+----------------------+------------------+-------------+------------+----------------+
-; Analysis & Synthesis ; ebs-0882-tsh     ; Windows 8.1 ; 6.3        ; x86_64         ;
-; Fitter               ; ebs-0882-tsh     ; Windows 8.1 ; 6.3        ; x86_64         ;
-; Assembler            ; ebs-0882-tsh     ; Windows 8.1 ; 6.3        ; x86_64         ;
-; Timing Analyzer      ; ebs-0882-tsh     ; Windows 8.1 ; 6.3        ; x86_64         ;
-; EDA Netlist Writer   ; ebs-0882-tsh     ; Windows 8.1 ; 6.3        ; x86_64         ;
-+----------------------+------------------+-------------+------------+----------------+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; MSI              ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; MSI              ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; MSI              ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; MSI              ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; MSI              ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
 
 
 ------------

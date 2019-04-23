@@ -1,7 +1,7 @@
 module VGA#(
     parameter ColorBits = 3,
-    parameter screenX = 320,
-    parameter screenY = 240)(
+    parameter screenX = 50,
+    parameter screenY = 50)(
     clock,
     readValueMemory,
     hsync,
@@ -53,7 +53,7 @@ controladorVGA controladorVGA(
 );
 
 //Color del pixel en la pantalla
-regionPantalla #(ColorBits, screenX, screenY)
+regionPantalla #(screenX, screenY)
 colorPantalla(
     .clock    (clock),
     .readValueMemory(readValueMemory),

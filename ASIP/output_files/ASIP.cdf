@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CGX150DF31) Path("C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/output_files/") File("ASIP.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CGX150DF31) Path("C:/Users/andre/Documents/TEC/ASIP/ASIP/output_files/") File("ASIP.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
