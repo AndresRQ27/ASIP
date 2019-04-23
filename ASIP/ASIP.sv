@@ -82,9 +82,9 @@ module ASIP (
 										XRead, YRead, readValueMemory );
 	InstructionMemory 		#(	PCSize, InstructionSize, AmountOfInstructions) 
 	InstructionMemoryDevice	(	PC_Get, Instruction );
-	VGA #( ColorBits )
+	VGA #( ColorBits, ImageWidth, ImageHeight )
 	VGADevice(	
-		.clk(clk), 
+		.clock(clk), 
 		.readValueMemory(readValueMemory),
 		.hsync(hsync), 
 		.vsync(vsync), 
@@ -112,8 +112,6 @@ module ASIP (
 					PC_Get, Instruction );
 	
 	initial begin
-	
-	logic adc
 		
 	end
 

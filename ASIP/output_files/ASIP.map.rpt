@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ASIP
-Mon Apr 22 15:48:18 2019
+Mon Apr 22 17:53:21 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,18 +13,30 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: Top-level Entity: |ASIP
- 10. Parameter Settings for User Entity Instance: ALU:ALUDevice
- 11. Parameter Settings for User Entity Instance: ALU:ALUDevice|ALUAdderCarry:adderCarry
- 12. Parameter Settings for User Entity Instance: Registers:RegistersDevice
- 13. Parameter Settings for User Entity Instance: Memory:MemoryDevice
- 14. Parameter Settings for User Entity Instance: InstructionMemory:InstructionMemoryDevice
- 15. Parameter Settings for User Entity Instance: CPU:core
- 16. Post-Synthesis Netlist Statistics for Top Partition
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
- 19. Analysis & Synthesis Suppressed Messages
+  8. Analysis & Synthesis RAM Summary
+  9. User-Specified and Inferred Latches
+ 10. Logic Cells Representing Combinational Loops
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Registers Packed Into Inferred Megafunctions
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |ASIP
+ 17. Parameter Settings for User Entity Instance: ALU:ALUDevice
+ 18. Parameter Settings for User Entity Instance: ALU:ALUDevice|ALUAdderCarry:adderCarry
+ 19. Parameter Settings for User Entity Instance: Registers:RegistersDevice
+ 20. Parameter Settings for User Entity Instance: Memory:MemoryDevice
+ 21. Parameter Settings for User Entity Instance: InstructionMemory:InstructionMemoryDevice
+ 22. Parameter Settings for User Entity Instance: VGA:VGADevice
+ 23. Parameter Settings for User Entity Instance: VGA:VGADevice|regionPantalla:colorPantalla
+ 24. Parameter Settings for User Entity Instance: CPU:core
+ 25. Parameter Settings for Inferred Entity Instance: Memory:MemoryDevice|altsyncram:Image_rtl_0
+ 26. altsyncram Parameter Settings by Entity Instance
+ 27. Port Connectivity Checks: "VGA:VGADevice"
+ 28. Post-Synthesis Netlist Statistics for Top Partition
+ 29. Elapsed Time Per Partition
+ 30. Analysis & Synthesis Messages
+ 31. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -50,16 +62,16 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Apr 22 15:48:18 2019       ;
+; Analysis & Synthesis Status     ; Successful - Mon Apr 22 17:53:21 2019       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; ASIP                                        ;
 ; Top-level Entity Name           ; ASIP                                        ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 0                                           ;
-; Total pins                      ; 1                                           ;
+; Total registers                 ; 46                                          ;
+; Total pins                      ; 29                                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 0                                           ;
+; Total block memory bits         ; 24,576                                      ;
 ; Total DSP Blocks                ; 0                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -166,64 +178,147 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                 ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                             ; Library ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
-; ALU.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ALU.sv                ;         ;
-; ALUAdderCarry.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ALUAdderCarry.sv      ;         ;
-; ASIP.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv               ;         ;
-; Registers.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv          ;         ;
-; Memory.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Memory.sv             ;         ;
-; InstructionMemory.mem            ; yes             ; User Unspecified File        ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.mem ;         ;
-; InstructionMemory.sv             ; yes             ; User SystemVerilog HDL File  ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv  ;         ;
-; CPU.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv                ;         ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                             ;
++--------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path     ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                            ; Library ;
++--------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------+---------+
+; VGA/VGA.sv                           ; yes             ; User SystemVerilog HDL File                           ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/VGA.sv                           ;         ;
+; VGA/regionPantalla.sv                ; yes             ; User SystemVerilog HDL File                           ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/regionPantalla.sv                ;         ;
+; VGA/divisorFrecuencia.sv             ; yes             ; User SystemVerilog HDL File                           ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/divisorFrecuencia.sv             ;         ;
+; VGA/controladorVGA.sv                ; yes             ; User SystemVerilog HDL File                           ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/controladorVGA.sv                ;         ;
+; ALU.sv                               ; yes             ; User SystemVerilog HDL File                           ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ALU.sv                               ;         ;
+; ALUAdderCarry.sv                     ; yes             ; User SystemVerilog HDL File                           ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ALUAdderCarry.sv                     ;         ;
+; ASIP.sv                              ; yes             ; User SystemVerilog HDL File                           ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv                              ;         ;
+; Registers.sv                         ; yes             ; User SystemVerilog HDL File                           ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv                         ;         ;
+; Memory.sv                            ; yes             ; User SystemVerilog HDL File                           ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Memory.sv                            ;         ;
+; InstructionMemory.mem                ; yes             ; User Unspecified File                                 ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.mem                ;         ;
+; InstructionMemory.sv                 ; yes             ; User SystemVerilog HDL File                           ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv                 ;         ;
+; CPU.sv                               ; yes             ; User SystemVerilog HDL File                           ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv                               ;         ;
+; altsyncram.tdf                       ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf                   ;         ;
+; stratix_ram_block.inc                ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc            ;         ;
+; lpm_mux.inc                          ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc                      ;         ;
+; lpm_decode.inc                       ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc                   ;         ;
+; aglobal181.inc                       ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                   ;         ;
+; a_rdenreg.inc                        ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                    ;         ;
+; altrom.inc                           ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                       ;         ;
+; altram.inc                           ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                       ;         ;
+; altdpram.inc                         ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                     ;         ;
+; db/altsyncram_akr1.tdf               ; yes             ; Auto-Generated Megafunction                           ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf               ;         ;
+; db/ASIP.ram0_Memory_f7a0538a.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/ASIP.ram0_Memory_f7a0538a.hdl.mif ;         ;
+; db/decode_nma.tdf                    ; yes             ; Auto-Generated Megafunction                           ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/decode_nma.tdf                    ;         ;
+; db/mux_2hb.tdf                       ; yes             ; Auto-Generated Megafunction                           ; C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/mux_2hb.tdf                       ;         ;
++--------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimate of Logic utilization (ALMs needed) ; 0     ;
-;                                             ;       ;
-; Combinational ALUT usage for logic          ; 0     ;
-;     -- 7 input functions                    ; 0     ;
-;     -- 6 input functions                    ; 0     ;
-;     -- 5 input functions                    ; 0     ;
-;     -- 4 input functions                    ; 0     ;
-;     -- <=3 input functions                  ; 0     ;
-;                                             ;       ;
-; Dedicated logic registers                   ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 1     ;
-;                                             ;       ;
-; Total DSP Blocks                            ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 1     ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 43        ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 77        ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 2         ;
+;     -- 5 input functions                    ; 12        ;
+;     -- 4 input functions                    ; 13        ;
+;     -- <=3 input functions                  ; 50        ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 46        ;
+;                                             ;           ;
+; I/O pins                                    ; 29        ;
+; Total MLAB memory bits                      ; 0         ;
+; Total block memory bits                     ; 24576     ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 29        ;
+; Total fan-out                               ; 461       ;
+; Average fan-out                             ; 2.51      ;
++---------------------------------------------+-----------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |ASIP                      ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 1    ; 0            ; |ASIP               ; ASIP        ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                          ;
++------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node                     ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                             ; Entity Name       ; Library Name ;
++------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------+-------------------+--------------+
+; |ASIP                                          ; 77 (1)              ; 46 (0)                    ; 24576             ; 0          ; 29   ; 0            ; |ASIP                                                                           ; ASIP              ; work         ;
+;    |CPU:core|                                  ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ASIP|CPU:core                                                                  ; CPU               ; work         ;
+;    |InstructionMemory:InstructionMemoryDevice| ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ASIP|InstructionMemory:InstructionMemoryDevice                                 ; InstructionMemory ; work         ;
+;    |Memory:MemoryDevice|                       ; 21 (21)             ; 0 (0)                     ; 24576             ; 0          ; 0    ; 0            ; |ASIP|Memory:MemoryDevice                                                       ; Memory            ; work         ;
+;       |altsyncram:Image_rtl_0|                 ; 0 (0)               ; 0 (0)                     ; 24576             ; 0          ; 0    ; 0            ; |ASIP|Memory:MemoryDevice|altsyncram:Image_rtl_0                                ; altsyncram        ; work         ;
+;          |altsyncram_akr1:auto_generated|      ; 0 (0)               ; 0 (0)                     ; 24576             ; 0          ; 0    ; 0            ; |ASIP|Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated ; altsyncram_akr1   ; work         ;
+;    |VGA:VGADevice|                             ; 39 (0)              ; 46 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |ASIP|VGA:VGADevice                                                             ; VGA               ; work         ;
+;       |controladorVGA:controladorVGA|          ; 32 (32)             ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |ASIP|VGA:VGADevice|controladorVGA:controladorVGA                               ; controladorVGA    ; work         ;
+;       |divisorFrecuencia:clk25MHz|             ; 2 (2)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |ASIP|VGA:VGADevice|divisorFrecuencia:clk25MHz                                  ; divisorFrecuencia ; work         ;
+;       |regionPantalla:colorPantalla|           ; 5 (5)               ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |ASIP|VGA:VGADevice|regionPantalla:colorPantalla                                ; regionPantalla    ; work         ;
++------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                           ;
++--------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+--------------------------------------+
+; Name                                                                                 ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF                                  ;
++--------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+--------------------------------------+
+; Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 76800        ; 3            ; 76800        ; 3            ; 230400 ; db/ASIP.ram0_Memory_f7a0538a.hdl.mif ;
++--------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+--------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                            ;
++-----------------------------------------------------+-------------------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                             ; Free of Timing Hazards ;
++-----------------------------------------------------+-------------------------------------------------+------------------------+
+; CPU:core|YWrite[0]                                  ; InstructionMemory:InstructionMemoryDevice|Mux27 ; yes                    ;
+; CPU:core|YWrite[1]                                  ; InstructionMemory:InstructionMemoryDevice|Mux27 ; yes                    ;
+; CPU:core|YWrite[2]                                  ; InstructionMemory:InstructionMemoryDevice|Mux27 ; yes                    ;
+; CPU:core|YWrite[3]                                  ; InstructionMemory:InstructionMemoryDevice|Mux27 ; yes                    ;
+; CPU:core|PC[2]                                      ; VCC                                             ; yes                    ;
+; CPU:core|XWrite[0]                                  ; InstructionMemory:InstructionMemoryDevice|Mux27 ; yes                    ;
+; CPU:core|YWrite[4]                                  ; InstructionMemory:InstructionMemoryDevice|Mux27 ; yes                    ;
+; CPU:core|XWrite[1]                                  ; InstructionMemory:InstructionMemoryDevice|Mux27 ; yes                    ;
+; CPU:core|XWrite[2]                                  ; InstructionMemory:InstructionMemoryDevice|Mux27 ; yes                    ;
+; CPU:core|XWrite[3]                                  ; InstructionMemory:InstructionMemoryDevice|Mux27 ; yes                    ;
+; CPU:core|XWrite[4]                                  ; InstructionMemory:InstructionMemoryDevice|Mux27 ; yes                    ;
+; Number of user-specified and inferred latches = 11  ;                                                 ;                        ;
++-----------------------------------------------------+-------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; CPU:core|Add1~0                                        ;   ;
+; CPU:core|Add1~1                                        ;   ;
+; CPU:core|Add1~2                                        ;   ;
+; CPU:core|Add1~3                                        ;   ;
+; Number of logic cells representing combinational loops ; 4 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                     ;
++-----------------------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                                 ; Reason for Removal                     ;
++-----------------------------------------------------------------------------------------------+----------------------------------------+
+; Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|address_reg_b[0..3] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 4                                                         ;                                        ;
++-----------------------------------------------------------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -231,14 +326,42 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 46    ;
+; Number of registers using Synchronous Clear  ; 20    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 10    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                 ;
++-------------------------------------+---------------------------------+------+
+; Register Name                       ; Megafunction                    ; Type ;
++-------------------------------------+---------------------------------+------+
+; Memory:MemoryDevice|ReadValue[0..2] ; Memory:MemoryDevice|Image_rtl_0 ; RAM  ;
++-------------------------------------+---------------------------------+------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |ASIP|VGA:VGADevice|controladorVGA:controladorVGA|pixelY[9] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |ASIP|VGA:VGADevice|regionPantalla:colorPantalla|red        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Source assignments for Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------+
+; Assignment                      ; Value              ; From ; To                                 ;
++---------------------------------+--------------------+------+------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                  ;
++---------------------------------+--------------------+------+------------------------------------+
 
 
 +----------------------------------------------------------------------+
@@ -249,8 +372,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ALUSize              ; 32    ; Signed Integer                        ;
 ; RegisterSize         ; 32    ; Signed Integer                        ;
 ; AmountOfRegisters    ; 16    ; Signed Integer                        ;
-; ImageWidth           ; 10    ; Signed Integer                        ;
-; ImageHeight          ; 5     ; Signed Integer                        ;
+; ImageWidth           ; 320   ; Signed Integer                        ;
+; ImageHeight          ; 240   ; Signed Integer                        ;
 ; ColorBits            ; 3     ; Signed Integer                        ;
 ; PCSize               ; 32    ; Signed Integer                        ;
 ; InstructionSize      ; 32    ; Signed Integer                        ;
@@ -295,8 +418,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+-----------------------------------------+
 ; Parameter Name ; Value ; Type                                    ;
 +----------------+-------+-----------------------------------------+
-; Width          ; 10    ; Signed Integer                          ;
-; Height         ; 5     ; Signed Integer                          ;
+; Width          ; 320   ; Signed Integer                          ;
+; Height         ; 240   ; Signed Integer                          ;
 ; ColorBits      ; 3     ; Signed Integer                          ;
 +----------------+-------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
@@ -314,6 +437,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: VGA:VGADevice ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; ColorBits      ; 3     ; Signed Integer                    ;
+; screenX        ; 320   ; Signed Integer                    ;
+; screenY        ; 240   ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: VGA:VGADevice|regionPantalla:colorPantalla ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; ColorBits      ; 3     ; Signed Integer                                                 ;
+; screenX        ; 320   ; Signed Integer                                                 ;
+; screenY        ; 240   ; Signed Integer                                                 ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: CPU:core ;
 +----------------------+-------+------------------------+
@@ -322,8 +469,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ALUSize              ; 32    ; Signed Integer         ;
 ; RegisterSize         ; 32    ; Signed Integer         ;
 ; AmountOfRegisters    ; 16    ; Signed Integer         ;
-; ImageWidth           ; 10    ; Signed Integer         ;
-; ImageHeight          ; 5     ; Signed Integer         ;
+; ImageWidth           ; 320   ; Signed Integer         ;
+; ImageHeight          ; 240   ; Signed Integer         ;
 ; ColorBits            ; 3     ; Signed Integer         ;
 ; PCSize               ; 32    ; Signed Integer         ;
 ; InstructionSize      ; 32    ; Signed Integer         ;
@@ -332,16 +479,128 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Memory:MemoryDevice|altsyncram:Image_rtl_0 ;
++------------------------------------+--------------------------------------+-----------------+
+; Parameter Name                     ; Value                                ; Type            ;
++------------------------------------+--------------------------------------+-----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                    ; Untyped         ;
+; AUTO_CARRY_CHAINS                  ; ON                                   ; AUTO_CARRY      ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                  ; IGNORE_CARRY    ;
+; AUTO_CASCADE_CHAINS                ; ON                                   ; AUTO_CASCADE    ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                  ; IGNORE_CASCADE  ;
+; WIDTH_BYTEENA                      ; 1                                    ; Untyped         ;
+; OPERATION_MODE                     ; DUAL_PORT                            ; Untyped         ;
+; WIDTH_A                            ; 3                                    ; Untyped         ;
+; WIDTHAD_A                          ; 17                                   ; Untyped         ;
+; NUMWORDS_A                         ; 76800                                ; Untyped         ;
+; OUTDATA_REG_A                      ; UNREGISTERED                         ; Untyped         ;
+; ADDRESS_ACLR_A                     ; NONE                                 ; Untyped         ;
+; OUTDATA_ACLR_A                     ; NONE                                 ; Untyped         ;
+; WRCONTROL_ACLR_A                   ; NONE                                 ; Untyped         ;
+; INDATA_ACLR_A                      ; NONE                                 ; Untyped         ;
+; BYTEENA_ACLR_A                     ; NONE                                 ; Untyped         ;
+; WIDTH_B                            ; 3                                    ; Untyped         ;
+; WIDTHAD_B                          ; 17                                   ; Untyped         ;
+; NUMWORDS_B                         ; 76800                                ; Untyped         ;
+; INDATA_REG_B                       ; CLOCK1                               ; Untyped         ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                               ; Untyped         ;
+; RDCONTROL_REG_B                    ; CLOCK1                               ; Untyped         ;
+; ADDRESS_REG_B                      ; CLOCK0                               ; Untyped         ;
+; OUTDATA_REG_B                      ; UNREGISTERED                         ; Untyped         ;
+; BYTEENA_REG_B                      ; CLOCK1                               ; Untyped         ;
+; INDATA_ACLR_B                      ; NONE                                 ; Untyped         ;
+; WRCONTROL_ACLR_B                   ; NONE                                 ; Untyped         ;
+; ADDRESS_ACLR_B                     ; NONE                                 ; Untyped         ;
+; OUTDATA_ACLR_B                     ; NONE                                 ; Untyped         ;
+; RDCONTROL_ACLR_B                   ; NONE                                 ; Untyped         ;
+; BYTEENA_ACLR_B                     ; NONE                                 ; Untyped         ;
+; WIDTH_BYTEENA_A                    ; 1                                    ; Untyped         ;
+; WIDTH_BYTEENA_B                    ; 1                                    ; Untyped         ;
+; RAM_BLOCK_TYPE                     ; AUTO                                 ; Untyped         ;
+; BYTE_SIZE                          ; 8                                    ; Untyped         ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                             ; Untyped         ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                 ; Untyped         ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                 ; Untyped         ;
+; INIT_FILE                          ; db/ASIP.ram0_Memory_f7a0538a.hdl.mif ; Untyped         ;
+; INIT_FILE_LAYOUT                   ; PORT_A                               ; Untyped         ;
+; MAXIMUM_DEPTH                      ; 0                                    ; Untyped         ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                               ; Untyped         ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                               ; Untyped         ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                               ; Untyped         ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                               ; Untyped         ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                      ; Untyped         ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                      ; Untyped         ;
+; ENABLE_ECC                         ; FALSE                                ; Untyped         ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                ; Untyped         ;
+; WIDTH_ECCSTATUS                    ; 3                                    ; Untyped         ;
+; DEVICE_FAMILY                      ; Cyclone V                            ; Untyped         ;
+; CBXI_PARAMETER                     ; altsyncram_akr1                      ; Untyped         ;
++------------------------------------+--------------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                       ;
++-------------------------------------------+--------------------------------------------+
+; Name                                      ; Value                                      ;
++-------------------------------------------+--------------------------------------------+
+; Number of entity instances                ; 1                                          ;
+; Entity Instance                           ; Memory:MemoryDevice|altsyncram:Image_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                  ;
+;     -- WIDTH_A                            ; 3                                          ;
+;     -- NUMWORDS_A                         ; 76800                                      ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                               ;
+;     -- WIDTH_B                            ; 3                                          ;
+;     -- NUMWORDS_B                         ; 76800                                      ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                     ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                               ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                       ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                   ;
++-------------------------------------------+--------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "VGA:VGADevice"                                                                                            ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                  ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; XRead ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; YRead ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
-+-------------------+---------------------------------+
-; Type              ; Count                           ;
-+-------------------+---------------------------------+
-; boundary_port     ; 1                               ;
-;                   ;                                 ;
-; Max LUT depth     ; 0.00                            ;
-; Average LUT depth ; 0.00                            ;
-+-------------------+---------------------------------+
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 46                          ;
+;     ENA SCLR          ; 10                          ;
+;     SCLR              ; 10                          ;
+;     plain             ; 26                          ;
+; arriav_lcell_comb     ; 77                          ;
+;     arith             ; 44                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 29                          ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 2                           ;
+;         4 data inputs ; 5                           ;
+;         5 data inputs ; 2                           ;
+;     normal            ; 33                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 7                           ;
+;         4 data inputs ; 8                           ;
+;         5 data inputs ; 10                          ;
+;         6 data inputs ; 2                           ;
+; boundary_port         ; 29                          ;
+; stratixv_ram_block    ; 3                           ;
+;                       ;                             ;
+; Max LUT depth         ; 3.50                        ;
+; Average LUT depth     ; 1.75                        ;
++-----------------------+-----------------------------+
 
 
 +-------------------------------+
@@ -349,7 +608,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -359,10 +618,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Apr 22 15:47:58 2019
+    Info: Processing started: Mon Apr 22 17:26:18 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ASIP -c ASIP
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Warning (10275): Verilog HDL Module Instantiation warning at VGA.sv(65): ignored dangling comma in List of Port Connections File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/VGA.sv Line: 65
+Info (12021): Found 1 design units, including 1 entities, in source file vga/vga.sv
+    Info (12023): Found entity 1: VGA File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/VGA.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga/regionpantalla_tb.sv
+    Info (12023): Found entity 1: regionPantalla_tb File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/regionPantalla_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga/regionpantalla.sv
+    Info (12023): Found entity 1: regionPantalla File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/regionPantalla.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga/divisorfrecuencia_tb.sv
+    Info (12023): Found entity 1: divisorFrecuencia_tb File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/divisorFrecuencia_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga/divisorfrecuencia.sv
+    Info (12023): Found entity 1: divisorFrecuencia File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/divisorFrecuencia.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga/controladorvga_tb.sv
+    Info (12023): Found entity 1: controladorVGA_tb File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/controladorVGA_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga/controladorvga.sv
+    Info (12023): Found entity 1: controladorVGA File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/controladorVGA.sv Line: 1
 Info (12021): Found 0 design units, including 0 entities, in source file constants.sv
 Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
     Info (12023): Found entity 1: ALU File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ALU.sv Line: 11
@@ -389,13 +663,13 @@ Info (12021): Found 1 design units, including 1 entities, in source file asip_tb
 Info (12021): Found 1 design units, including 1 entities, in source file cpu.sv
     Info (12023): Found entity 1: CPU File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 10
 Info (12127): Elaborating entity "ASIP" for the top level hierarchy
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALUDevice" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv Line: 60
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALUDevice" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv Line: 76
 Warning (10858): Verilog HDL warning at ALU.sv(20): object UP used but never assigned File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ALU.sv Line: 20
 Warning (10858): Verilog HDL warning at ALU.sv(20): object PP used but never assigned File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ALU.sv Line: 20
 Warning (10030): Net "UP" at ALU.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ALU.sv Line: 20
 Warning (10030): Net "PP" at ALU.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ALU.sv Line: 20
 Info (12128): Elaborating entity "ALUAdderCarry" for hierarchy "ALU:ALUDevice|ALUAdderCarry:adderCarry" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ALU.sv Line: 25
-Info (12128): Elaborating entity "Registers" for hierarchy "Registers:RegistersDevice" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv Line: 62
+Info (12128): Elaborating entity "Registers" for hierarchy "Registers:RegistersDevice" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv Line: 78
 Warning (10235): Verilog HDL Always Construct warning at Registers.sv(44): variable "reset" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 44
 Warning (10235): Verilog HDL Always Construct warning at Registers.sv(52): variable "MOVRegisterOrigin" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 52
 Warning (10235): Verilog HDL Always Construct warning at Registers.sv(52): variable "MOVRegisterDestiny" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 52
@@ -914,141 +1188,17 @@ Info (10041): Inferred latch for "RegisterBank[15][28]" at Registers.sv(41) File
 Info (10041): Inferred latch for "RegisterBank[15][29]" at Registers.sv(41) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
 Info (10041): Inferred latch for "RegisterBank[15][30]" at Registers.sv(41) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
 Info (10041): Inferred latch for "RegisterBank[15][31]" at Registers.sv(41) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Info (12128): Elaborating entity "Memory" for hierarchy "Memory:MemoryDevice" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv Line: 66
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "Image" into its bus
-Info (12128): Elaborating entity "InstructionMemory" for hierarchy "InstructionMemory:InstructionMemoryDevice" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv Line: 68
-Warning (10850): Verilog HDL warning at InstructionMemory.sv(24): number of words (14) in memory file does not match the number of elements in the address range [0:127] File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 24
-Warning (10855): Verilog HDL warning at InstructionMemory.sv(23): initial value for variable Data should be constant File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 23
+Info (12128): Elaborating entity "Memory" for hierarchy "Memory:MemoryDevice" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv Line: 82
+Info (12128): Elaborating entity "InstructionMemory" for hierarchy "InstructionMemory:InstructionMemoryDevice" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv Line: 84
+Warning (10850): Verilog HDL warning at InstructionMemory.sv(24): number of words (248) in memory file does not match the number of elements in the address range [0:127] File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 24
 Warning (10230): Verilog HDL assignment warning at InstructionMemory.sv(32): truncated value with size 9 to match size of target (8) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 32
-Warning (10030): Net "Data[127][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[126][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[125][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[124][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[123][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[122][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[121][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[120][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[119][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[118][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[117][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[116][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[115][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[114][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[113][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[112][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[111][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[110][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[109][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[108][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[107][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[106][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[105][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[104][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[103][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[102][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[101][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[100][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[99][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[98][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[97][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[96][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[95][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[94][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[93][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[92][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[91][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[90][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[89][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[88][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[87][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[86][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[85][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[84][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[83][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[82][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[81][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[80][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[79][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[78][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[77][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[76][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[75][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[74][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[73][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[72][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[71][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[70][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[69][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[68][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[67][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[66][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[65][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[64][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[63][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[62][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[61][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[60][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[59][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[58][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[57][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[56][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[55][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[54][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[53][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[52][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[51][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[50][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[49][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[48][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[47][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[46][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[45][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[44][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[43][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[42][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[41][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[40][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[39][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[38][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[37][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[36][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[35][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[34][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[33][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[32][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[31][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[30][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[29][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[28][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[27][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[26][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[25][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[24][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[23][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[22][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[21][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[20][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[19][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[18][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[17][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[16][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[15][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[14][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[13][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[12][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[11][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[10][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[9][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[8][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[7][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[6][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[5][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[4][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[3][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[2][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[1][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Warning (10030): Net "Data[0][7..0]" at InstructionMemory.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/InstructionMemory.sv Line: 20
-Info (12128): Elaborating entity "CPU" for hierarchy "CPU:core" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv Line: 85
+Info (12128): Elaborating entity "VGA" for hierarchy "VGA:VGADevice" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv Line: 96
+Warning (10230): Verilog HDL assignment warning at VGA.sv(67): truncated value with size 10 to match size of target (9) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/VGA.sv Line: 67
+Warning (10230): Verilog HDL assignment warning at VGA.sv(68): truncated value with size 10 to match size of target (8) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/VGA.sv Line: 68
+Info (12128): Elaborating entity "divisorFrecuencia" for hierarchy "VGA:VGADevice|divisorFrecuencia:clk25MHz" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/VGA.sv Line: 44
+Info (12128): Elaborating entity "controladorVGA" for hierarchy "VGA:VGADevice|controladorVGA:controladorVGA" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/VGA.sv Line: 53
+Info (12128): Elaborating entity "regionPantalla" for hierarchy "VGA:VGADevice|regionPantalla:colorPantalla" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/VGA/VGA.sv Line: 65
+Info (12128): Elaborating entity "CPU" for hierarchy "CPU:core" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv Line: 112
 Warning (10235): Verilog HDL Always Construct warning at CPU.sv(87): variable "PC" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 87
 Warning (10235): Verilog HDL Always Construct warning at CPU.sv(88): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 88
 Warning (10235): Verilog HDL Always Construct warning at CPU.sv(92): variable "Instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 92
@@ -1331,519 +1481,139 @@ Info (10041): Inferred latch for "MOVRegisterOrigin[0]" at CPU.sv(97) File: C:/U
 Info (10041): Inferred latch for "MOVRegisterOrigin[1]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
 Info (10041): Inferred latch for "MOVRegisterOrigin[2]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
 Info (10041): Inferred latch for "MOVRegisterOrigin[3]" at CPU.sv(97) File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[1][31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[2][31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[3][31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[4][31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[5][31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[6][31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[7][31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[8][31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[9][31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[10][31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[11][31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[12][31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[13][31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "Registers:RegistersDevice|RegisterBank[14][31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14025): LATCH primitive "CPU:core|writeValue[31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|writeValue[0]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[1]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[2]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[3]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[4]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[5]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[6]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[7]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[8]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[9]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[10]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[11]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[12]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[13]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[14]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[15]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[16]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[17]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[18]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[19]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[20]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[21]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[22]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[23]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[24]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[25]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[26]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[27]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[28]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[29]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[30]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14025): LATCH primitive "CPU:core|Op1[31]" is permanently disabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
-Warning (14026): LATCH primitive "Registers:RegistersDevice|RegisterBank[0][2]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14026): LATCH primitive "Registers:RegistersDevice|RegisterBank[0][1]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
-Warning (14026): LATCH primitive "Registers:RegistersDevice|RegisterBank[0][0]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/Registers.sv Line: 41
+Warning (14026): LATCH primitive "CPU:core|PC[3]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[4]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[5]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[6]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[7]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[8]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[9]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[10]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[11]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[12]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[13]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[14]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[15]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[16]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[17]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[18]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[19]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[20]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[21]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[22]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[23]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[24]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[25]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[26]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[27]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[28]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[29]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[30]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (14026): LATCH primitive "CPU:core|PC[31]" is permanently enabled File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "Memory:MemoryDevice|Image_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 3
+        Info (286033): Parameter WIDTHAD_A set to 17
+        Info (286033): Parameter NUMWORDS_A set to 76800
+        Info (286033): Parameter WIDTH_B set to 3
+        Info (286033): Parameter WIDTHAD_B set to 17
+        Info (286033): Parameter NUMWORDS_B set to 76800
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/ASIP.ram0_Memory_f7a0538a.hdl.mif
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Info (12130): Elaborated megafunction instantiation "Memory:MemoryDevice|altsyncram:Image_rtl_0"
+Info (12133): Instantiated megafunction "Memory:MemoryDevice|altsyncram:Image_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "3"
+    Info (12134): Parameter "WIDTHAD_A" = "17"
+    Info (12134): Parameter "NUMWORDS_A" = "76800"
+    Info (12134): Parameter "WIDTH_B" = "3"
+    Info (12134): Parameter "WIDTHAD_B" = "17"
+    Info (12134): Parameter "NUMWORDS_B" = "76800"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/ASIP.ram0_Memory_f7a0538a.hdl.mif"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_akr1.tdf
+    Info (12023): Found entity 1: altsyncram_akr1 File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 31
+Warning (113018): Width of data items in "ASIP.ram0_Memory_f7a0538a.hdl.mif" is greater than the memory width. Truncating data items to fit in memory. File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/ASIP.ram0_Memory_f7a0538a.hdl.mif Line: 15
+Critical Warning (127005): Memory depth (76800) in the design file differs from memory depth (320) in the Memory Initialization File "C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/ASIP.ram0_Memory_f7a0538a.hdl.mif" -- setting initial value for remaining addresses to 0 File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_nma.tdf
+    Info (12023): Found entity 1: decode_nma File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/decode_nma.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_2hb.tdf
+    Info (12023): Found entity 1: mux_2hb File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/mux_2hb.tdf Line: 22
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a3" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 134
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a4" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 164
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a5" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 194
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a6" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 224
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a7" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 254
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a8" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 284
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a9" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 314
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a10" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 344
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a11" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 374
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a12" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 404
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a13" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 434
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a14" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 464
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a15" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 494
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a16" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 524
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a17" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 554
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a18" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 584
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a19" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 614
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a20" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 644
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a21" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 674
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a22" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 704
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a23" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 734
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a24" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 764
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a25" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 794
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a26" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 824
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a27" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 854
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a28" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 884
+        Warning (14320): Synthesized away node "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ram_block1a29" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/db/altsyncram_akr1.tdf Line: 914
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "CPU:core|XWrite[0]" merged with LATCH primitive "CPU:core|YWrite[0]" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+    Info (13026): Duplicate LATCH primitive "CPU:core|XWrite[1]" merged with LATCH primitive "CPU:core|YWrite[1]" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+    Info (13026): Duplicate LATCH primitive "CPU:core|XWrite[2]" merged with LATCH primitive "CPU:core|YWrite[2]" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+    Info (13026): Duplicate LATCH primitive "CPU:core|XWrite[3]" merged with LATCH primitive "CPU:core|YWrite[3]" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+    Info (13026): Duplicate LATCH primitive "CPU:core|XWrite[4]" merged with LATCH primitive "CPU:core|YWrite[4]" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (13012): Latch CPU:core|YWrite[0] has unsafe behavior File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU:core|PC[2] File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+Warning (13012): Latch CPU:core|YWrite[1] has unsafe behavior File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU:core|Add1~0 File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 203
+Warning (13012): Latch CPU:core|YWrite[2] has unsafe behavior File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU:core|Add1~1 File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 203
+Warning (13012): Latch CPU:core|YWrite[3] has unsafe behavior File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU:core|Add1~2 File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 203
+Warning (13012): Latch CPU:core|YWrite[4] has unsafe behavior File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 97
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU:core|Add1~3 File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/CPU.sv Line: 203
+Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/output_files/ASIP.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk" File: C:/Users/ebsadmin/Desktop/TEC/ASIP-Repository/ASIP/ASIP.sv Line: 24
-Info (21057): Implemented 1 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 133 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 1 input pins
-    Info (21059): Implemented 0 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 722 warnings
-    Info: Peak virtual memory: 655 megabytes
-    Info: Processing ended: Mon Apr 22 15:48:18 2019
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:41
+    Info (21059): Implemented 28 output pins
+    Info (21061): Implemented 101 logic cells
+    Info (21064): Implemented 3 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 165 warnings
+    Info: Peak virtual memory: 675 megabytes
+    Info: Processing ended: Mon Apr 22 17:53:21 2019
+    Info: Elapsed time: 00:27:03
+    Info: Total CPU time (on all processors): 00:27:19
 
 
 +------------------------------------------+
