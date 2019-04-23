@@ -13,7 +13,7 @@ def plotline(x1, y1, x2, y2):
     if dy > dx:
         t = dx
         dx = dy
-        dy = dx
+        dy = t
         swap = 1
 
     e = 2*dy-dx
