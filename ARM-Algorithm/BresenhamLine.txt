@@ -1,0 +1,31 @@
+#Inputs: Start point ( X1 , Y1 ) , End point ( X2 , Y2 )
+    Begin
+    X=X1 
+    #Bresenham's Line Algorithm Lecture 3 / 3rd Class / 2016-2017
+    3 Ms. C. Rusul Mohammed
+    Y=Y1
+    ΔX =Abs (X2-X1)
+    ΔY =Abs(Y2-Y1)
+    S1=Sign (X2-X1)
+    S2=Sign (Y2-Y1)
+    If ΔY > ΔX Then
+        T= ΔX , ΔX = ΔY , ΔY =T , Interchange=1
+    Else
+        Interchange =0
+    End If
+    E= 2 ΔY - ΔX
+    A= 2 ΔY
+    B= 2ΔY - 2ΔX
+    Plot (X,Y)
+    For i=1 to ΔX 
+        If( E < 0)
+            If Interchange=1 Then Y= Y + S2
+            Else X=X+S1
+            E= E +A
+        Else Y=Y + S2
+            X=X + S1
+            E = E + B
+        End If
+        SetPixel (X,Y)
+    End for
+End 

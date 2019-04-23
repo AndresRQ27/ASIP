@@ -7,14 +7,22 @@
 
 // Top Module
 
-module ASIP ( clk );
+module ASIP ( 
+	clk, 
+	hsync,
+    vsync,
+    red,
+    green,
+    blue,
+    blank,
+    clkVGA );
 
 	// constants
 	parameter ALUSize =  32; // size of the operands in bits that can handle the ALU
 	parameter RegisterSize =  32; // register's size in bits
 	parameter AmountOfRegisters =  16; // quantity of registers in the processor
-	parameter ImageWidth =  10; // Canvas size
-	parameter ImageHeight =  5; // Canvas size
+	parameter ImageWidth =  320; // Canvas size
+	parameter ImageHeight =  240; // Canvas size
 	parameter ColorBits =  3; // Code of 3 bits => 8 colors
 	parameter PCSize =  32; // Equal to register size
 	parameter InstructionSize =  32; // Instruction size in bits
@@ -23,6 +31,14 @@ module ASIP ( clk );
 		// Inputs
 	input logic clk;
 	
+		//Output
+	output logic hsync;
+	output logic vsync;
+	output logic [7:0] red;
+	output logic [7:0] green;
+	output logic [7:0]  blue;
+	output logic blank;
+	output logic clkVGA;
 	
 	// SubModules
 	
@@ -66,7 +82,18 @@ module ASIP ( clk );
 										XRead, YRead, readValueMemory );
 	InstructionMemory 		#(	PCSize, InstructionSize, AmountOfInstructions) 
 	InstructionMemoryDevice	(	PC_Get, Instruction );
-	
+	VGA #( ColorBits, ImageWidth, ImageHeight )
+	VGADevice(	
+		.clock(clk), 
+		.readValueMemory(readValueMemory),
+		.hsync(hsync), 
+		.vsync(vsync), 
+		.red(red), 
+		.green(green), 
+		.blue(blue), 
+		.blank(blank), 
+		.clkVGA(clkVGA)
+	);
 	
 	// Main Core
 	CPU #(	ALUSize,
@@ -85,7 +112,6 @@ module ASIP ( clk );
 					PC_Get, Instruction );
 	
 	initial begin
-		
 		
 	end
 

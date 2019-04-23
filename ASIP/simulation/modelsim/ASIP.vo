@@ -16,7 +16,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
 
-// DATE "04/21/2019 19:31:04"
+// DATE "04/22/2019 17:55:31"
 
 // 
 // Device: Altera 5CSEMA5F31C6 Package FBGA896
@@ -29,11 +29,53 @@
 `timescale 1 ps/ 1 ps
 
 module ASIP (
-	clk);
+	clk,
+	hsync,
+	vsync,
+	red,
+	green,
+	blue,
+	blank,
+	clkVGA);
 input 	clk;
+output 	hsync;
+output 	vsync;
+output 	[7:0] red;
+output 	[7:0] green;
+output 	[7:0] blue;
+output 	blank;
+output 	clkVGA;
 
 // Design Ports Information
-// clk	=>  Location: PIN_AB22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// hsync	=>  Location: PIN_B11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// vsync	=>  Location: PIN_D11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// red[0]	=>  Location: PIN_A13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// red[1]	=>  Location: PIN_C13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// red[2]	=>  Location: PIN_E13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// red[3]	=>  Location: PIN_B12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// red[4]	=>  Location: PIN_C12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// red[5]	=>  Location: PIN_D12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// red[6]	=>  Location: PIN_E12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// red[7]	=>  Location: PIN_F13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// green[0]	=>  Location: PIN_J9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// green[1]	=>  Location: PIN_J10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// green[2]	=>  Location: PIN_H12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// green[3]	=>  Location: PIN_G10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// green[4]	=>  Location: PIN_G11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// green[5]	=>  Location: PIN_G12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// green[6]	=>  Location: PIN_F11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// green[7]	=>  Location: PIN_E11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// blue[0]	=>  Location: PIN_B13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// blue[1]	=>  Location: PIN_G13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// blue[2]	=>  Location: PIN_H13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// blue[3]	=>  Location: PIN_F14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// blue[4]	=>  Location: PIN_H14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// blue[5]	=>  Location: PIN_F15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// blue[6]	=>  Location: PIN_G15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// blue[7]	=>  Location: PIN_J14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// blank	=>  Location: PIN_F10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clkVGA	=>  Location: PIN_A11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clk	=>  Location: PIN_AF14,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 wire gnd;
@@ -48,10 +90,600 @@ tri1 devclrn;
 tri1 devpor;
 tri1 devoe;
 wire \clk~input_o ;
-wire \~QUARTUS_CREATED_GND~I_combout ;
+wire \clk~inputCLKENA0_outclk ;
+wire \VGADevice|clk25MHz|counter~0_combout ;
+wire \VGADevice|clk25MHz|counter~q ;
+wire \VGADevice|clk25MHz|clk25Mhz~0_combout ;
+wire \VGADevice|clk25MHz|clk25Mhz~q ;
+wire \VGADevice|controladorVGA|Add0~21_sumout ;
+wire \VGADevice|controladorVGA|Add0~26 ;
+wire \VGADevice|controladorVGA|Add0~17_sumout ;
+wire \VGADevice|controladorVGA|Add0~18 ;
+wire \VGADevice|controladorVGA|Add0~13_sumout ;
+wire \VGADevice|controladorVGA|Add0~14 ;
+wire \VGADevice|controladorVGA|Add0~9_sumout ;
+wire \VGADevice|controladorVGA|Add0~10 ;
+wire \VGADevice|controladorVGA|Add0~5_sumout ;
+wire \VGADevice|controladorVGA|Add0~6 ;
+wire \VGADevice|controladorVGA|Add0~1_sumout ;
+wire \VGADevice|controladorVGA|Add0~2 ;
+wire \VGADevice|controladorVGA|Add0~37_sumout ;
+wire \VGADevice|controladorVGA|Add0~38 ;
+wire \VGADevice|controladorVGA|Add0~33_sumout ;
+wire \VGADevice|controladorVGA|Add0~34 ;
+wire \VGADevice|controladorVGA|Add0~29_sumout ;
+wire \VGADevice|controladorVGA|pixelX[7]~DUPLICATE_q ;
+wire \VGADevice|controladorVGA|Equal0~1_combout ;
+wire \VGADevice|controladorVGA|Equal0~2_combout ;
+wire \VGADevice|controladorVGA|Add0~22 ;
+wire \VGADevice|controladorVGA|Add0~25_sumout ;
+wire \VGADevice|controladorVGA|pixelX[0]~DUPLICATE_q ;
+wire \VGADevice|controladorVGA|Equal0~0_combout ;
+wire \VGADevice|controladorVGA|hsync~0_combout ;
+wire \VGADevice|controladorVGA|hsync~1_combout ;
+wire \VGADevice|controladorVGA|Add1~37_sumout ;
+wire \VGADevice|controladorVGA|refreshPy~1_combout ;
+wire \VGADevice|controladorVGA|Add1~2 ;
+wire \VGADevice|controladorVGA|Add1~25_sumout ;
+wire \VGADevice|controladorVGA|refreshPy~0_combout ;
+wire \VGADevice|controladorVGA|refreshPy~combout ;
+wire \VGADevice|controladorVGA|Add1~38 ;
+wire \VGADevice|controladorVGA|Add1~33_sumout ;
+wire \VGADevice|controladorVGA|Add1~34 ;
+wire \VGADevice|controladorVGA|Add1~29_sumout ;
+wire \VGADevice|controladorVGA|Add1~30 ;
+wire \VGADevice|controladorVGA|Add1~21_sumout ;
+wire \VGADevice|controladorVGA|Add1~22 ;
+wire \VGADevice|controladorVGA|Add1~17_sumout ;
+wire \VGADevice|controladorVGA|Add1~18 ;
+wire \VGADevice|controladorVGA|Add1~13_sumout ;
+wire \VGADevice|controladorVGA|Add1~14 ;
+wire \VGADevice|controladorVGA|Add1~9_sumout ;
+wire \VGADevice|controladorVGA|Add1~10 ;
+wire \VGADevice|controladorVGA|Add1~5_sumout ;
+wire \VGADevice|controladorVGA|Add1~6 ;
+wire \VGADevice|controladorVGA|Add1~1_sumout ;
+wire \VGADevice|controladorVGA|vsync~0_combout ;
+wire \VGADevice|controladorVGA|pixelY[1]~DUPLICATE_q ;
+wire \VGADevice|controladorVGA|vsync~1_combout ;
+wire \VGADevice|controladorVGA|pixelY[3]~DUPLICATE_q ;
+wire \VGADevice|controladorVGA|vsync~2_combout ;
+wire \VGADevice|colorPantalla|LessThan1~0_combout ;
+wire \VGADevice|colorPantalla|red~0_combout ;
+wire \core|PC[2]~0_combout ;
+wire \core|Add1~42_sumout ;
+wire \core|Add1~43 ;
+wire \core|Add1~38_sumout ;
+wire \core|Add1~39 ;
+wire \core|Add1~34_sumout ;
+wire \core|Add1~35 ;
+wire \core|Add1~30_sumout ;
+wire \InstructionMemoryDevice|Mux27~0_combout ;
+wire \InstructionMemoryDevice|Mux10~0_combout ;
+wire \InstructionMemoryDevice|Mux9~0_combout ;
+wire \InstructionMemoryDevice|Mux16~0_combout ;
+wire \InstructionMemoryDevice|Mux12~0_combout ;
+wire \InstructionMemoryDevice|Mux11~0_combout ;
+wire \MemoryDevice|Add3~0_combout ;
+wire \MemoryDevice|Add4~38_cout ;
+wire \MemoryDevice|Add4~34_cout ;
+wire \MemoryDevice|Add4~30_cout ;
+wire \MemoryDevice|Add4~26_cout ;
+wire \MemoryDevice|Add4~6 ;
+wire \MemoryDevice|Add4~10 ;
+wire \MemoryDevice|Add4~14 ;
+wire \MemoryDevice|Add4~18 ;
+wire \MemoryDevice|Add4~22 ;
+wire \MemoryDevice|Add4~1_sumout ;
+wire \MemoryDevice|Add4~21_sumout ;
+wire \MemoryDevice|Add4~17_sumout ;
+wire \MemoryDevice|Add4~13_sumout ;
+wire \MemoryDevice|Add4~9_sumout ;
+wire \MemoryDevice|Add4~5_sumout ;
+wire \MemoryDevice|Add5~6 ;
+wire \MemoryDevice|Add5~10 ;
+wire \MemoryDevice|Add5~14 ;
+wire \MemoryDevice|Add5~18 ;
+wire \MemoryDevice|Add5~22 ;
+wire \MemoryDevice|Add5~26 ;
+wire \MemoryDevice|Add5~30 ;
+wire \MemoryDevice|Add5~34 ;
+wire \MemoryDevice|Add5~38 ;
+wire \MemoryDevice|Add5~1_sumout ;
+wire \~GND~combout ;
+wire \MemoryDevice|Add5~5_sumout ;
+wire \MemoryDevice|Add5~9_sumout ;
+wire \MemoryDevice|Add5~13_sumout ;
+wire \MemoryDevice|Add5~17_sumout ;
+wire \MemoryDevice|Add5~21_sumout ;
+wire \MemoryDevice|Add5~25_sumout ;
+wire \MemoryDevice|Add5~29_sumout ;
+wire \MemoryDevice|Add5~33_sumout ;
+wire \MemoryDevice|Add5~37_sumout ;
+wire \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0~portbdataout ;
+wire \VGADevice|colorPantalla|red~1_combout ;
+wire \VGADevice|colorPantalla|red[0]~feeder_combout ;
+wire \VGADevice|colorPantalla|red[1]~feeder_combout ;
+wire \VGADevice|colorPantalla|red[2]~feeder_combout ;
+wire \VGADevice|colorPantalla|red[3]~feeder_combout ;
+wire \VGADevice|colorPantalla|red[4]~feeder_combout ;
+wire \VGADevice|colorPantalla|red[5]~feeder_combout ;
+wire \VGADevice|colorPantalla|red[6]~feeder_combout ;
+wire \VGADevice|colorPantalla|red[7]~feeder_combout ;
+wire \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1~portbdataout ;
+wire \VGADevice|colorPantalla|green~0_combout ;
+wire \VGADevice|colorPantalla|green[0]~feeder_combout ;
+wire \VGADevice|colorPantalla|green[6]~feeder_combout ;
+wire \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2~portbdataout ;
+wire \VGADevice|colorPantalla|blue~0_combout ;
+wire \VGADevice|colorPantalla|blue[1]~feeder_combout ;
+wire \VGADevice|controladorVGA|video_on~0_combout ;
+wire [9:0] \VGADevice|controladorVGA|pixelX ;
+wire [9:0] \VGADevice|controladorVGA|pixelY ;
+wire [7:0] \VGADevice|colorPantalla|red ;
+wire [7:0] \VGADevice|colorPantalla|green ;
+wire [7:0] \core|YWrite ;
+wire [7:0] \VGADevice|colorPantalla|blue ;
 
+wire [0:0] \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0_PORTBDATAOUT_bus ;
+wire [0:0] \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1_PORTBDATAOUT_bus ;
+wire [0:0] \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2_PORTBDATAOUT_bus ;
 
-// Location: IOIBUF_X89_Y9_N4
+assign \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0~portbdataout  = \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0_PORTBDATAOUT_bus [0];
+
+assign \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1~portbdataout  = \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1_PORTBDATAOUT_bus [0];
+
+assign \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2~portbdataout  = \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2_PORTBDATAOUT_bus [0];
+
+// Location: IOOBUF_X36_Y81_N53
+cyclonev_io_obuf \hsync~output (
+	.i(\VGADevice|controladorVGA|hsync~1_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(hsync),
+	.obar());
+// synopsys translate_off
+defparam \hsync~output .bus_hold = "false";
+defparam \hsync~output .open_drain_output = "false";
+defparam \hsync~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X34_Y81_N42
+cyclonev_io_obuf \vsync~output (
+	.i(\VGADevice|controladorVGA|vsync~2_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(vsync),
+	.obar());
+// synopsys translate_off
+defparam \vsync~output .bus_hold = "false";
+defparam \vsync~output .open_drain_output = "false";
+defparam \vsync~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X40_Y81_N53
+cyclonev_io_obuf \red[0]~output (
+	.i(\VGADevice|colorPantalla|red [0]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(red[0]),
+	.obar());
+// synopsys translate_off
+defparam \red[0]~output .bus_hold = "false";
+defparam \red[0]~output .open_drain_output = "false";
+defparam \red[0]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X38_Y81_N2
+cyclonev_io_obuf \red[1]~output (
+	.i(\VGADevice|colorPantalla|red [1]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(red[1]),
+	.obar());
+// synopsys translate_off
+defparam \red[1]~output .bus_hold = "false";
+defparam \red[1]~output .open_drain_output = "false";
+defparam \red[1]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X26_Y81_N59
+cyclonev_io_obuf \red[2]~output (
+	.i(\VGADevice|colorPantalla|red [2]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(red[2]),
+	.obar());
+// synopsys translate_off
+defparam \red[2]~output .bus_hold = "false";
+defparam \red[2]~output .open_drain_output = "false";
+defparam \red[2]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X38_Y81_N19
+cyclonev_io_obuf \red[3]~output (
+	.i(\VGADevice|colorPantalla|red [3]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(red[3]),
+	.obar());
+// synopsys translate_off
+defparam \red[3]~output .bus_hold = "false";
+defparam \red[3]~output .open_drain_output = "false";
+defparam \red[3]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X36_Y81_N36
+cyclonev_io_obuf \red[4]~output (
+	.i(\VGADevice|colorPantalla|red [4]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(red[4]),
+	.obar());
+// synopsys translate_off
+defparam \red[4]~output .bus_hold = "false";
+defparam \red[4]~output .open_drain_output = "false";
+defparam \red[4]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X22_Y81_N19
+cyclonev_io_obuf \red[5]~output (
+	.i(\VGADevice|colorPantalla|red [5]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(red[5]),
+	.obar());
+// synopsys translate_off
+defparam \red[5]~output .bus_hold = "false";
+defparam \red[5]~output .open_drain_output = "false";
+defparam \red[5]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X22_Y81_N2
+cyclonev_io_obuf \red[6]~output (
+	.i(\VGADevice|colorPantalla|red [6]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(red[6]),
+	.obar());
+// synopsys translate_off
+defparam \red[6]~output .bus_hold = "false";
+defparam \red[6]~output .open_drain_output = "false";
+defparam \red[6]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X26_Y81_N42
+cyclonev_io_obuf \red[7]~output (
+	.i(\VGADevice|colorPantalla|red [7]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(red[7]),
+	.obar());
+// synopsys translate_off
+defparam \red[7]~output .bus_hold = "false";
+defparam \red[7]~output .open_drain_output = "false";
+defparam \red[7]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X4_Y81_N19
+cyclonev_io_obuf \green[0]~output (
+	.i(\VGADevice|colorPantalla|green [0]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(green[0]),
+	.obar());
+// synopsys translate_off
+defparam \green[0]~output .bus_hold = "false";
+defparam \green[0]~output .open_drain_output = "false";
+defparam \green[0]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X4_Y81_N2
+cyclonev_io_obuf \green[1]~output (
+	.i(\VGADevice|colorPantalla|green [1]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(green[1]),
+	.obar());
+// synopsys translate_off
+defparam \green[1]~output .bus_hold = "false";
+defparam \green[1]~output .open_drain_output = "false";
+defparam \green[1]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X20_Y81_N19
+cyclonev_io_obuf \green[2]~output (
+	.i(\VGADevice|colorPantalla|green [2]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(green[2]),
+	.obar());
+// synopsys translate_off
+defparam \green[2]~output .bus_hold = "false";
+defparam \green[2]~output .open_drain_output = "false";
+defparam \green[2]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X6_Y81_N2
+cyclonev_io_obuf \green[3]~output (
+	.i(\VGADevice|colorPantalla|green [3]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(green[3]),
+	.obar());
+// synopsys translate_off
+defparam \green[3]~output .bus_hold = "false";
+defparam \green[3]~output .open_drain_output = "false";
+defparam \green[3]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X10_Y81_N59
+cyclonev_io_obuf \green[4]~output (
+	.i(\VGADevice|colorPantalla|green [4]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(green[4]),
+	.obar());
+// synopsys translate_off
+defparam \green[4]~output .bus_hold = "false";
+defparam \green[4]~output .open_drain_output = "false";
+defparam \green[4]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X10_Y81_N42
+cyclonev_io_obuf \green[5]~output (
+	.i(\VGADevice|colorPantalla|green [5]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(green[5]),
+	.obar());
+// synopsys translate_off
+defparam \green[5]~output .bus_hold = "false";
+defparam \green[5]~output .open_drain_output = "false";
+defparam \green[5]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X18_Y81_N42
+cyclonev_io_obuf \green[6]~output (
+	.i(\VGADevice|colorPantalla|green [6]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(green[6]),
+	.obar());
+// synopsys translate_off
+defparam \green[6]~output .bus_hold = "false";
+defparam \green[6]~output .open_drain_output = "false";
+defparam \green[6]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X18_Y81_N59
+cyclonev_io_obuf \green[7]~output (
+	.i(\VGADevice|colorPantalla|green [7]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(green[7]),
+	.obar());
+// synopsys translate_off
+defparam \green[7]~output .bus_hold = "false";
+defparam \green[7]~output .open_drain_output = "false";
+defparam \green[7]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X40_Y81_N36
+cyclonev_io_obuf \blue[0]~output (
+	.i(\VGADevice|colorPantalla|blue [0]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(blue[0]),
+	.obar());
+// synopsys translate_off
+defparam \blue[0]~output .bus_hold = "false";
+defparam \blue[0]~output .open_drain_output = "false";
+defparam \blue[0]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X28_Y81_N19
+cyclonev_io_obuf \blue[1]~output (
+	.i(\VGADevice|colorPantalla|blue [1]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(blue[1]),
+	.obar());
+// synopsys translate_off
+defparam \blue[1]~output .bus_hold = "false";
+defparam \blue[1]~output .open_drain_output = "false";
+defparam \blue[1]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X20_Y81_N2
+cyclonev_io_obuf \blue[2]~output (
+	.i(\VGADevice|colorPantalla|blue [2]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(blue[2]),
+	.obar());
+// synopsys translate_off
+defparam \blue[2]~output .bus_hold = "false";
+defparam \blue[2]~output .open_drain_output = "false";
+defparam \blue[2]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X36_Y81_N19
+cyclonev_io_obuf \blue[3]~output (
+	.i(\VGADevice|colorPantalla|blue [3]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(blue[3]),
+	.obar());
+// synopsys translate_off
+defparam \blue[3]~output .bus_hold = "false";
+defparam \blue[3]~output .open_drain_output = "false";
+defparam \blue[3]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X28_Y81_N2
+cyclonev_io_obuf \blue[4]~output (
+	.i(\VGADevice|colorPantalla|blue [4]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(blue[4]),
+	.obar());
+// synopsys translate_off
+defparam \blue[4]~output .bus_hold = "false";
+defparam \blue[4]~output .open_drain_output = "false";
+defparam \blue[4]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X36_Y81_N2
+cyclonev_io_obuf \blue[5]~output (
+	.i(\VGADevice|colorPantalla|blue [5]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(blue[5]),
+	.obar());
+// synopsys translate_off
+defparam \blue[5]~output .bus_hold = "false";
+defparam \blue[5]~output .open_drain_output = "false";
+defparam \blue[5]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X40_Y81_N19
+cyclonev_io_obuf \blue[6]~output (
+	.i(\VGADevice|colorPantalla|blue [6]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(blue[6]),
+	.obar());
+// synopsys translate_off
+defparam \blue[6]~output .bus_hold = "false";
+defparam \blue[6]~output .open_drain_output = "false";
+defparam \blue[6]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X32_Y81_N19
+cyclonev_io_obuf \blue[7]~output (
+	.i(\VGADevice|colorPantalla|blue [7]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(blue[7]),
+	.obar());
+// synopsys translate_off
+defparam \blue[7]~output .bus_hold = "false";
+defparam \blue[7]~output .open_drain_output = "false";
+defparam \blue[7]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X6_Y81_N19
+cyclonev_io_obuf \blank~output (
+	.i(\VGADevice|controladorVGA|video_on~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(blank),
+	.obar());
+// synopsys translate_off
+defparam \blank~output .bus_hold = "false";
+defparam \blank~output .open_drain_output = "false";
+defparam \blank~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X38_Y81_N36
+cyclonev_io_obuf \clkVGA~output (
+	.i(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(clkVGA),
+	.obar());
+// synopsys translate_off
+defparam \clkVGA~output .bus_hold = "false";
+defparam \clkVGA~output .open_drain_output = "false";
+defparam \clkVGA~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X32_Y0_N1
 cyclonev_io_ibuf \clk~input (
 	.i(clk),
 	.ibar(gnd),
@@ -62,9 +694,1798 @@ defparam \clk~input .bus_hold = "false";
 defparam \clk~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: LABCELL_X50_Y35_N0
-cyclonev_lcell_comb \~QUARTUS_CREATED_GND~I (
+// Location: CLKCTRL_G6
+cyclonev_clkena \clk~inputCLKENA0 (
+	.inclk(\clk~input_o ),
+	.ena(vcc),
+	.outclk(\clk~inputCLKENA0_outclk ),
+	.enaout());
+// synopsys translate_off
+defparam \clk~inputCLKENA0 .clock_type = "global clock";
+defparam \clk~inputCLKENA0 .disable_mode = "low";
+defparam \clk~inputCLKENA0 .ena_register_mode = "always enabled";
+defparam \clk~inputCLKENA0 .ena_register_power_up = "high";
+defparam \clk~inputCLKENA0 .test_syn = "high";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y78_N54
+cyclonev_lcell_comb \VGADevice|clk25MHz|counter~0 (
 // Equation(s):
+// \VGADevice|clk25MHz|counter~0_combout  = !\VGADevice|clk25MHz|counter~q 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(!\VGADevice|clk25MHz|counter~q ),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|clk25MHz|counter~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|clk25MHz|counter~0 .extended_lut = "off";
+defparam \VGADevice|clk25MHz|counter~0 .lut_mask = 64'hFF00FF00FF00FF00;
+defparam \VGADevice|clk25MHz|counter~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X36_Y78_N56
+dffeas \VGADevice|clk25MHz|counter (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(\VGADevice|clk25MHz|counter~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|clk25MHz|counter~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|clk25MHz|counter .is_wysiwyg = "true";
+defparam \VGADevice|clk25MHz|counter .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y78_N57
+cyclonev_lcell_comb \VGADevice|clk25MHz|clk25Mhz~0 (
+// Equation(s):
+// \VGADevice|clk25MHz|clk25Mhz~0_combout  = ( !\VGADevice|clk25MHz|counter~q  )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(!\VGADevice|clk25MHz|counter~q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|clk25MHz|clk25Mhz~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|clk25MHz|clk25Mhz~0 .extended_lut = "off";
+defparam \VGADevice|clk25MHz|clk25Mhz~0 .lut_mask = 64'hFFFFFFFF00000000;
+defparam \VGADevice|clk25MHz|clk25Mhz~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X37_Y77_N11
+dffeas \VGADevice|clk25MHz|clk25Mhz (
+	.clk(\clk~input_o ),
+	.d(gnd),
+	.asdata(\VGADevice|clk25MHz|clk25Mhz~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|clk25MHz|clk25Mhz .is_wysiwyg = "true";
+defparam \VGADevice|clk25MHz|clk25Mhz .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N0
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add0~21 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add0~21_sumout  = SUM(( \VGADevice|controladorVGA|pixelX [0] ) + ( VCC ) + ( !VCC ))
+// \VGADevice|controladorVGA|Add0~22  = CARRY(( \VGADevice|controladorVGA|pixelX [0] ) + ( VCC ) + ( !VCC ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(!\VGADevice|controladorVGA|pixelX [0]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add0~21_sumout ),
+	.cout(\VGADevice|controladorVGA|Add0~22 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add0~21 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add0~21 .lut_mask = 64'h00000000000000FF;
+defparam \VGADevice|controladorVGA|Add0~21 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N3
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add0~25 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add0~25_sumout  = SUM(( \VGADevice|controladorVGA|pixelX [1] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~22  ))
+// \VGADevice|controladorVGA|Add0~26  = CARRY(( \VGADevice|controladorVGA|pixelX [1] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~22  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\VGADevice|controladorVGA|pixelX [1]),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add0~22 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add0~25_sumout ),
+	.cout(\VGADevice|controladorVGA|Add0~26 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add0~25 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add0~25 .lut_mask = 64'h0000FFFF00000F0F;
+defparam \VGADevice|controladorVGA|Add0~25 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N6
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add0~17 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add0~17_sumout  = SUM(( \VGADevice|controladorVGA|pixelX [2] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~26  ))
+// \VGADevice|controladorVGA|Add0~18  = CARRY(( \VGADevice|controladorVGA|pixelX [2] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~26  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\VGADevice|controladorVGA|pixelX [2]),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add0~26 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add0~17_sumout ),
+	.cout(\VGADevice|controladorVGA|Add0~18 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add0~17 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add0~17 .lut_mask = 64'h0000FFFF00000F0F;
+defparam \VGADevice|controladorVGA|Add0~17 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X36_Y77_N31
+dffeas \VGADevice|controladorVGA|pixelX[2] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add0~17_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelX [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelX[2] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelX[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N9
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add0~13 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add0~13_sumout  = SUM(( \VGADevice|controladorVGA|pixelX [3] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~18  ))
+// \VGADevice|controladorVGA|Add0~14  = CARRY(( \VGADevice|controladorVGA|pixelX [3] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~18  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(!\VGADevice|controladorVGA|pixelX [3]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add0~18 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add0~13_sumout ),
+	.cout(\VGADevice|controladorVGA|Add0~14 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add0~13 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add0~13 .lut_mask = 64'h0000FFFF000000FF;
+defparam \VGADevice|controladorVGA|Add0~13 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X36_Y77_N38
+dffeas \VGADevice|controladorVGA|pixelX[3] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add0~13_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelX [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelX[3] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelX[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N12
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add0~9 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add0~9_sumout  = SUM(( \VGADevice|controladorVGA|pixelX [4] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~14  ))
+// \VGADevice|controladorVGA|Add0~10  = CARRY(( \VGADevice|controladorVGA|pixelX [4] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~14  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(!\VGADevice|controladorVGA|pixelX [4]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add0~14 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add0~9_sumout ),
+	.cout(\VGADevice|controladorVGA|Add0~10 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add0~9 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add0~9 .lut_mask = 64'h0000FFFF000000FF;
+defparam \VGADevice|controladorVGA|Add0~9 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X36_Y77_N56
+dffeas \VGADevice|controladorVGA|pixelX[4] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add0~9_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelX [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelX[4] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelX[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N15
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add0~5 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add0~5_sumout  = SUM(( \VGADevice|controladorVGA|pixelX [5] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~10  ))
+// \VGADevice|controladorVGA|Add0~6  = CARRY(( \VGADevice|controladorVGA|pixelX [5] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~10  ))
+
+	.dataa(!\VGADevice|controladorVGA|pixelX [5]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add0~10 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add0~5_sumout ),
+	.cout(\VGADevice|controladorVGA|Add0~6 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add0~5 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add0~5 .lut_mask = 64'h0000FFFF00005555;
+defparam \VGADevice|controladorVGA|Add0~5 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X36_Y77_N35
+dffeas \VGADevice|controladorVGA|pixelX[5] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add0~5_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelX [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelX[5] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelX[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N18
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add0~1 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add0~1_sumout  = SUM(( \VGADevice|controladorVGA|pixelX [6] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~6  ))
+// \VGADevice|controladorVGA|Add0~2  = CARRY(( \VGADevice|controladorVGA|pixelX [6] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~6  ))
+
+	.dataa(gnd),
+	.datab(!\VGADevice|controladorVGA|pixelX [6]),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add0~6 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add0~1_sumout ),
+	.cout(\VGADevice|controladorVGA|Add0~2 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add0~1 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add0~1 .lut_mask = 64'h0000FFFF00003333;
+defparam \VGADevice|controladorVGA|Add0~1 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X36_Y77_N41
+dffeas \VGADevice|controladorVGA|pixelX[6] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add0~1_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelX [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelX[6] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelX[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N21
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add0~37 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add0~37_sumout  = SUM(( \VGADevice|controladorVGA|pixelX [7] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~2  ))
+// \VGADevice|controladorVGA|Add0~38  = CARRY(( \VGADevice|controladorVGA|pixelX [7] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~2  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(!\VGADevice|controladorVGA|pixelX [7]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add0~2 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add0~37_sumout ),
+	.cout(\VGADevice|controladorVGA|Add0~38 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add0~37 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add0~37 .lut_mask = 64'h0000FFFF000000FF;
+defparam \VGADevice|controladorVGA|Add0~37 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X36_Y77_N49
+dffeas \VGADevice|controladorVGA|pixelX[7] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add0~37_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelX [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelX[7] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelX[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N24
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add0~33 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add0~33_sumout  = SUM(( \VGADevice|controladorVGA|pixelX [8] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~38  ))
+// \VGADevice|controladorVGA|Add0~34  = CARRY(( \VGADevice|controladorVGA|pixelX [8] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~38  ))
+
+	.dataa(gnd),
+	.datab(!\VGADevice|controladorVGA|pixelX [8]),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add0~38 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add0~33_sumout ),
+	.cout(\VGADevice|controladorVGA|Add0~34 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add0~33 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add0~33 .lut_mask = 64'h0000FFFF00003333;
+defparam \VGADevice|controladorVGA|Add0~33 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X36_Y77_N53
+dffeas \VGADevice|controladorVGA|pixelX[8] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add0~33_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelX [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelX[8] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelX[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N27
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add0~29 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add0~29_sumout  = SUM(( \VGADevice|controladorVGA|pixelX [9] ) + ( GND ) + ( \VGADevice|controladorVGA|Add0~34  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(!\VGADevice|controladorVGA|pixelX [9]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add0~34 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add0~29_sumout ),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add0~29 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add0~29 .lut_mask = 64'h0000FFFF000000FF;
+defparam \VGADevice|controladorVGA|Add0~29 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X36_Y77_N5
+dffeas \VGADevice|controladorVGA|pixelX[9] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add0~29_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelX [9]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelX[9] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelX[9] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X36_Y77_N50
+dffeas \VGADevice|controladorVGA|pixelX[7]~DUPLICATE (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add0~37_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelX[7]~DUPLICATE_q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelX[7]~DUPLICATE .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelX[7]~DUPLICATE .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N51
+cyclonev_lcell_comb \VGADevice|controladorVGA|Equal0~1 (
+// Equation(s):
+// \VGADevice|controladorVGA|Equal0~1_combout  = ( \VGADevice|controladorVGA|pixelX [8] & ( !\VGADevice|controladorVGA|pixelX[7]~DUPLICATE_q  & ( (\VGADevice|controladorVGA|pixelX [4] & (!\VGADevice|controladorVGA|pixelX [5] & 
+// (!\VGADevice|controladorVGA|pixelX [6] & \VGADevice|controladorVGA|pixelX [9]))) ) ) )
+
+	.dataa(!\VGADevice|controladorVGA|pixelX [4]),
+	.datab(!\VGADevice|controladorVGA|pixelX [5]),
+	.datac(!\VGADevice|controladorVGA|pixelX [6]),
+	.datad(!\VGADevice|controladorVGA|pixelX [9]),
+	.datae(!\VGADevice|controladorVGA|pixelX [8]),
+	.dataf(!\VGADevice|controladorVGA|pixelX[7]~DUPLICATE_q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|controladorVGA|Equal0~1_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Equal0~1 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Equal0~1 .lut_mask = 64'h0000004000000000;
+defparam \VGADevice|controladorVGA|Equal0~1 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N42
+cyclonev_lcell_comb \VGADevice|controladorVGA|Equal0~2 (
+// Equation(s):
+// \VGADevice|controladorVGA|Equal0~2_combout  = (\VGADevice|controladorVGA|Equal0~1_combout  & \VGADevice|controladorVGA|Equal0~0_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\VGADevice|controladorVGA|Equal0~1_combout ),
+	.datad(!\VGADevice|controladorVGA|Equal0~0_combout ),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Equal0~2 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Equal0~2 .lut_mask = 64'h000F000F000F000F;
+defparam \VGADevice|controladorVGA|Equal0~2 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X36_Y77_N59
+dffeas \VGADevice|controladorVGA|pixelX[0] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add0~21_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelX [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelX[0] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelX[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X36_Y77_N47
+dffeas \VGADevice|controladorVGA|pixelX[1] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add0~25_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelX [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelX[1] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelX[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X36_Y77_N58
+dffeas \VGADevice|controladorVGA|pixelX[0]~DUPLICATE (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add0~21_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelX[0]~DUPLICATE_q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelX[0]~DUPLICATE .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelX[0]~DUPLICATE .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N36
+cyclonev_lcell_comb \VGADevice|controladorVGA|Equal0~0 (
+// Equation(s):
+// \VGADevice|controladorVGA|Equal0~0_combout  = ( \VGADevice|controladorVGA|pixelX[0]~DUPLICATE_q  & ( (\VGADevice|controladorVGA|pixelX [1] & (\VGADevice|controladorVGA|pixelX [2] & \VGADevice|controladorVGA|pixelX [3])) ) )
+
+	.dataa(gnd),
+	.datab(!\VGADevice|controladorVGA|pixelX [1]),
+	.datac(!\VGADevice|controladorVGA|pixelX [2]),
+	.datad(!\VGADevice|controladorVGA|pixelX [3]),
+	.datae(gnd),
+	.dataf(!\VGADevice|controladorVGA|pixelX[0]~DUPLICATE_q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|controladorVGA|Equal0~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Equal0~0 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Equal0~0 .lut_mask = 64'h0000000000030003;
+defparam \VGADevice|controladorVGA|Equal0~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N39
+cyclonev_lcell_comb \VGADevice|controladorVGA|hsync~0 (
+// Equation(s):
+// \VGADevice|controladorVGA|hsync~0_combout  = ( \VGADevice|controladorVGA|pixelX[7]~DUPLICATE_q  & ( (\VGADevice|controladorVGA|pixelX [9] & !\VGADevice|controladorVGA|pixelX [8]) ) )
+
+	.dataa(!\VGADevice|controladorVGA|pixelX [9]),
+	.datab(gnd),
+	.datac(!\VGADevice|controladorVGA|pixelX [8]),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(!\VGADevice|controladorVGA|pixelX[7]~DUPLICATE_q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|controladorVGA|hsync~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|hsync~0 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|hsync~0 .lut_mask = 64'h0000000050505050;
+defparam \VGADevice|controladorVGA|hsync~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N45
+cyclonev_lcell_comb \VGADevice|controladorVGA|hsync~1 (
+// Equation(s):
+// \VGADevice|controladorVGA|hsync~1_combout  = ( \VGADevice|controladorVGA|pixelX [5] & ( (!\VGADevice|controladorVGA|hsync~0_combout ) # ((\VGADevice|controladorVGA|pixelX [6] & ((\VGADevice|controladorVGA|pixelX [4]) # 
+// (\VGADevice|controladorVGA|Equal0~0_combout )))) ) ) # ( !\VGADevice|controladorVGA|pixelX [5] & ( (!\VGADevice|controladorVGA|hsync~0_combout ) # ((!\VGADevice|controladorVGA|Equal0~0_combout  & (!\VGADevice|controladorVGA|pixelX [6] & 
+// !\VGADevice|controladorVGA|pixelX [4]))) ) )
+
+	.dataa(!\VGADevice|controladorVGA|Equal0~0_combout ),
+	.datab(!\VGADevice|controladorVGA|pixelX [6]),
+	.datac(!\VGADevice|controladorVGA|hsync~0_combout ),
+	.datad(!\VGADevice|controladorVGA|pixelX [4]),
+	.datae(gnd),
+	.dataf(!\VGADevice|controladorVGA|pixelX [5]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|controladorVGA|hsync~1_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|hsync~1 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|hsync~1 .lut_mask = 64'hF8F0F8F0F1F3F1F3;
+defparam \VGADevice|controladorVGA|hsync~1 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N30
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add1~37 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add1~37_sumout  = SUM(( \VGADevice|controladorVGA|pixelY [0] ) + ( VCC ) + ( !VCC ))
+// \VGADevice|controladorVGA|Add1~38  = CARRY(( \VGADevice|controladorVGA|pixelY [0] ) + ( VCC ) + ( !VCC ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\VGADevice|controladorVGA|pixelY [0]),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add1~37_sumout ),
+	.cout(\VGADevice|controladorVGA|Add1~38 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add1~37 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add1~37 .lut_mask = 64'h0000000000000F0F;
+defparam \VGADevice|controladorVGA|Add1~37 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N24
+cyclonev_lcell_comb \VGADevice|controladorVGA|refreshPy~1 (
+// Equation(s):
+// \VGADevice|controladorVGA|refreshPy~1_combout  = (\VGADevice|controladorVGA|pixelY [3] & (!\VGADevice|controladorVGA|pixelY [1] & (!\VGADevice|controladorVGA|pixelY [4] & !\VGADevice|controladorVGA|pixelY [0])))
+
+	.dataa(!\VGADevice|controladorVGA|pixelY [3]),
+	.datab(!\VGADevice|controladorVGA|pixelY [1]),
+	.datac(!\VGADevice|controladorVGA|pixelY [4]),
+	.datad(!\VGADevice|controladorVGA|pixelY [0]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|controladorVGA|refreshPy~1_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|refreshPy~1 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|refreshPy~1 .lut_mask = 64'h4000400040004000;
+defparam \VGADevice|controladorVGA|refreshPy~1 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N54
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add1~1 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add1~1_sumout  = SUM(( \VGADevice|controladorVGA|pixelY [8] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~6  ))
+// \VGADevice|controladorVGA|Add1~2  = CARRY(( \VGADevice|controladorVGA|pixelY [8] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~6  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(!\VGADevice|controladorVGA|pixelY [8]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add1~6 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add1~1_sumout ),
+	.cout(\VGADevice|controladorVGA|Add1~2 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add1~1 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add1~1 .lut_mask = 64'h0000FFFF000000FF;
+defparam \VGADevice|controladorVGA|Add1~1 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N57
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add1~25 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add1~25_sumout  = SUM(( \VGADevice|controladorVGA|pixelY [9] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~2  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\VGADevice|controladorVGA|pixelY [9]),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add1~2 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add1~25_sumout ),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add1~25 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add1~25 .lut_mask = 64'h0000FFFF00000F0F;
+defparam \VGADevice|controladorVGA|Add1~25 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X37_Y77_N32
+dffeas \VGADevice|controladorVGA|pixelY[9] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add1~25_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|refreshPy~combout ),
+	.sload(vcc),
+	.ena(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelY [9]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelY[9] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelY[9] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N6
+cyclonev_lcell_comb \VGADevice|controladorVGA|refreshPy~0 (
+// Equation(s):
+// \VGADevice|controladorVGA|refreshPy~0_combout  = ( !\VGADevice|controladorVGA|pixelY [8] & ( \VGADevice|controladorVGA|pixelY [9] & ( (!\VGADevice|controladorVGA|pixelY [7] & (!\VGADevice|controladorVGA|pixelY [5] & !\VGADevice|controladorVGA|pixelY [6])) 
+// ) ) )
+
+	.dataa(!\VGADevice|controladorVGA|pixelY [7]),
+	.datab(!\VGADevice|controladorVGA|pixelY [5]),
+	.datac(!\VGADevice|controladorVGA|pixelY [6]),
+	.datad(gnd),
+	.datae(!\VGADevice|controladorVGA|pixelY [8]),
+	.dataf(!\VGADevice|controladorVGA|pixelY [9]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|controladorVGA|refreshPy~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|refreshPy~0 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|refreshPy~0 .lut_mask = 64'h0000000080800000;
+defparam \VGADevice|controladorVGA|refreshPy~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N15
+cyclonev_lcell_comb \VGADevice|controladorVGA|refreshPy (
+// Equation(s):
+// \VGADevice|controladorVGA|refreshPy~combout  = ( \VGADevice|controladorVGA|Equal0~0_combout  & ( \VGADevice|controladorVGA|pixelY [2] & ( (\VGADevice|controladorVGA|Equal0~1_combout  & (\VGADevice|controladorVGA|refreshPy~1_combout  & 
+// \VGADevice|controladorVGA|refreshPy~0_combout )) ) ) )
+
+	.dataa(!\VGADevice|controladorVGA|Equal0~1_combout ),
+	.datab(!\VGADevice|controladorVGA|refreshPy~1_combout ),
+	.datac(!\VGADevice|controladorVGA|refreshPy~0_combout ),
+	.datad(gnd),
+	.datae(!\VGADevice|controladorVGA|Equal0~0_combout ),
+	.dataf(!\VGADevice|controladorVGA|pixelY [2]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|controladorVGA|refreshPy~combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|refreshPy .extended_lut = "off";
+defparam \VGADevice|controladorVGA|refreshPy .lut_mask = 64'h0000000000000101;
+defparam \VGADevice|controladorVGA|refreshPy .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X37_Y77_N29
+dffeas \VGADevice|controladorVGA|pixelY[0] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add1~37_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|refreshPy~combout ),
+	.sload(vcc),
+	.ena(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelY [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelY[0] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelY[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N33
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add1~33 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add1~33_sumout  = SUM(( \VGADevice|controladorVGA|pixelY [1] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~38  ))
+// \VGADevice|controladorVGA|Add1~34  = CARRY(( \VGADevice|controladorVGA|pixelY [1] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~38  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\VGADevice|controladorVGA|pixelY [1]),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add1~38 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add1~33_sumout ),
+	.cout(\VGADevice|controladorVGA|Add1~34 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add1~33 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add1~33 .lut_mask = 64'h0000FFFF00000F0F;
+defparam \VGADevice|controladorVGA|Add1~33 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X37_Y77_N14
+dffeas \VGADevice|controladorVGA|pixelY[1] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add1~33_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|refreshPy~combout ),
+	.sload(vcc),
+	.ena(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelY [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelY[1] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelY[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N36
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add1~29 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add1~29_sumout  = SUM(( \VGADevice|controladorVGA|pixelY [2] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~34  ))
+// \VGADevice|controladorVGA|Add1~30  = CARRY(( \VGADevice|controladorVGA|pixelY [2] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~34  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(!\VGADevice|controladorVGA|pixelY [2]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add1~34 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add1~29_sumout ),
+	.cout(\VGADevice|controladorVGA|Add1~30 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add1~29 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add1~29 .lut_mask = 64'h0000FFFF000000FF;
+defparam \VGADevice|controladorVGA|Add1~29 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X37_Y77_N5
+dffeas \VGADevice|controladorVGA|pixelY[2] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add1~29_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|refreshPy~combout ),
+	.sload(vcc),
+	.ena(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelY [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelY[2] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelY[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N39
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add1~21 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add1~21_sumout  = SUM(( \VGADevice|controladorVGA|pixelY [3] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~30  ))
+// \VGADevice|controladorVGA|Add1~22  = CARRY(( \VGADevice|controladorVGA|pixelY [3] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~30  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(!\VGADevice|controladorVGA|pixelY [3]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add1~30 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add1~21_sumout ),
+	.cout(\VGADevice|controladorVGA|Add1~22 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add1~21 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add1~21 .lut_mask = 64'h0000FFFF000000FF;
+defparam \VGADevice|controladorVGA|Add1~21 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X37_Y77_N2
+dffeas \VGADevice|controladorVGA|pixelY[3] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add1~21_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|refreshPy~combout ),
+	.sload(vcc),
+	.ena(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelY [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelY[3] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelY[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N42
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add1~17 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add1~17_sumout  = SUM(( \VGADevice|controladorVGA|pixelY [4] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~22  ))
+// \VGADevice|controladorVGA|Add1~18  = CARRY(( \VGADevice|controladorVGA|pixelY [4] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~22  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\VGADevice|controladorVGA|pixelY [4]),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add1~22 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add1~17_sumout ),
+	.cout(\VGADevice|controladorVGA|Add1~18 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add1~17 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add1~17 .lut_mask = 64'h0000FFFF00000F0F;
+defparam \VGADevice|controladorVGA|Add1~17 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X37_Y77_N20
+dffeas \VGADevice|controladorVGA|pixelY[4] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add1~17_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|refreshPy~combout ),
+	.sload(vcc),
+	.ena(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelY [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelY[4] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelY[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N45
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add1~13 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add1~13_sumout  = SUM(( \VGADevice|controladorVGA|pixelY [5] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~18  ))
+// \VGADevice|controladorVGA|Add1~14  = CARRY(( \VGADevice|controladorVGA|pixelY [5] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~18  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\VGADevice|controladorVGA|pixelY [5]),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add1~18 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add1~13_sumout ),
+	.cout(\VGADevice|controladorVGA|Add1~14 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add1~13 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add1~13 .lut_mask = 64'h0000FFFF00000F0F;
+defparam \VGADevice|controladorVGA|Add1~13 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X37_Y77_N17
+dffeas \VGADevice|controladorVGA|pixelY[5] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add1~13_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|refreshPy~combout ),
+	.sload(vcc),
+	.ena(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelY [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelY[5] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelY[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N48
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add1~9 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add1~9_sumout  = SUM(( \VGADevice|controladorVGA|pixelY [6] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~14  ))
+// \VGADevice|controladorVGA|Add1~10  = CARRY(( \VGADevice|controladorVGA|pixelY [6] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~14  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(!\VGADevice|controladorVGA|pixelY [6]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add1~14 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add1~9_sumout ),
+	.cout(\VGADevice|controladorVGA|Add1~10 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add1~9 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add1~9 .lut_mask = 64'h0000FFFF000000FF;
+defparam \VGADevice|controladorVGA|Add1~9 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X37_Y77_N56
+dffeas \VGADevice|controladorVGA|pixelY[6] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add1~9_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|refreshPy~combout ),
+	.sload(vcc),
+	.ena(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelY [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelY[6] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelY[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N51
+cyclonev_lcell_comb \VGADevice|controladorVGA|Add1~5 (
+// Equation(s):
+// \VGADevice|controladorVGA|Add1~5_sumout  = SUM(( \VGADevice|controladorVGA|pixelY [7] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~10  ))
+// \VGADevice|controladorVGA|Add1~6  = CARRY(( \VGADevice|controladorVGA|pixelY [7] ) + ( GND ) + ( \VGADevice|controladorVGA|Add1~10  ))
+
+	.dataa(!\VGADevice|controladorVGA|pixelY [7]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\VGADevice|controladorVGA|Add1~10 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\VGADevice|controladorVGA|Add1~5_sumout ),
+	.cout(\VGADevice|controladorVGA|Add1~6 ),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|Add1~5 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|Add1~5 .lut_mask = 64'h0000FFFF00005555;
+defparam \VGADevice|controladorVGA|Add1~5 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X37_Y77_N35
+dffeas \VGADevice|controladorVGA|pixelY[7] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add1~5_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|refreshPy~combout ),
+	.sload(vcc),
+	.ena(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelY [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelY[7] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelY[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X37_Y77_N23
+dffeas \VGADevice|controladorVGA|pixelY[8] (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add1~1_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|refreshPy~combout ),
+	.sload(vcc),
+	.ena(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelY [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelY[8] .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelY[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y75_N51
+cyclonev_lcell_comb \VGADevice|controladorVGA|vsync~0 (
+// Equation(s):
+// \VGADevice|controladorVGA|vsync~0_combout  = ( \VGADevice|controladorVGA|pixelY [6] & ( \VGADevice|controladorVGA|pixelY [7] & ( (\VGADevice|controladorVGA|pixelY [8] & \VGADevice|controladorVGA|pixelY [5]) ) ) )
+
+	.dataa(gnd),
+	.datab(!\VGADevice|controladorVGA|pixelY [8]),
+	.datac(!\VGADevice|controladorVGA|pixelY [5]),
+	.datad(gnd),
+	.datae(!\VGADevice|controladorVGA|pixelY [6]),
+	.dataf(!\VGADevice|controladorVGA|pixelY [7]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|controladorVGA|vsync~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|vsync~0 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|vsync~0 .lut_mask = 64'h0000000000000303;
+defparam \VGADevice|controladorVGA|vsync~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X37_Y77_N13
+dffeas \VGADevice|controladorVGA|pixelY[1]~DUPLICATE (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add1~33_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|refreshPy~combout ),
+	.sload(vcc),
+	.ena(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelY[1]~DUPLICATE_q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelY[1]~DUPLICATE .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelY[1]~DUPLICATE .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N21
+cyclonev_lcell_comb \VGADevice|controladorVGA|vsync~1 (
+// Equation(s):
+// \VGADevice|controladorVGA|vsync~1_combout  = (!\VGADevice|controladorVGA|pixelY [2] & (!\VGADevice|controladorVGA|pixelY [9] & (!\VGADevice|controladorVGA|pixelY [0] $ (!\VGADevice|controladorVGA|pixelY[1]~DUPLICATE_q ))))
+
+	.dataa(!\VGADevice|controladorVGA|pixelY [0]),
+	.datab(!\VGADevice|controladorVGA|pixelY [2]),
+	.datac(!\VGADevice|controladorVGA|pixelY [9]),
+	.datad(!\VGADevice|controladorVGA|pixelY[1]~DUPLICATE_q ),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|controladorVGA|vsync~1_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|vsync~1 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|vsync~1 .lut_mask = 64'h4080408040804080;
+defparam \VGADevice|controladorVGA|vsync~1 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X37_Y77_N1
+dffeas \VGADevice|controladorVGA|pixelY[3]~DUPLICATE (
+	.clk(\VGADevice|clk25MHz|clk25Mhz~q ),
+	.d(gnd),
+	.asdata(\VGADevice|controladorVGA|Add1~21_sumout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\VGADevice|controladorVGA|refreshPy~combout ),
+	.sload(vcc),
+	.ena(\VGADevice|controladorVGA|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|controladorVGA|pixelY[3]~DUPLICATE_q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|pixelY[3]~DUPLICATE .is_wysiwyg = "true";
+defparam \VGADevice|controladorVGA|pixelY[3]~DUPLICATE .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N33
+cyclonev_lcell_comb \VGADevice|controladorVGA|vsync~2 (
+// Equation(s):
+// \VGADevice|controladorVGA|vsync~2_combout  = ( \VGADevice|controladorVGA|pixelY[3]~DUPLICATE_q  & ( (!\VGADevice|controladorVGA|vsync~0_combout ) # ((!\VGADevice|controladorVGA|vsync~1_combout ) # (\VGADevice|controladorVGA|pixelY [4])) ) ) # ( 
+// !\VGADevice|controladorVGA|pixelY[3]~DUPLICATE_q  )
+
+	.dataa(!\VGADevice|controladorVGA|vsync~0_combout ),
+	.datab(!\VGADevice|controladorVGA|vsync~1_combout ),
+	.datac(!\VGADevice|controladorVGA|pixelY [4]),
+	.datad(gnd),
+	.datae(!\VGADevice|controladorVGA|pixelY[3]~DUPLICATE_q ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|controladorVGA|vsync~2_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|vsync~2 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|vsync~2 .lut_mask = 64'hFFFFEFEFFFFFEFEF;
+defparam \VGADevice|controladorVGA|vsync~2 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N27
+cyclonev_lcell_comb \VGADevice|colorPantalla|LessThan1~0 (
+// Equation(s):
+// \VGADevice|colorPantalla|LessThan1~0_combout  = ( \VGADevice|controladorVGA|pixelY [7] & ( (\VGADevice|controladorVGA|pixelY [5] & \VGADevice|controladorVGA|pixelY [6]) ) )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\VGADevice|controladorVGA|pixelY [5]),
+	.datad(!\VGADevice|controladorVGA|pixelY [6]),
+	.datae(gnd),
+	.dataf(!\VGADevice|controladorVGA|pixelY [7]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|LessThan1~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|LessThan1~0 .extended_lut = "off";
+defparam \VGADevice|colorPantalla|LessThan1~0 .lut_mask = 64'h00000000000F000F;
+defparam \VGADevice|colorPantalla|LessThan1~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y77_N3
+cyclonev_lcell_comb \VGADevice|colorPantalla|red~0 (
+// Equation(s):
+// \VGADevice|colorPantalla|red~0_combout  = ( !\VGADevice|controladorVGA|pixelX [8] & ( \VGADevice|controladorVGA|pixelX [7] & ( (!\VGADevice|controladorVGA|pixelY [8] & (!\VGADevice|controladorVGA|pixelY [9] & !\VGADevice|controladorVGA|pixelX [9])) ) ) ) 
+// # ( \VGADevice|controladorVGA|pixelX [8] & ( !\VGADevice|controladorVGA|pixelX [7] & ( (!\VGADevice|controladorVGA|pixelY [8] & (!\VGADevice|controladorVGA|pixelY [9] & (!\VGADevice|controladorVGA|pixelX [6] & !\VGADevice|controladorVGA|pixelX [9]))) ) ) 
+// ) # ( !\VGADevice|controladorVGA|pixelX [8] & ( !\VGADevice|controladorVGA|pixelX [7] & ( (!\VGADevice|controladorVGA|pixelY [8] & (!\VGADevice|controladorVGA|pixelY [9] & !\VGADevice|controladorVGA|pixelX [9])) ) ) )
+
+	.dataa(!\VGADevice|controladorVGA|pixelY [8]),
+	.datab(!\VGADevice|controladorVGA|pixelY [9]),
+	.datac(!\VGADevice|controladorVGA|pixelX [6]),
+	.datad(!\VGADevice|controladorVGA|pixelX [9]),
+	.datae(!\VGADevice|controladorVGA|pixelX [8]),
+	.dataf(!\VGADevice|controladorVGA|pixelX [7]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|red~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red~0 .extended_lut = "off";
+defparam \VGADevice|colorPantalla|red~0 .lut_mask = 64'h8800800088000000;
+defparam \VGADevice|colorPantalla|red~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y78_N39
+cyclonev_lcell_comb \core|PC[2]~0 (
+// Equation(s):
+// \core|PC[2]~0_combout  = ( !\core|PC[2]~0_combout  )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(!\core|PC[2]~0_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\core|PC[2]~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \core|PC[2]~0 .extended_lut = "off";
+defparam \core|PC[2]~0 .lut_mask = 64'hFFFFFFFF00000000;
+defparam \core|PC[2]~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y76_N0
+cyclonev_lcell_comb \core|Add1~42 (
+// Equation(s):
+// \core|Add1~42_sumout  = SUM(( \core|Add1~42_sumout  ) + ( \core|PC[2]~0_combout  ) + ( !VCC ))
+// \core|Add1~43  = CARRY(( \core|Add1~42_sumout  ) + ( \core|PC[2]~0_combout  ) + ( !VCC ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\core|PC[2]~0_combout ),
+	.datad(!\core|Add1~42_sumout ),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\core|Add1~42_sumout ),
+	.cout(\core|Add1~43 ),
+	.shareout());
+// synopsys translate_off
+defparam \core|Add1~42 .extended_lut = "off";
+defparam \core|Add1~42 .lut_mask = 64'h0000F0F0000000FF;
+defparam \core|Add1~42 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y76_N3
+cyclonev_lcell_comb \core|Add1~38 (
+// Equation(s):
+// \core|Add1~38_sumout  = SUM(( \core|Add1~38_sumout  ) + ( GND ) + ( \core|Add1~43  ))
+// \core|Add1~39  = CARRY(( \core|Add1~38_sumout  ) + ( GND ) + ( \core|Add1~43  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(!\core|Add1~38_sumout ),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\core|Add1~43 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\core|Add1~38_sumout ),
+	.cout(\core|Add1~39 ),
+	.shareout());
+// synopsys translate_off
+defparam \core|Add1~38 .extended_lut = "off";
+defparam \core|Add1~38 .lut_mask = 64'h0000FFFF000000FF;
+defparam \core|Add1~38 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y76_N6
+cyclonev_lcell_comb \core|Add1~34 (
+// Equation(s):
+// \core|Add1~34_sumout  = SUM(( \core|Add1~34_sumout  ) + ( GND ) + ( \core|Add1~39  ))
+// \core|Add1~35  = CARRY(( \core|Add1~34_sumout  ) + ( GND ) + ( \core|Add1~39  ))
+
+	.dataa(gnd),
+	.datab(!\core|Add1~34_sumout ),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\core|Add1~39 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\core|Add1~34_sumout ),
+	.cout(\core|Add1~35 ),
+	.shareout());
+// synopsys translate_off
+defparam \core|Add1~34 .extended_lut = "off";
+defparam \core|Add1~34 .lut_mask = 64'h0000FFFF00003333;
+defparam \core|Add1~34 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y76_N9
+cyclonev_lcell_comb \core|Add1~30 (
+// Equation(s):
+// \core|Add1~30_sumout  = SUM(( \core|Add1~30_sumout  ) + ( GND ) + ( \core|Add1~35  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\core|Add1~30_sumout ),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\core|Add1~35 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\core|Add1~30_sumout ),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \core|Add1~30 .extended_lut = "off";
+defparam \core|Add1~30 .lut_mask = 64'h0000FFFF00000F0F;
+defparam \core|Add1~30 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y76_N24
+cyclonev_lcell_comb \InstructionMemoryDevice|Mux27~0 (
+// Equation(s):
+// \InstructionMemoryDevice|Mux27~0_combout  = ( !\core|PC[2]~0_combout  & ( (!\core|Add1~42_sumout  & (!\core|Add1~30_sumout  & (!\core|Add1~38_sumout  & !\core|Add1~34_sumout ))) ) )
+
+	.dataa(!\core|Add1~42_sumout ),
+	.datab(!\core|Add1~30_sumout ),
+	.datac(!\core|Add1~38_sumout ),
+	.datad(!\core|Add1~34_sumout ),
+	.datae(gnd),
+	.dataf(!\core|PC[2]~0_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\InstructionMemoryDevice|Mux27~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \InstructionMemoryDevice|Mux27~0 .extended_lut = "off";
+defparam \InstructionMemoryDevice|Mux27~0 .lut_mask = 64'h8000800000000000;
+defparam \InstructionMemoryDevice|Mux27~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y76_N42
+cyclonev_lcell_comb \InstructionMemoryDevice|Mux10~0 (
+// Equation(s):
+// \InstructionMemoryDevice|Mux10~0_combout  = ( \core|Add1~38_sumout  ) # ( !\core|Add1~38_sumout  & ( (!\core|PC[2]~0_combout  & (!\core|Add1~30_sumout  & (!\core|Add1~42_sumout  & !\core|Add1~34_sumout ))) ) )
+
+	.dataa(!\core|PC[2]~0_combout ),
+	.datab(!\core|Add1~30_sumout ),
+	.datac(!\core|Add1~42_sumout ),
+	.datad(!\core|Add1~34_sumout ),
+	.datae(!\core|Add1~38_sumout ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\InstructionMemoryDevice|Mux10~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \InstructionMemoryDevice|Mux10~0 .extended_lut = "off";
+defparam \InstructionMemoryDevice|Mux10~0 .lut_mask = 64'h8000FFFF8000FFFF;
+defparam \InstructionMemoryDevice|Mux10~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X35_Y76_N24
+cyclonev_lcell_comb \core|YWrite[2] (
+// Equation(s):
+// \core|YWrite [2] = ( \InstructionMemoryDevice|Mux10~0_combout  & ( \core|YWrite [2] ) ) # ( !\InstructionMemoryDevice|Mux10~0_combout  & ( \core|YWrite [2] & ( \InstructionMemoryDevice|Mux27~0_combout  ) ) ) # ( \InstructionMemoryDevice|Mux10~0_combout  & 
+// ( !\core|YWrite [2] & ( !\InstructionMemoryDevice|Mux27~0_combout  ) ) )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\InstructionMemoryDevice|Mux27~0_combout ),
+	.datad(gnd),
+	.datae(!\InstructionMemoryDevice|Mux10~0_combout ),
+	.dataf(!\core|YWrite [2]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\core|YWrite [2]),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \core|YWrite[2] .extended_lut = "off";
+defparam \core|YWrite[2] .lut_mask = 64'h0000F0F00F0FFFFF;
+defparam \core|YWrite[2] .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y76_N54
+cyclonev_lcell_comb \InstructionMemoryDevice|Mux9~0 (
+// Equation(s):
+// \InstructionMemoryDevice|Mux9~0_combout  = ( \core|Add1~38_sumout  & ( \core|Add1~34_sumout  ) ) # ( !\core|Add1~38_sumout  & ( ((!\core|PC[2]~0_combout  & (!\core|Add1~30_sumout  & !\core|Add1~42_sumout ))) # (\core|Add1~34_sumout ) ) )
+
+	.dataa(!\core|PC[2]~0_combout ),
+	.datab(!\core|Add1~30_sumout ),
+	.datac(!\core|Add1~42_sumout ),
+	.datad(!\core|Add1~34_sumout ),
+	.datae(!\core|Add1~38_sumout ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\InstructionMemoryDevice|Mux9~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \InstructionMemoryDevice|Mux9~0 .extended_lut = "off";
+defparam \InstructionMemoryDevice|Mux9~0 .lut_mask = 64'h80FF00FF80FF00FF;
+defparam \InstructionMemoryDevice|Mux9~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y76_N48
+cyclonev_lcell_comb \core|YWrite[3] (
+// Equation(s):
+// \core|YWrite [3] = (!\InstructionMemoryDevice|Mux27~0_combout  & (\InstructionMemoryDevice|Mux9~0_combout )) # (\InstructionMemoryDevice|Mux27~0_combout  & ((\core|YWrite [3])))
+
+	.dataa(!\InstructionMemoryDevice|Mux9~0_combout ),
+	.datab(!\InstructionMemoryDevice|Mux27~0_combout ),
+	.datac(!\core|YWrite [3]),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\core|YWrite [3]),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \core|YWrite[3] .extended_lut = "off";
+defparam \core|YWrite[3] .lut_mask = 64'h4747474747474747;
+defparam \core|YWrite[3] .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y76_N30
+cyclonev_lcell_comb \InstructionMemoryDevice|Mux16~0 (
+// Equation(s):
+// \InstructionMemoryDevice|Mux16~0_combout  = ( \core|Add1~34_sumout  & ( \core|Add1~30_sumout  ) ) # ( !\core|Add1~34_sumout  & ( ((!\core|PC[2]~0_combout  & (!\core|Add1~38_sumout  & !\core|Add1~42_sumout ))) # (\core|Add1~30_sumout ) ) )
+
+	.dataa(!\core|PC[2]~0_combout ),
+	.datab(!\core|Add1~30_sumout ),
+	.datac(!\core|Add1~38_sumout ),
+	.datad(!\core|Add1~42_sumout ),
+	.datae(gnd),
+	.dataf(!\core|Add1~34_sumout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\InstructionMemoryDevice|Mux16~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \InstructionMemoryDevice|Mux16~0 .extended_lut = "off";
+defparam \InstructionMemoryDevice|Mux16~0 .lut_mask = 64'hB333B33333333333;
+defparam \InstructionMemoryDevice|Mux16~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y76_N33
+cyclonev_lcell_comb \core|YWrite[4] (
+// Equation(s):
+// \core|YWrite [4] = ( \core|YWrite [4] & ( (\InstructionMemoryDevice|Mux27~0_combout ) # (\InstructionMemoryDevice|Mux16~0_combout ) ) ) # ( !\core|YWrite [4] & ( (\InstructionMemoryDevice|Mux16~0_combout  & !\InstructionMemoryDevice|Mux27~0_combout ) ) )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\InstructionMemoryDevice|Mux16~0_combout ),
+	.datad(!\InstructionMemoryDevice|Mux27~0_combout ),
+	.datae(gnd),
+	.dataf(!\core|YWrite [4]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\core|YWrite [4]),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \core|YWrite[4] .extended_lut = "off";
+defparam \core|YWrite[4] .lut_mask = 64'h0F000F000FFF0FFF;
+defparam \core|YWrite[4] .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y76_N27
+cyclonev_lcell_comb \InstructionMemoryDevice|Mux12~0 (
+// Equation(s):
+// \InstructionMemoryDevice|Mux12~0_combout  = ( \core|PC[2]~0_combout  ) # ( !\core|PC[2]~0_combout  & ( (!\core|Add1~42_sumout  & (!\core|Add1~30_sumout  & (!\core|Add1~34_sumout  & !\core|Add1~38_sumout ))) ) )
+
+	.dataa(!\core|Add1~42_sumout ),
+	.datab(!\core|Add1~30_sumout ),
+	.datac(!\core|Add1~34_sumout ),
+	.datad(!\core|Add1~38_sumout ),
+	.datae(gnd),
+	.dataf(!\core|PC[2]~0_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\InstructionMemoryDevice|Mux12~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \InstructionMemoryDevice|Mux12~0 .extended_lut = "off";
+defparam \InstructionMemoryDevice|Mux12~0 .lut_mask = 64'h80008000FFFFFFFF;
+defparam \InstructionMemoryDevice|Mux12~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y77_N51
+cyclonev_lcell_comb \core|YWrite[0] (
+// Equation(s):
+// \core|YWrite [0] = ( \InstructionMemoryDevice|Mux12~0_combout  & ( \core|YWrite [0] ) ) # ( !\InstructionMemoryDevice|Mux12~0_combout  & ( \core|YWrite [0] & ( \InstructionMemoryDevice|Mux27~0_combout  ) ) ) # ( \InstructionMemoryDevice|Mux12~0_combout  & 
+// ( !\core|YWrite [0] & ( !\InstructionMemoryDevice|Mux27~0_combout  ) ) )
+
+	.dataa(!\InstructionMemoryDevice|Mux27~0_combout ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(!\InstructionMemoryDevice|Mux12~0_combout ),
+	.dataf(!\core|YWrite [0]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\core|YWrite [0]),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \core|YWrite[0] .extended_lut = "off";
+defparam \core|YWrite[0] .lut_mask = 64'h0000AAAA5555FFFF;
+defparam \core|YWrite[0] .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y76_N15
+cyclonev_lcell_comb \InstructionMemoryDevice|Mux11~0 (
+// Equation(s):
+// \InstructionMemoryDevice|Mux11~0_combout  = ( \core|Add1~38_sumout  & ( \core|Add1~42_sumout  ) ) # ( !\core|Add1~38_sumout  & ( ((!\core|Add1~34_sumout  & (!\core|Add1~30_sumout  & !\core|PC[2]~0_combout ))) # (\core|Add1~42_sumout ) ) )
+
+	.dataa(!\core|Add1~42_sumout ),
+	.datab(!\core|Add1~34_sumout ),
+	.datac(!\core|Add1~30_sumout ),
+	.datad(!\core|PC[2]~0_combout ),
+	.datae(!\core|Add1~38_sumout ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\InstructionMemoryDevice|Mux11~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \InstructionMemoryDevice|Mux11~0 .extended_lut = "off";
+defparam \InstructionMemoryDevice|Mux11~0 .lut_mask = 64'hD5555555D5555555;
+defparam \InstructionMemoryDevice|Mux11~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X40_Y76_N51
+cyclonev_lcell_comb \core|YWrite[1] (
+// Equation(s):
+// \core|YWrite [1] = ( \InstructionMemoryDevice|Mux27~0_combout  & ( \core|YWrite [1] ) ) # ( !\InstructionMemoryDevice|Mux27~0_combout  & ( \core|YWrite [1] & ( \InstructionMemoryDevice|Mux11~0_combout  ) ) ) # ( !\InstructionMemoryDevice|Mux27~0_combout  
+// & ( !\core|YWrite [1] & ( \InstructionMemoryDevice|Mux11~0_combout  ) ) )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\InstructionMemoryDevice|Mux11~0_combout ),
+	.datad(gnd),
+	.datae(!\InstructionMemoryDevice|Mux27~0_combout ),
+	.dataf(!\core|YWrite [1]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\core|YWrite [1]),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \core|YWrite[1] .extended_lut = "off";
+defparam \core|YWrite[1] .lut_mask = 64'h0F0F00000F0FFFFF;
+defparam \core|YWrite[1] .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y77_N0
+cyclonev_lcell_comb \MemoryDevice|Add3~0 (
+// Equation(s):
+// \MemoryDevice|Add3~0_combout  = ( \core|YWrite [1] ) # ( !\core|YWrite [1] & ( \core|YWrite [0] ) )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\core|YWrite [0]),
+	.datad(gnd),
+	.datae(!\core|YWrite [1]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\MemoryDevice|Add3~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add3~0 .extended_lut = "off";
+defparam \MemoryDevice|Add3~0 .lut_mask = 64'h0F0FFFFF0F0FFFFF;
+defparam \MemoryDevice|Add3~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N30
+cyclonev_lcell_comb \MemoryDevice|Add4~38 (
+// Equation(s):
+// \MemoryDevice|Add4~38_cout  = CARRY(( GND ) + ( GND ) + ( !VCC ))
 
 	.dataa(gnd),
 	.datab(gnd),
@@ -75,14 +2496,1540 @@ cyclonev_lcell_comb \~QUARTUS_CREATED_GND~I (
 	.datag(gnd),
 	.cin(gnd),
 	.sharein(gnd),
-	.combout(\~QUARTUS_CREATED_GND~I_combout ),
+	.combout(),
+	.sumout(),
+	.cout(\MemoryDevice|Add4~38_cout ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add4~38 .extended_lut = "off";
+defparam \MemoryDevice|Add4~38 .lut_mask = 64'h0000FFFF00000000;
+defparam \MemoryDevice|Add4~38 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N33
+cyclonev_lcell_comb \MemoryDevice|Add4~34 (
+// Equation(s):
+// \MemoryDevice|Add4~34_cout  = CARRY(( !\core|YWrite [0] $ (!\core|YWrite [1]) ) + ( GND ) + ( \MemoryDevice|Add4~38_cout  ))
+
+	.dataa(!\core|YWrite [0]),
+	.datab(gnd),
+	.datac(!\core|YWrite [1]),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add4~38_cout ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(),
+	.cout(\MemoryDevice|Add4~34_cout ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add4~34 .extended_lut = "off";
+defparam \MemoryDevice|Add4~34 .lut_mask = 64'h0000FFFF00005A5A;
+defparam \MemoryDevice|Add4~34 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N36
+cyclonev_lcell_comb \MemoryDevice|Add4~30 (
+// Equation(s):
+// \MemoryDevice|Add4~30_cout  = CARRY(( !\core|YWrite [2] $ (((!\core|YWrite [0] & !\core|YWrite [1]))) ) + ( GND ) + ( \MemoryDevice|Add4~34_cout  ))
+
+	.dataa(!\core|YWrite [0]),
+	.datab(!\core|YWrite [1]),
+	.datac(!\core|YWrite [2]),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add4~34_cout ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(),
+	.cout(\MemoryDevice|Add4~30_cout ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add4~30 .extended_lut = "off";
+defparam \MemoryDevice|Add4~30 .lut_mask = 64'h0000FFFF00007878;
+defparam \MemoryDevice|Add4~30 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N39
+cyclonev_lcell_comb \MemoryDevice|Add4~26 (
+// Equation(s):
+// \MemoryDevice|Add4~26_cout  = CARRY(( !\core|YWrite [3] $ (((!\core|YWrite [0] & (!\core|YWrite [1] & !\core|YWrite [2])))) ) + ( GND ) + ( \MemoryDevice|Add4~30_cout  ))
+
+	.dataa(!\core|YWrite [0]),
+	.datab(!\core|YWrite [1]),
+	.datac(!\core|YWrite [2]),
+	.datad(!\core|YWrite [3]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add4~30_cout ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(),
+	.cout(\MemoryDevice|Add4~26_cout ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add4~26 .extended_lut = "off";
+defparam \MemoryDevice|Add4~26 .lut_mask = 64'h0000FFFF00007F80;
+defparam \MemoryDevice|Add4~26 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N42
+cyclonev_lcell_comb \MemoryDevice|Add4~5 (
+// Equation(s):
+// \MemoryDevice|Add4~5_sumout  = SUM(( !\core|YWrite [4] $ (((!\core|YWrite [3] & (!\core|YWrite [2] & !\MemoryDevice|Add3~0_combout )))) ) + ( \core|YWrite [0] ) + ( \MemoryDevice|Add4~26_cout  ))
+// \MemoryDevice|Add4~6  = CARRY(( !\core|YWrite [4] $ (((!\core|YWrite [3] & (!\core|YWrite [2] & !\MemoryDevice|Add3~0_combout )))) ) + ( \core|YWrite [0] ) + ( \MemoryDevice|Add4~26_cout  ))
+
+	.dataa(!\core|YWrite [4]),
+	.datab(!\core|YWrite [3]),
+	.datac(!\core|YWrite [2]),
+	.datad(!\MemoryDevice|Add3~0_combout ),
+	.datae(gnd),
+	.dataf(!\core|YWrite [0]),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add4~26_cout ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add4~5_sumout ),
+	.cout(\MemoryDevice|Add4~6 ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add4~5 .extended_lut = "off";
+defparam \MemoryDevice|Add4~5 .lut_mask = 64'h0000FF0000006AAA;
+defparam \MemoryDevice|Add4~5 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N45
+cyclonev_lcell_comb \MemoryDevice|Add4~9 (
+// Equation(s):
+// \MemoryDevice|Add4~9_sumout  = SUM(( (((\MemoryDevice|Add3~0_combout ) # (\core|YWrite [2])) # (\core|YWrite [3])) # (\core|YWrite [4]) ) + ( \core|YWrite [1] ) + ( \MemoryDevice|Add4~6  ))
+// \MemoryDevice|Add4~10  = CARRY(( (((\MemoryDevice|Add3~0_combout ) # (\core|YWrite [2])) # (\core|YWrite [3])) # (\core|YWrite [4]) ) + ( \core|YWrite [1] ) + ( \MemoryDevice|Add4~6  ))
+
+	.dataa(!\core|YWrite [4]),
+	.datab(!\core|YWrite [3]),
+	.datac(!\core|YWrite [2]),
+	.datad(!\MemoryDevice|Add3~0_combout ),
+	.datae(gnd),
+	.dataf(!\core|YWrite [1]),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add4~6 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add4~9_sumout ),
+	.cout(\MemoryDevice|Add4~10 ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add4~9 .extended_lut = "off";
+defparam \MemoryDevice|Add4~9 .lut_mask = 64'h0000FF0000007FFF;
+defparam \MemoryDevice|Add4~9 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N48
+cyclonev_lcell_comb \MemoryDevice|Add4~13 (
+// Equation(s):
+// \MemoryDevice|Add4~13_sumout  = SUM(( (((\MemoryDevice|Add3~0_combout ) # (\core|YWrite [2])) # (\core|YWrite [3])) # (\core|YWrite [4]) ) + ( \core|YWrite [2] ) + ( \MemoryDevice|Add4~10  ))
+// \MemoryDevice|Add4~14  = CARRY(( (((\MemoryDevice|Add3~0_combout ) # (\core|YWrite [2])) # (\core|YWrite [3])) # (\core|YWrite [4]) ) + ( \core|YWrite [2] ) + ( \MemoryDevice|Add4~10  ))
+
+	.dataa(!\core|YWrite [4]),
+	.datab(!\core|YWrite [3]),
+	.datac(!\core|YWrite [2]),
+	.datad(!\MemoryDevice|Add3~0_combout ),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add4~10 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add4~13_sumout ),
+	.cout(\MemoryDevice|Add4~14 ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add4~13 .extended_lut = "off";
+defparam \MemoryDevice|Add4~13 .lut_mask = 64'h0000F0F000007FFF;
+defparam \MemoryDevice|Add4~13 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N51
+cyclonev_lcell_comb \MemoryDevice|Add4~17 (
+// Equation(s):
+// \MemoryDevice|Add4~17_sumout  = SUM(( (((\MemoryDevice|Add3~0_combout ) # (\core|YWrite [2])) # (\core|YWrite [3])) # (\core|YWrite [4]) ) + ( \core|YWrite [3] ) + ( \MemoryDevice|Add4~14  ))
+// \MemoryDevice|Add4~18  = CARRY(( (((\MemoryDevice|Add3~0_combout ) # (\core|YWrite [2])) # (\core|YWrite [3])) # (\core|YWrite [4]) ) + ( \core|YWrite [3] ) + ( \MemoryDevice|Add4~14  ))
+
+	.dataa(!\core|YWrite [4]),
+	.datab(!\core|YWrite [3]),
+	.datac(!\core|YWrite [2]),
+	.datad(!\MemoryDevice|Add3~0_combout ),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add4~14 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add4~17_sumout ),
+	.cout(\MemoryDevice|Add4~18 ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add4~17 .extended_lut = "off";
+defparam \MemoryDevice|Add4~17 .lut_mask = 64'h0000CCCC00007FFF;
+defparam \MemoryDevice|Add4~17 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N54
+cyclonev_lcell_comb \MemoryDevice|Add4~21 (
+// Equation(s):
+// \MemoryDevice|Add4~21_sumout  = SUM(( (((\MemoryDevice|Add3~0_combout ) # (\core|YWrite [4])) # (\core|YWrite [3])) # (\core|YWrite [2]) ) + ( \core|YWrite [4] ) + ( \MemoryDevice|Add4~18  ))
+// \MemoryDevice|Add4~22  = CARRY(( (((\MemoryDevice|Add3~0_combout ) # (\core|YWrite [4])) # (\core|YWrite [3])) # (\core|YWrite [2]) ) + ( \core|YWrite [4] ) + ( \MemoryDevice|Add4~18  ))
+
+	.dataa(!\core|YWrite [2]),
+	.datab(!\core|YWrite [3]),
+	.datac(!\core|YWrite [4]),
+	.datad(!\MemoryDevice|Add3~0_combout ),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add4~18 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add4~21_sumout ),
+	.cout(\MemoryDevice|Add4~22 ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add4~21 .extended_lut = "off";
+defparam \MemoryDevice|Add4~21 .lut_mask = 64'h0000F0F000007FFF;
+defparam \MemoryDevice|Add4~21 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N57
+cyclonev_lcell_comb \MemoryDevice|Add4~1 (
+// Equation(s):
+// \MemoryDevice|Add4~1_sumout  = SUM(( GND ) + ( GND ) + ( \MemoryDevice|Add4~22  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add4~22 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add4~1_sumout ),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add4~1 .extended_lut = "off";
+defparam \MemoryDevice|Add4~1 .lut_mask = 64'h0000FFFF00000000;
+defparam \MemoryDevice|Add4~1 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N0
+cyclonev_lcell_comb \MemoryDevice|Add5~5 (
+// Equation(s):
+// \MemoryDevice|Add5~5_sumout  = SUM(( \core|YWrite [4] ) + ( \core|YWrite [0] ) + ( !VCC ))
+// \MemoryDevice|Add5~6  = CARRY(( \core|YWrite [4] ) + ( \core|YWrite [0] ) + ( !VCC ))
+
+	.dataa(!\core|YWrite [0]),
+	.datab(gnd),
+	.datac(!\core|YWrite [4]),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add5~5_sumout ),
+	.cout(\MemoryDevice|Add5~6 ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add5~5 .extended_lut = "off";
+defparam \MemoryDevice|Add5~5 .lut_mask = 64'h0000AAAA00000F0F;
+defparam \MemoryDevice|Add5~5 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N3
+cyclonev_lcell_comb \MemoryDevice|Add5~9 (
+// Equation(s):
+// \MemoryDevice|Add5~9_sumout  = SUM(( !\core|YWrite [0] $ (!\core|YWrite [1]) ) + ( GND ) + ( \MemoryDevice|Add5~6  ))
+// \MemoryDevice|Add5~10  = CARRY(( !\core|YWrite [0] $ (!\core|YWrite [1]) ) + ( GND ) + ( \MemoryDevice|Add5~6  ))
+
+	.dataa(!\core|YWrite [0]),
+	.datab(gnd),
+	.datac(!\core|YWrite [1]),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add5~6 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add5~9_sumout ),
+	.cout(\MemoryDevice|Add5~10 ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add5~9 .extended_lut = "off";
+defparam \MemoryDevice|Add5~9 .lut_mask = 64'h0000FFFF00005A5A;
+defparam \MemoryDevice|Add5~9 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N6
+cyclonev_lcell_comb \MemoryDevice|Add5~13 (
+// Equation(s):
+// \MemoryDevice|Add5~13_sumout  = SUM(( !\core|YWrite [2] $ (((!\core|YWrite [0] & !\core|YWrite [1]))) ) + ( GND ) + ( \MemoryDevice|Add5~10  ))
+// \MemoryDevice|Add5~14  = CARRY(( !\core|YWrite [2] $ (((!\core|YWrite [0] & !\core|YWrite [1]))) ) + ( GND ) + ( \MemoryDevice|Add5~10  ))
+
+	.dataa(gnd),
+	.datab(!\core|YWrite [0]),
+	.datac(!\core|YWrite [2]),
+	.datad(!\core|YWrite [1]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add5~10 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add5~13_sumout ),
+	.cout(\MemoryDevice|Add5~14 ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add5~13 .extended_lut = "off";
+defparam \MemoryDevice|Add5~13 .lut_mask = 64'h0000FFFF00003CF0;
+defparam \MemoryDevice|Add5~13 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N9
+cyclonev_lcell_comb \MemoryDevice|Add5~17 (
+// Equation(s):
+// \MemoryDevice|Add5~17_sumout  = SUM(( !\core|YWrite [3] $ (((!\core|YWrite [2] & (!\core|YWrite [0] & !\core|YWrite [1])))) ) + ( GND ) + ( \MemoryDevice|Add5~14  ))
+// \MemoryDevice|Add5~18  = CARRY(( !\core|YWrite [3] $ (((!\core|YWrite [2] & (!\core|YWrite [0] & !\core|YWrite [1])))) ) + ( GND ) + ( \MemoryDevice|Add5~14  ))
+
+	.dataa(!\core|YWrite [2]),
+	.datab(!\core|YWrite [0]),
+	.datac(!\core|YWrite [3]),
+	.datad(!\core|YWrite [1]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add5~14 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add5~17_sumout ),
+	.cout(\MemoryDevice|Add5~18 ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add5~17 .extended_lut = "off";
+defparam \MemoryDevice|Add5~17 .lut_mask = 64'h0000FFFF000078F0;
+defparam \MemoryDevice|Add5~17 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N12
+cyclonev_lcell_comb \MemoryDevice|Add5~21 (
+// Equation(s):
+// \MemoryDevice|Add5~21_sumout  = SUM(( \MemoryDevice|Add4~5_sumout  ) + ( GND ) + ( \MemoryDevice|Add5~18  ))
+// \MemoryDevice|Add5~22  = CARRY(( \MemoryDevice|Add4~5_sumout  ) + ( GND ) + ( \MemoryDevice|Add5~18  ))
+
+	.dataa(gnd),
+	.datab(!\MemoryDevice|Add4~5_sumout ),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add5~18 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add5~21_sumout ),
+	.cout(\MemoryDevice|Add5~22 ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add5~21 .extended_lut = "off";
+defparam \MemoryDevice|Add5~21 .lut_mask = 64'h0000FFFF00003333;
+defparam \MemoryDevice|Add5~21 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N15
+cyclonev_lcell_comb \MemoryDevice|Add5~25 (
+// Equation(s):
+// \MemoryDevice|Add5~25_sumout  = SUM(( \MemoryDevice|Add4~9_sumout  ) + ( GND ) + ( \MemoryDevice|Add5~22  ))
+// \MemoryDevice|Add5~26  = CARRY(( \MemoryDevice|Add4~9_sumout  ) + ( GND ) + ( \MemoryDevice|Add5~22  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\MemoryDevice|Add4~9_sumout ),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add5~22 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add5~25_sumout ),
+	.cout(\MemoryDevice|Add5~26 ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add5~25 .extended_lut = "off";
+defparam \MemoryDevice|Add5~25 .lut_mask = 64'h0000FFFF00000F0F;
+defparam \MemoryDevice|Add5~25 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N18
+cyclonev_lcell_comb \MemoryDevice|Add5~29 (
+// Equation(s):
+// \MemoryDevice|Add5~29_sumout  = SUM(( \MemoryDevice|Add4~13_sumout  ) + ( GND ) + ( \MemoryDevice|Add5~26  ))
+// \MemoryDevice|Add5~30  = CARRY(( \MemoryDevice|Add4~13_sumout  ) + ( GND ) + ( \MemoryDevice|Add5~26  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\MemoryDevice|Add4~13_sumout ),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add5~26 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add5~29_sumout ),
+	.cout(\MemoryDevice|Add5~30 ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add5~29 .extended_lut = "off";
+defparam \MemoryDevice|Add5~29 .lut_mask = 64'h0000FFFF00000F0F;
+defparam \MemoryDevice|Add5~29 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N21
+cyclonev_lcell_comb \MemoryDevice|Add5~33 (
+// Equation(s):
+// \MemoryDevice|Add5~33_sumout  = SUM(( \MemoryDevice|Add4~17_sumout  ) + ( GND ) + ( \MemoryDevice|Add5~30  ))
+// \MemoryDevice|Add5~34  = CARRY(( \MemoryDevice|Add4~17_sumout  ) + ( GND ) + ( \MemoryDevice|Add5~30  ))
+
+	.dataa(!\MemoryDevice|Add4~17_sumout ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add5~30 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add5~33_sumout ),
+	.cout(\MemoryDevice|Add5~34 ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add5~33 .extended_lut = "off";
+defparam \MemoryDevice|Add5~33 .lut_mask = 64'h0000FFFF00005555;
+defparam \MemoryDevice|Add5~33 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N24
+cyclonev_lcell_comb \MemoryDevice|Add5~37 (
+// Equation(s):
+// \MemoryDevice|Add5~37_sumout  = SUM(( \MemoryDevice|Add4~21_sumout  ) + ( GND ) + ( \MemoryDevice|Add5~34  ))
+// \MemoryDevice|Add5~38  = CARRY(( \MemoryDevice|Add4~21_sumout  ) + ( GND ) + ( \MemoryDevice|Add5~34  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\MemoryDevice|Add4~21_sumout ),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add5~34 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add5~37_sumout ),
+	.cout(\MemoryDevice|Add5~38 ),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add5~37 .extended_lut = "off";
+defparam \MemoryDevice|Add5~37 .lut_mask = 64'h0000FFFF00000F0F;
+defparam \MemoryDevice|Add5~37 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y76_N27
+cyclonev_lcell_comb \MemoryDevice|Add5~1 (
+// Equation(s):
+// \MemoryDevice|Add5~1_sumout  = SUM(( \MemoryDevice|Add4~1_sumout  ) + ( GND ) + ( \MemoryDevice|Add5~38  ))
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\MemoryDevice|Add4~1_sumout ),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(\MemoryDevice|Add5~38 ),
+	.sharein(gnd),
+	.combout(),
+	.sumout(\MemoryDevice|Add5~1_sumout ),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \MemoryDevice|Add5~1 .extended_lut = "off";
+defparam \MemoryDevice|Add5~1 .lut_mask = 64'h0000FFFF00000F0F;
+defparam \MemoryDevice|Add5~1 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X40_Y75_N51
+cyclonev_lcell_comb \~GND (
+// Equation(s):
+// \~GND~combout  = GND
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\~GND~combout ),
 	.sumout(),
 	.cout(),
 	.shareout());
 // synopsys translate_off
-defparam \~QUARTUS_CREATED_GND~I .extended_lut = "off";
-defparam \~QUARTUS_CREATED_GND~I .lut_mask = 64'h0000000000000000;
-defparam \~QUARTUS_CREATED_GND~I .shared_arith = "off";
+defparam \~GND .extended_lut = "off";
+defparam \~GND .lut_mask = 64'h0000000000000000;
+defparam \~GND .shared_arith = "off";
+// synopsys translate_on
+
+// Location: M10K_X38_Y77_N0
+cyclonev_ram_block \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 (
+	.portawe(!\MemoryDevice|Add5~1_sumout ),
+	.portare(vcc),
+	.portaaddrstall(gnd),
+	.portbwe(gnd),
+	.portbre(vcc),
+	.portbaddrstall(gnd),
+	.clk0(\clk~inputCLKENA0_outclk ),
+	.clk1(gnd),
+	.ena0(vcc),
+	.ena1(vcc),
+	.ena2(vcc),
+	.ena3(vcc),
+	.clr0(gnd),
+	.clr1(gnd),
+	.nerror(vcc),
+	.portadatain({\~GND~combout }),
+	.portaaddr({\MemoryDevice|Add5~37_sumout ,\MemoryDevice|Add5~33_sumout ,\MemoryDevice|Add5~29_sumout ,\MemoryDevice|Add5~25_sumout ,\MemoryDevice|Add5~21_sumout ,\MemoryDevice|Add5~17_sumout ,\MemoryDevice|Add5~13_sumout ,\MemoryDevice|Add5~9_sumout ,
+\MemoryDevice|Add5~5_sumout ,\core|YWrite [3],\core|YWrite [2],\core|YWrite [1],\core|YWrite [0]}),
+	.portabyteenamasks(1'b1),
+	.portbdatain(1'b0),
+	.portbaddr({\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout }),
+	.portbbyteenamasks(1'b1),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.portadataout(),
+	.portbdataout(\MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0_PORTBDATAOUT_bus ),
+	.eccstatus(),
+	.dftout());
+// synopsys translate_off
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .data_interleave_offset_in_bits = 1;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .data_interleave_width_in_bits = 1;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .init_file = "db/ASIP.ram0_Memory_f7a0538a.hdl.mif";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .init_file_layout = "port_a";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .logical_ram_name = "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ALTSYNCRAM";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .mixed_port_feed_through_mode = "old";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .operation_mode = "dual_port";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_a_address_clear = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_a_address_width = 13;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_a_byte_enable_clock = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_a_data_out_clear = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_a_data_out_clock = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_a_data_width = 1;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_a_first_address = 0;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_a_first_bit_number = 0;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_a_last_address = 8191;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_a_logical_ram_depth = 76800;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_a_logical_ram_width = 3;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_a_read_during_write_mode = "new_data_no_nbe_read";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_b_address_clear = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_b_address_clock = "clock0";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_b_address_width = 13;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_b_data_out_clear = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_b_data_out_clock = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_b_data_width = 1;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_b_first_address = 0;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_b_first_bit_number = 0;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_b_last_address = 8191;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_b_logical_ram_depth = 76800;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_b_logical_ram_width = 3;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_b_read_during_write_mode = "new_data_no_nbe_read";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .port_b_read_enable_clock = "clock0";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .ram_block_type = "M20K";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .mem_init3 = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .mem_init2 = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .mem_init1 = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0 .mem_init0 = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y77_N39
+cyclonev_lcell_comb \VGADevice|colorPantalla|red~1 (
+// Equation(s):
+// \VGADevice|colorPantalla|red~1_combout  = ( \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0~portbdataout  & ( (!\VGADevice|colorPantalla|red~0_combout ) # ((\VGADevice|colorPantalla|LessThan1~0_combout  & \VGADevice|controladorVGA|pixelY [4])) ) ) # 
+// ( !\MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0~portbdataout  )
+
+	.dataa(!\VGADevice|colorPantalla|LessThan1~0_combout ),
+	.datab(!\VGADevice|controladorVGA|pixelY [4]),
+	.datac(!\VGADevice|colorPantalla|red~0_combout ),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(!\MemoryDevice|Image_rtl_0|auto_generated|ram_block1a0~portbdataout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|red~1_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red~1 .extended_lut = "off";
+defparam \VGADevice|colorPantalla|red~1 .lut_mask = 64'hFFFFFFFFF1F1F1F1;
+defparam \VGADevice|colorPantalla|red~1 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y77_N33
+cyclonev_lcell_comb \VGADevice|colorPantalla|red[0]~feeder (
+// Equation(s):
+// \VGADevice|colorPantalla|red[0]~feeder_combout  = ( \VGADevice|colorPantalla|red~1_combout  )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(!\VGADevice|colorPantalla|red~1_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|red[0]~feeder_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[0]~feeder .extended_lut = "off";
+defparam \VGADevice|colorPantalla|red[0]~feeder .lut_mask = 64'h00000000FFFFFFFF;
+defparam \VGADevice|colorPantalla|red[0]~feeder .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X39_Y77_N35
+dffeas \VGADevice|colorPantalla|red[0] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(\VGADevice|colorPantalla|red[0]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|red [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[0] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|red[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y77_N42
+cyclonev_lcell_comb \VGADevice|colorPantalla|red[1]~feeder (
+// Equation(s):
+// \VGADevice|colorPantalla|red[1]~feeder_combout  = ( \VGADevice|colorPantalla|red~1_combout  )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(!\VGADevice|colorPantalla|red~1_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|red[1]~feeder_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[1]~feeder .extended_lut = "off";
+defparam \VGADevice|colorPantalla|red[1]~feeder .lut_mask = 64'h00000000FFFFFFFF;
+defparam \VGADevice|colorPantalla|red[1]~feeder .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X39_Y77_N44
+dffeas \VGADevice|colorPantalla|red[1] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(\VGADevice|colorPantalla|red[1]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|red [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[1] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|red[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y77_N30
+cyclonev_lcell_comb \VGADevice|colorPantalla|red[2]~feeder (
+// Equation(s):
+// \VGADevice|colorPantalla|red[2]~feeder_combout  = ( \VGADevice|colorPantalla|red~1_combout  )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(!\VGADevice|colorPantalla|red~1_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|red[2]~feeder_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[2]~feeder .extended_lut = "off";
+defparam \VGADevice|colorPantalla|red[2]~feeder .lut_mask = 64'h00000000FFFFFFFF;
+defparam \VGADevice|colorPantalla|red[2]~feeder .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X39_Y77_N31
+dffeas \VGADevice|colorPantalla|red[2] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(\VGADevice|colorPantalla|red[2]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|red [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[2] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|red[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y77_N45
+cyclonev_lcell_comb \VGADevice|colorPantalla|red[3]~feeder (
+// Equation(s):
+// \VGADevice|colorPantalla|red[3]~feeder_combout  = ( \VGADevice|colorPantalla|red~1_combout  )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(!\VGADevice|colorPantalla|red~1_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|red[3]~feeder_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[3]~feeder .extended_lut = "off";
+defparam \VGADevice|colorPantalla|red[3]~feeder .lut_mask = 64'h00000000FFFFFFFF;
+defparam \VGADevice|colorPantalla|red[3]~feeder .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X39_Y77_N46
+dffeas \VGADevice|colorPantalla|red[3] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(\VGADevice|colorPantalla|red[3]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|red [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[3] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|red[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y77_N27
+cyclonev_lcell_comb \VGADevice|colorPantalla|red[4]~feeder (
+// Equation(s):
+// \VGADevice|colorPantalla|red[4]~feeder_combout  = ( \VGADevice|colorPantalla|red~1_combout  )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(!\VGADevice|colorPantalla|red~1_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|red[4]~feeder_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[4]~feeder .extended_lut = "off";
+defparam \VGADevice|colorPantalla|red[4]~feeder .lut_mask = 64'h00000000FFFFFFFF;
+defparam \VGADevice|colorPantalla|red[4]~feeder .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X39_Y77_N28
+dffeas \VGADevice|colorPantalla|red[4] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(\VGADevice|colorPantalla|red[4]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|red [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[4] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|red[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y77_N24
+cyclonev_lcell_comb \VGADevice|colorPantalla|red[5]~feeder (
+// Equation(s):
+// \VGADevice|colorPantalla|red[5]~feeder_combout  = ( \VGADevice|colorPantalla|red~1_combout  )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(!\VGADevice|colorPantalla|red~1_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|red[5]~feeder_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[5]~feeder .extended_lut = "off";
+defparam \VGADevice|colorPantalla|red[5]~feeder .lut_mask = 64'h00000000FFFFFFFF;
+defparam \VGADevice|colorPantalla|red[5]~feeder .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X39_Y77_N25
+dffeas \VGADevice|colorPantalla|red[5] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(\VGADevice|colorPantalla|red[5]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|red [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[5] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|red[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y77_N12
+cyclonev_lcell_comb \VGADevice|colorPantalla|red[6]~feeder (
+// Equation(s):
+// \VGADevice|colorPantalla|red[6]~feeder_combout  = ( \VGADevice|colorPantalla|red~1_combout  )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(!\VGADevice|colorPantalla|red~1_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|red[6]~feeder_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[6]~feeder .extended_lut = "off";
+defparam \VGADevice|colorPantalla|red[6]~feeder .lut_mask = 64'h00000000FFFFFFFF;
+defparam \VGADevice|colorPantalla|red[6]~feeder .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X39_Y77_N14
+dffeas \VGADevice|colorPantalla|red[6] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(\VGADevice|colorPantalla|red[6]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|red [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[6] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|red[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: MLABCELL_X39_Y77_N15
+cyclonev_lcell_comb \VGADevice|colorPantalla|red[7]~feeder (
+// Equation(s):
+// \VGADevice|colorPantalla|red[7]~feeder_combout  = ( \VGADevice|colorPantalla|red~1_combout  )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(!\VGADevice|colorPantalla|red~1_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|red[7]~feeder_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[7]~feeder .extended_lut = "off";
+defparam \VGADevice|colorPantalla|red[7]~feeder .lut_mask = 64'h00000000FFFFFFFF;
+defparam \VGADevice|colorPantalla|red[7]~feeder .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X39_Y77_N17
+dffeas \VGADevice|colorPantalla|red[7] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(\VGADevice|colorPantalla|red[7]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|red [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|red[7] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|red[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: M10K_X38_Y76_N0
+cyclonev_ram_block \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 (
+	.portawe(!\MemoryDevice|Add5~1_sumout ),
+	.portare(vcc),
+	.portaaddrstall(gnd),
+	.portbwe(gnd),
+	.portbre(vcc),
+	.portbaddrstall(gnd),
+	.clk0(\clk~inputCLKENA0_outclk ),
+	.clk1(gnd),
+	.ena0(vcc),
+	.ena1(vcc),
+	.ena2(vcc),
+	.ena3(vcc),
+	.clr0(gnd),
+	.clr1(gnd),
+	.nerror(vcc),
+	.portadatain({\~GND~combout }),
+	.portaaddr({\MemoryDevice|Add5~37_sumout ,\MemoryDevice|Add5~33_sumout ,\MemoryDevice|Add5~29_sumout ,\MemoryDevice|Add5~25_sumout ,\MemoryDevice|Add5~21_sumout ,\MemoryDevice|Add5~17_sumout ,\MemoryDevice|Add5~13_sumout ,\MemoryDevice|Add5~9_sumout ,
+\MemoryDevice|Add5~5_sumout ,\core|YWrite [3],\core|YWrite [2],\core|YWrite [1],\core|YWrite [0]}),
+	.portabyteenamasks(1'b1),
+	.portbdatain(1'b0),
+	.portbaddr({\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout }),
+	.portbbyteenamasks(1'b1),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.portadataout(),
+	.portbdataout(\MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1_PORTBDATAOUT_bus ),
+	.eccstatus(),
+	.dftout());
+// synopsys translate_off
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .data_interleave_offset_in_bits = 1;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .data_interleave_width_in_bits = 1;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .init_file = "db/ASIP.ram0_Memory_f7a0538a.hdl.mif";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .init_file_layout = "port_a";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .logical_ram_name = "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ALTSYNCRAM";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .mixed_port_feed_through_mode = "old";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .operation_mode = "dual_port";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_a_address_clear = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_a_address_width = 13;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_a_byte_enable_clock = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_a_data_out_clear = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_a_data_out_clock = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_a_data_width = 1;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_a_first_address = 0;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_a_first_bit_number = 1;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_a_last_address = 8191;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_a_logical_ram_depth = 76800;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_a_logical_ram_width = 3;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_a_read_during_write_mode = "new_data_no_nbe_read";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_b_address_clear = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_b_address_clock = "clock0";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_b_address_width = 13;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_b_data_out_clear = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_b_data_out_clock = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_b_data_width = 1;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_b_first_address = 0;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_b_first_bit_number = 1;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_b_last_address = 8191;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_b_logical_ram_depth = 76800;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_b_logical_ram_width = 3;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_b_read_during_write_mode = "new_data_no_nbe_read";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .port_b_read_enable_clock = "clock0";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .ram_block_type = "M20K";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .mem_init3 = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .mem_init2 = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .mem_init1 = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1 .mem_init0 = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y76_N18
+cyclonev_lcell_comb \VGADevice|colorPantalla|green~0 (
+// Equation(s):
+// \VGADevice|colorPantalla|green~0_combout  = ( \VGADevice|colorPantalla|LessThan1~0_combout  & ( \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1~portbdataout  & ( (!\VGADevice|colorPantalla|red~0_combout ) # (\VGADevice|controladorVGA|pixelY [4]) ) ) 
+// ) # ( !\VGADevice|colorPantalla|LessThan1~0_combout  & ( \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1~portbdataout  & ( !\VGADevice|colorPantalla|red~0_combout  ) ) ) # ( \VGADevice|colorPantalla|LessThan1~0_combout  & ( 
+// !\MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1~portbdataout  ) ) # ( !\VGADevice|colorPantalla|LessThan1~0_combout  & ( !\MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1~portbdataout  ) )
+
+	.dataa(!\VGADevice|colorPantalla|red~0_combout ),
+	.datab(!\VGADevice|controladorVGA|pixelY [4]),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(!\VGADevice|colorPantalla|LessThan1~0_combout ),
+	.dataf(!\MemoryDevice|Image_rtl_0|auto_generated|ram_block1a1~portbdataout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|green~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|green~0 .extended_lut = "off";
+defparam \VGADevice|colorPantalla|green~0 .lut_mask = 64'hFFFFFFFFAAAABBBB;
+defparam \VGADevice|colorPantalla|green~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y76_N39
+cyclonev_lcell_comb \VGADevice|colorPantalla|green[0]~feeder (
+// Equation(s):
+// \VGADevice|colorPantalla|green[0]~feeder_combout  = \VGADevice|colorPantalla|green~0_combout 
+
+	.dataa(!\VGADevice|colorPantalla|green~0_combout ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|green[0]~feeder_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|green[0]~feeder .extended_lut = "off";
+defparam \VGADevice|colorPantalla|green[0]~feeder .lut_mask = 64'h5555555555555555;
+defparam \VGADevice|colorPantalla|green[0]~feeder .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X37_Y76_N41
+dffeas \VGADevice|colorPantalla|green[0] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(\VGADevice|colorPantalla|green[0]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|green [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|green[0] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|green[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X37_Y76_N22
+dffeas \VGADevice|colorPantalla|green[1] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\VGADevice|colorPantalla|green~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|green [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|green[1] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|green[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X37_Y76_N13
+dffeas \VGADevice|colorPantalla|green[2] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\VGADevice|colorPantalla|green~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|green [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|green[2] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|green[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X37_Y76_N49
+dffeas \VGADevice|colorPantalla|green[3] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\VGADevice|colorPantalla|green~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|green [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|green[3] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|green[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X37_Y76_N53
+dffeas \VGADevice|colorPantalla|green[4] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\VGADevice|colorPantalla|green~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|green [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|green[4] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|green[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X37_Y76_N59
+dffeas \VGADevice|colorPantalla|green[5] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\VGADevice|colorPantalla|green~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|green [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|green[5] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|green[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X37_Y76_N36
+cyclonev_lcell_comb \VGADevice|colorPantalla|green[6]~feeder (
+// Equation(s):
+// \VGADevice|colorPantalla|green[6]~feeder_combout  = \VGADevice|colorPantalla|green~0_combout 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\VGADevice|colorPantalla|green~0_combout ),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|green[6]~feeder_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|green[6]~feeder .extended_lut = "off";
+defparam \VGADevice|colorPantalla|green[6]~feeder .lut_mask = 64'h0F0F0F0F0F0F0F0F;
+defparam \VGADevice|colorPantalla|green[6]~feeder .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X37_Y76_N37
+dffeas \VGADevice|colorPantalla|green[6] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(\VGADevice|colorPantalla|green[6]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|green [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|green[6] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|green[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X37_Y76_N46
+dffeas \VGADevice|colorPantalla|green[7] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\VGADevice|colorPantalla|green~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|green [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|green[7] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|green[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: M10K_X41_Y77_N0
+cyclonev_ram_block \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 (
+	.portawe(!\MemoryDevice|Add5~1_sumout ),
+	.portare(vcc),
+	.portaaddrstall(gnd),
+	.portbwe(gnd),
+	.portbre(vcc),
+	.portbaddrstall(gnd),
+	.clk0(\clk~inputCLKENA0_outclk ),
+	.clk1(gnd),
+	.ena0(vcc),
+	.ena1(vcc),
+	.ena2(vcc),
+	.ena3(vcc),
+	.clr0(gnd),
+	.clr1(gnd),
+	.nerror(vcc),
+	.portadatain({vcc}),
+	.portaaddr({\MemoryDevice|Add5~37_sumout ,\MemoryDevice|Add5~33_sumout ,\MemoryDevice|Add5~29_sumout ,\MemoryDevice|Add5~25_sumout ,\MemoryDevice|Add5~21_sumout ,\MemoryDevice|Add5~17_sumout ,\MemoryDevice|Add5~13_sumout ,\MemoryDevice|Add5~9_sumout ,
+\MemoryDevice|Add5~5_sumout ,\core|YWrite [3],\core|YWrite [2],\core|YWrite [1],\core|YWrite [0]}),
+	.portabyteenamasks(1'b1),
+	.portbdatain(1'b0),
+	.portbaddr({\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout }),
+	.portbbyteenamasks(1'b1),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.portadataout(),
+	.portbdataout(\MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2_PORTBDATAOUT_bus ),
+	.eccstatus(),
+	.dftout());
+// synopsys translate_off
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .data_interleave_offset_in_bits = 1;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .data_interleave_width_in_bits = 1;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .init_file = "db/ASIP.ram0_Memory_f7a0538a.hdl.mif";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .init_file_layout = "port_a";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .logical_ram_name = "Memory:MemoryDevice|altsyncram:Image_rtl_0|altsyncram_akr1:auto_generated|ALTSYNCRAM";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .mixed_port_feed_through_mode = "old";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .operation_mode = "dual_port";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_a_address_clear = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_a_address_width = 13;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_a_byte_enable_clock = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_a_data_out_clear = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_a_data_out_clock = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_a_data_width = 1;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_a_first_address = 0;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_a_first_bit_number = 2;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_a_last_address = 8191;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_a_logical_ram_depth = 76800;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_a_logical_ram_width = 3;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_a_read_during_write_mode = "new_data_no_nbe_read";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_b_address_clear = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_b_address_clock = "clock0";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_b_address_width = 13;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_b_data_out_clear = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_b_data_out_clock = "none";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_b_data_width = 1;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_b_first_address = 0;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_b_first_bit_number = 2;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_b_last_address = 8191;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_b_logical_ram_depth = 76800;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_b_logical_ram_width = 3;
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_b_read_during_write_mode = "new_data_no_nbe_read";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .port_b_read_enable_clock = "clock0";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .ram_block_type = "M20K";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .mem_init3 = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .mem_init2 = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .mem_init1 = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+defparam \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2 .mem_init0 = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+// synopsys translate_on
+
+// Location: LABCELL_X40_Y77_N24
+cyclonev_lcell_comb \VGADevice|colorPantalla|blue~0 (
+// Equation(s):
+// \VGADevice|colorPantalla|blue~0_combout  = ( \VGADevice|colorPantalla|red~0_combout  & ( \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2~portbdataout  & ( (\VGADevice|colorPantalla|LessThan1~0_combout  & \VGADevice|controladorVGA|pixelY [4]) ) ) ) # 
+// ( !\VGADevice|colorPantalla|red~0_combout  & ( \MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2~portbdataout  ) ) # ( \VGADevice|colorPantalla|red~0_combout  & ( !\MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2~portbdataout  ) ) # ( 
+// !\VGADevice|colorPantalla|red~0_combout  & ( !\MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2~portbdataout  ) )
+
+	.dataa(!\VGADevice|colorPantalla|LessThan1~0_combout ),
+	.datab(!\VGADevice|controladorVGA|pixelY [4]),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(!\VGADevice|colorPantalla|red~0_combout ),
+	.dataf(!\MemoryDevice|Image_rtl_0|auto_generated|ram_block1a2~portbdataout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|blue~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|blue~0 .extended_lut = "off";
+defparam \VGADevice|colorPantalla|blue~0 .lut_mask = 64'hFFFFFFFFFFFF1111;
+defparam \VGADevice|colorPantalla|blue~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X40_Y77_N53
+dffeas \VGADevice|colorPantalla|blue[0] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\VGADevice|colorPantalla|blue~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|blue [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|blue[0] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|blue[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X40_Y77_N54
+cyclonev_lcell_comb \VGADevice|colorPantalla|blue[1]~feeder (
+// Equation(s):
+// \VGADevice|colorPantalla|blue[1]~feeder_combout  = ( \VGADevice|colorPantalla|blue~0_combout  )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(!\VGADevice|colorPantalla|blue~0_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|colorPantalla|blue[1]~feeder_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|blue[1]~feeder .extended_lut = "off";
+defparam \VGADevice|colorPantalla|blue[1]~feeder .lut_mask = 64'h00000000FFFFFFFF;
+defparam \VGADevice|colorPantalla|blue[1]~feeder .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X40_Y77_N55
+dffeas \VGADevice|colorPantalla|blue[1] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(\VGADevice|colorPantalla|blue[1]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|blue [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|blue[1] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|blue[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X40_Y77_N38
+dffeas \VGADevice|colorPantalla|blue[2] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\VGADevice|colorPantalla|blue~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|blue [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|blue[2] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|blue[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X40_Y77_N34
+dffeas \VGADevice|colorPantalla|blue[3] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\VGADevice|colorPantalla|blue~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|blue [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|blue[3] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|blue[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X40_Y77_N28
+dffeas \VGADevice|colorPantalla|blue[4] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\VGADevice|colorPantalla|blue~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|blue [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|blue[4] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|blue[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X40_Y77_N32
+dffeas \VGADevice|colorPantalla|blue[5] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\VGADevice|colorPantalla|blue~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|blue [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|blue[5] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|blue[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X40_Y77_N44
+dffeas \VGADevice|colorPantalla|blue[6] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\VGADevice|colorPantalla|blue~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|blue [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|blue[6] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|blue[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X40_Y77_N16
+dffeas \VGADevice|colorPantalla|blue[7] (
+	.clk(\clk~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\VGADevice|colorPantalla|blue~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\VGADevice|colorPantalla|blue [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \VGADevice|colorPantalla|blue[7] .is_wysiwyg = "true";
+defparam \VGADevice|colorPantalla|blue[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X36_Y77_N54
+cyclonev_lcell_comb \VGADevice|controladorVGA|video_on~0 (
+// Equation(s):
+// \VGADevice|controladorVGA|video_on~0_combout  = ( !\VGADevice|controladorVGA|pixelY [9] & ( \VGADevice|controladorVGA|pixelX[7]~DUPLICATE_q  & ( (!\VGADevice|controladorVGA|pixelX [9] & !\VGADevice|controladorVGA|vsync~0_combout ) ) ) ) # ( 
+// !\VGADevice|controladorVGA|pixelY [9] & ( !\VGADevice|controladorVGA|pixelX[7]~DUPLICATE_q  & ( (!\VGADevice|controladorVGA|vsync~0_combout  & ((!\VGADevice|controladorVGA|pixelX [9]) # (!\VGADevice|controladorVGA|pixelX [8]))) ) ) )
+
+	.dataa(!\VGADevice|controladorVGA|pixelX [9]),
+	.datab(gnd),
+	.datac(!\VGADevice|controladorVGA|vsync~0_combout ),
+	.datad(!\VGADevice|controladorVGA|pixelX [8]),
+	.datae(!\VGADevice|controladorVGA|pixelY [9]),
+	.dataf(!\VGADevice|controladorVGA|pixelX[7]~DUPLICATE_q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\VGADevice|controladorVGA|video_on~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \VGADevice|controladorVGA|video_on~0 .extended_lut = "off";
+defparam \VGADevice|controladorVGA|video_on~0 .lut_mask = 64'hF0A00000A0A00000;
+defparam \VGADevice|controladorVGA|video_on~0 .shared_arith = "off";
 // synopsys translate_on
 
 endmodule
