@@ -56,6 +56,10 @@ std::string RegisterToBinary(std::string r);
 void addTag(std::string);
 void addTagCalling(std::string);
 void insertIntOnInstruction(int);
+int  immToInt(std::string);
+void buildPlotInstruction(int,int);
+
+void bresenham(int x0, int y0, int x1, int y1);
 
 
 /*Setting instruction*/
@@ -101,9 +105,9 @@ context current_context;
 
 %token END 0 "end of file"
 %token <id> addition subtra mv plot branch brancheq branchmi col eor endline memory_direction_tag reg immedec immehex label commentary
-%token <id> black blue green cyan red magenta yellow white immehexplot
+%token <id> black blue green cyan red magenta yellow white immehexplot drawline immehex_plot
 %token <num> number
-%type  <id> data_params_sr2 branch_operation reg_operand immediate_plot_x immediate_plot_y immedec
+%type  <id> data_params_sr2 branch_operation reg_operand immediate_plot_x immediate_plot_y immedec immehex_plot routine_immediate
 %start body
 
 %%
@@ -120,6 +124,7 @@ line:
 jump_tag: {current_context=READING_TAG; } memory_direction_tag {addTag($2);} |  /*epsilon*/;
 tag_instruction: 
   instruction {writeInstruction(); resetInstruction();text_memory+=0x4;} 
+| routine
 | /*epsilon*/;
 documentation: commentary | /*epsilon*/;
 
@@ -153,8 +158,8 @@ eor_params: reg_operand comma reg_operand comma reg_operand {setRd($1);setRn($3)
 data_params_sr2: {current_context=READING_IMMEDIATE;} immediate {setInstructionI();} | reg_operand {setRs($1);};
 
 
-immediate_plot_x: immehex {setImmHexPlot($1,false);$$=$1;} | immedec {setImmDecPlot($1,false);$$=$1;};
-immediate_plot_y: immehex {setImmHexPlot($1,true);$$=$1;}  | immedec {setImmDecPlot($1,true);$$=$1;};
+immediate_plot_x: immehex_plot {setImmHexPlot($1,false);$$=$1;} | immedec {setImmDecPlot($1,false);$$=$1;};
+immediate_plot_y: immehex_plot {setImmHexPlot($1,true);$$=$1;}  | immedec {setImmDecPlot($1,true);$$=$1;};
 
 reg_operand: {current_context=READING_OPERAND;} reg {$$=yylval.id;};
 
@@ -173,11 +178,103 @@ color:
 | white {setColor("111");}
 ;
 
+
+
+routine:
+  drawline draw_line_params
+;
+
+draw_line_params:
+  routine_immediate comma routine_immediate comma routine_immediate comma routine_immediate
+  {bresenham(immToInt($1),immToInt($3),immToInt($5), immToInt($7));}
+;
+
+routine_immediate:
+  {current_context=READING_IMMEDIATE;} immedec {$$=$2;}
+;
+
 %%
 
 extern int yyparse();
 extern FILE *yyin;
 std::string ruta="";
+
+
+
+int immToInt(std::string imm_dec){
+  imm_dec.erase(0,1);
+  int imm_int = atoi(imm_dec.c_str());
+  return imm_int;
+}
+
+
+void bresenham(int x1,int y1, int x2, int y2){
+
+    int x = x1;
+    int y = y1;
+
+    int dx = x2 - x1;
+    int sx = 1;
+    if (dx < 0)
+    {
+        sx = -1;
+        dx = x1-x2;
+    }
+    int dy = y2 - y1;
+    int sy = 1;
+    if (dy < 0)
+    {
+        sy = -1;
+        dy = y1-y2;
+    }
+
+    int swap = 0;
+
+    if(dy>dx){
+        swap = dx;
+        dx = dy;
+        dy = swap;
+        swap = 1;
+    }
+
+    int e = 2*dy-dx;
+    int a = 2*dy;
+    int b = 2*dy-2*dx;
+
+    //printf("%d , %d\n", x, y);
+    buildPlotInstruction(x,y);
+    int i = 1;
+
+    while(i <= dx){
+        if (e<0){
+            if(swap){
+                y = y+sy;
+            }else{
+                x=x+sx;
+            }
+            e = e+a;
+        }else{
+            y = y+sy;
+            x = x+sx;
+            e = e+b;
+        }
+        buildPlotInstruction(x,y);
+        i+=1;
+    }
+
+}
+
+
+void buildPlotInstruction(int x, int y){
+  setOp(OP_PLOTI);
+  
+  setImmDecPlot("#" + std::to_string(x),false);
+  setImmDecPlot("#" + std::to_string(y),true);
+  writeInstruction();
+  resetInstruction();
+  text_memory+=0x4;
+}
+
 
 void setInstructionI(){ current_instruction.replace(31,1,"1");}
 void setOp(std::string cmd){current_instruction.replace(0,4,cmd);}
@@ -285,11 +382,11 @@ void verifyBranchCalls(){
     }
 
     if(error_count==0){
-      //fs<<current_instruction<<'\n';
-      fs<<current_instruction.substr(0,8)<<'\n';
-      fs<<current_instruction.substr(8,8)<<'\n';
-      fs<<current_instruction.substr(16,8)<<'\n';
-      fs<<current_instruction.substr(24,8)<<'\n';
+      fs<<current_instruction<<'\n';
+      //fs<<current_instruction.substr(0,8)<<'\n';
+      //fs<<current_instruction.substr(8,8)<<'\n';
+      //fs<<current_instruction.substr(16,8)<<'\n';
+      //fs<<current_instruction.substr(24,8)<<'\n';
     }
 
   }

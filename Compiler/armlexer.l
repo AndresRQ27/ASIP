@@ -18,6 +18,8 @@ zeroX     0x
 Hex       [0-9A-Fa-f]
 
 numero [0-9]+
+
+DRAWL  (D|d)(R|r)(a|A)(w|W)(l|L)(i|I)(n|N)(E|e)
 ADD  (A|a)(D|d)(D|d)
 SUB  (S|s)(U|u)(B|b)
 MOV  (M|m)(O|o)(V|v)
@@ -25,6 +27,7 @@ BXX  (B|b)
 COL  (C|c)(O|o)(L|l)
 EOR  (E|e)(O|o)(R|r)
 PLOT (P|p)(L|l)(O|o)(T|t)
+
 
 black @(000|BLACK|Black|black)
 blue  @(001|BLUE|Blue|blue)
@@ -58,6 +61,8 @@ allmodifiers (eq|EQ|ne|NE|cs|CS|hs|HS|cc|CC|lo|LO|mi|MI|PL|pl|vs|VS|vc|VC|hi|HI|
 {COL}                         {yylval.id=strdup(yytext); return col;}
 {EOR}                         {yylval.id=strdup(yytext); return eor;}
 
+
+{DRAWL}                       {yylval.id=strdup(yytext);return drawline;}
 
 
 (r|R)([0-9]|1[0-5])           {yylval.id=strdup(yytext); return reg;}
