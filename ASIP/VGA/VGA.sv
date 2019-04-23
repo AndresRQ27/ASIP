@@ -17,7 +17,7 @@ module VGA#(
 
 //Inputs
 input logic clock;
-input wire [ColorBits-1:0] readValueMemory;
+input logic [ColorBits-1:0] readValueMemory;
 
 //Output
 output logic hsync;
@@ -61,7 +61,7 @@ colorPantalla(
     .posicionY(posicionY),
     .red      (red),
     .green    (green),
-    .blue     (blue),
+    .blue     (blue)
 );
 
 assign XRead = posicionX; //Trunca el número para leer el color en memoria

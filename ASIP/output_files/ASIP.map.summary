@@ -1,17 +1,18 @@
-Analysis & Synthesis Status : Successful - Mon Apr 22 17:53:21 2019
+Analysis & Synthesis Status : Successful - Mon Apr 22 21:28:38 2019
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : ASIP
 Top-level Entity Name : ASIP
-Family : Cyclone V
-Logic utilization (in ALMs) : N/A
+Family : Cyclone IV GX
+Total logic elements : 150
+    Total combinational functions : 129
+    Dedicated logic registers : 46
 Total registers : 46
 Total pins : 29
 Total virtual pins : 0
-Total block memory bits : 24,576
-Total DSP Blocks : 0
-Total HSSI RX PCSs : 0
-Total HSSI PMA RX Deserializers : 0
-Total HSSI TX PCSs : 0
-Total HSSI PMA TX Serializers : 0
+Total memory bits : 7,500
+Embedded Multiplier 9-bit elements : 0
+Total GXB Receiver Channel PCS : 0
+Total GXB Receiver Channel PMA : 0
+Total GXB Transmitter Channel PCS : 0
+Total GXB Transmitter Channel PMA : 0
 Total PLLs : 0
-Total DLLs : 0

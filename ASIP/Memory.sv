@@ -43,7 +43,14 @@ module Memory#(	parameter Width = 5,
 		// Initialize the image in 0 => Goes to black
 		for (x_iterator = 0; x_iterator < Width; x_iterator = x_iterator + 1) begin
 			for (y_iterator = 0; y_iterator < Height; y_iterator = y_iterator + 1) begin
-				Image[x_iterator][y_iterator] = 0;
+				
+				if ( 32'd0 < y_iterator && 32'd25 > y_iterator ) begin
+					//Image[x_iterator-1][y_iterator-1] = 3'b010;
+					Image[x_iterator][y_iterator] = 3'b010;
+					//Image[x_iterator+1][y_iterator+1] = 3'b010;
+				end else begin
+					Image[x_iterator][y_iterator] = 3'b000;
+				end
 			end
 		end
 	end	

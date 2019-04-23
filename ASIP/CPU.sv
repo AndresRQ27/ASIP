@@ -10,8 +10,8 @@
 module CPU #(	parameter ALUSize =  32,
 					parameter RegisterSize =  32,
 					parameter AmountOfRegisters =  16,
-					parameter ImageWidth =  10,
-					parameter ImageHeight =  5,
+					parameter ImageWidth =  320,
+					parameter ImageHeight =  240,
 					parameter ColorBits =  3,
 					parameter PCSize =  32,
 					parameter InstructionSize =  32,
@@ -19,7 +19,7 @@ module CPU #(	parameter ALUSize =  32,
 				( 	clk, 
 					Control, A,B,C,Result, Flags,
 					reset, MOVRegisterOrigin, MOVRegisterDestiny, writeRegister, writeValue, readRegister, PC_Read, readValue,
-					XWrite, YWrite, writeValueMemory, XRead, YRead, readValueMemory,
+					XWrite, YWrite, writeValueMemory, /*XRead, YRead,*/ readValueMemory,
 					PC_Get, Instruction );
 
 	
@@ -44,8 +44,8 @@ module CPU #(	parameter ALUSize =  32,
 	output logic [9-1:0] XWrite;
 	output logic [8-1:0] YWrite;
 	output logic [ColorBits-1:0] writeValueMemory;
-	output logic [9-1:0] XRead;
-	output logic [8-1:0] YRead;
+	/*output logic [9-1:0] XRead;
+	output logic [8-1:0] YRead;*/
 	input logic [ColorBits-1:0] readValueMemory;
 	//Instruction Memory
 	output logic [PCSize-1:0] PC_Get;
