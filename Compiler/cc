@@ -2,8 +2,8 @@
 
 
 rm -rf debug
-lex armlexer.l
-yacc -d armparser.y
+lex arm-compiler-source-code/armlexer.l
+yacc -d arm-compiler-source-code/armparser.y
 mkdir debug
 mv lex.yy.c debug/lex.yy.c
 mv y.tab.h debug/y.tab.h
