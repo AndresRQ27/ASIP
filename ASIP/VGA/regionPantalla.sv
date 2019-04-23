@@ -1,7 +1,6 @@
 module regionPantalla#( 
-	parameter ColorBits = 3,
-	parameter screenX = 320,
-	parameter screenY = 240) (
+	parameter screenX = 50,
+	parameter screenY = 50) (
 	clock,
 	readValueMemory,
 	posicionX,
@@ -15,17 +14,12 @@ module regionPantalla#(
 input logic clock;
 input logic [9:0] posicionX;
 input logic [9:0] posicionY;
-input logic [ColorBits-1:0] readValueMemory;
+input logic [2:0] readValueMemory;
 
 //Outputs
 output logic [7:0] red;
 output logic [7:0] green;
 output logic [7:0] blue;
-
-initial
-	begin
-
-	end
 
 always @(posedge clock)
 	begin

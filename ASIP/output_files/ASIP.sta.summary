@@ -3,15 +3,15 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Setup 'clk'
-Slack : -5.014
-TNS   : -94.582
+Slack : -5.546
+TNS   : -292.390
 
 Type  : Setup 'VGA:VGADevice|divisorFrecuencia:clk25MHz|clk25Mhz'
-Slack : -2.150
-TNS   : -31.142
+Slack : -2.146
+TNS   : -35.834
 
 Type  : Hold 'VGA:VGADevice|divisorFrecuencia:clk25MHz|clk25Mhz'
-Slack : 0.376
+Slack : 0.377
 TNS   : 0.000
 
 Type  : Hold 'clk'
@@ -20,7 +20,7 @@ TNS   : 0.000
 
 Type  : Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -58.158
+TNS   : -298.449
 
 Type  : Minimum Pulse Width 'VGA:VGADevice|divisorFrecuencia:clk25MHz|clk25Mhz'
 Slack : -1.500

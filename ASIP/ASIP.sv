@@ -21,8 +21,8 @@ module ASIP (
 	parameter ALUSize =  32; // size of the operands in bits that can handle the ALU
 	parameter RegisterSize =  32; // register's size in bits
 	parameter AmountOfRegisters =  16; // quantity of registers in the processor
-	parameter ImageWidth =  50; // Canvas size
-	parameter ImageHeight =  50; // Canvas size
+	parameter ImageWidth =  320; // Canvas size
+	parameter ImageHeight =  240; // Canvas size
 	parameter ColorBits =  3; // Code of 3 bits => 8 colors
 	parameter PCSize =  32; // Equal to register size
 	parameter InstructionSize =  32; // Instruction size in bits
@@ -82,7 +82,7 @@ module ASIP (
 										XRead, YRead, readValueMemory );
 	InstructionMemory 		#(	PCSize, InstructionSize, AmountOfInstructions) 
 	InstructionMemoryDevice	(	PC_Get, Instruction );
-	VGA #( ColorBits, ImageWidth, ImageHeight )
+	VGA #( ImageWidth, ImageHeight )
 	VGADevice(	
 		.clock(clk), 
 		.readValueMemory(readValueMemory),
@@ -112,13 +112,5 @@ module ASIP (
 					reset, MOVRegisterOrigin, MOVRegisterDestiny, writeRegister, writeValue, readRegister, PC_Read, readValue,
 					XWrite, YWrite, writeValueMemory, /*XRead, YRead, */readValueMemory,
 					PC_Get, Instruction );
-	
-	initial begin
-		
-	end
-
-	always @(clk) begin
-		
-	end
 
 endmodule

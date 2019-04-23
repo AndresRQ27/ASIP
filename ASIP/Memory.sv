@@ -8,8 +8,8 @@
 // This module will store the memory for the processor
 // Will be able to store a Width x Height image
 
-module Memory#(	parameter Width = 5, 
-						parameter Height = 10,
+module Memory#(	parameter Width = 50, 
+						parameter Height = 50,
 						parameter ColorBits = 3)
 						(	clk, 
 									XWrite, YWrite, WriteValue,
@@ -44,13 +44,14 @@ module Memory#(	parameter Width = 5,
 		for (x_iterator = 0; x_iterator < Width; x_iterator = x_iterator + 1) begin
 			for (y_iterator = 0; y_iterator < Height; y_iterator = y_iterator + 1) begin
 				
-				if ( 32'd0 < y_iterator && 32'd25 > y_iterator ) begin
+				Image[x_iterator][y_iterator] = 3'b001;
+				/*if ( 32'd25 > x_iterator ) begin
 					//Image[x_iterator-1][y_iterator-1] = 3'b010;
 					Image[x_iterator][y_iterator] = 3'b010;
 					//Image[x_iterator+1][y_iterator+1] = 3'b010;
 				end else begin
-					Image[x_iterator][y_iterator] = 3'b000;
-				end
+					Image[x_iterator][y_iterator] = 3'b100;
+				end*/
 			end
 		end
 	end	
