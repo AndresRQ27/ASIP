@@ -22,15 +22,20 @@ std::string final_message="Compiler success";
 
 
 /*Binary part of data instructions type. This part is called "cmd" part.*/
-std::string OP_PLOT = "1000";
 std::string OP_MOV  = "0000";
 std::string OP_SUB  = "0001";
+
+std::string OP_BMI  = "0010";
+std::string OP_EOR  = "0011";
 std::string OP_ADD  = "0100";
+
 std::string OP_BXX  = "0101";
 std::string OP_BEQ  = "0110";
-std::string OP_BMI  = "0010";
-std::string OP_COL  = "1001";
-std::string OP_EOR  = "0011";
+std::string OP_PLOT = "0111";
+std::string OP_COL  = "1000";
+std::string OP_PLOTI= "1001";
+
+
 
 
 int memCount=0;
@@ -52,6 +57,7 @@ void addTag(std::string);
 void addTagCalling(std::string);
 void insertIntOnInstruction(int);
 
+
 /*Setting instruction*/
 void setOp(std::string);
 
@@ -62,6 +68,8 @@ void setRs(std::string);
 void setImmDec(std::string);
 void setImmHex(std::string);
 void setInstructionI();
+void setImmHexPlot(std::string,bool);
+void setImmDecPlot(std::string,bool);
 
 void setColor(std::string);
 
@@ -93,9 +101,9 @@ context current_context;
 
 %token END 0 "end of file"
 %token <id> addition subtra mv plot branch brancheq branchmi col eor endline memory_direction_tag reg immedec immehex label commentary
-%token <id> black blue green cyan red magenta yellow white
+%token <id> black blue green cyan red magenta yellow white immehexplot
 %token <num> number
-%type  <id> data_params_sr2 branch_operation reg_operand
+%type  <id> data_params_sr2 branch_operation reg_operand immediate_plot_x immediate_plot_y immedec
 %start body
 
 %%
@@ -137,10 +145,16 @@ eor_operation: eor {setOp(OP_EOR);};
 data_params: reg_operand comma reg_operand comma {setRd($1);setRn($3);current_context=READING_OPERAND_IMMEDIATE;} data_params_sr2;
 col_params:  {current_context=READING_COLOR;} color;
 mov_params:  reg_operand comma reg_operand {setRd($1);setRn($3);};
-plot_params:  reg_operand comma reg_operand {setRd($1);setRn($3);};
+plot_params:  
+  reg_operand comma reg_operand {setRd($1);setRn($3);}
+| {current_context=READING_IMMEDIATE;} immediate_plot_x comma {current_context=READING_IMMEDIATE;} immediate_plot_y {setOp(OP_PLOTI);}
+;
 eor_params: reg_operand comma reg_operand comma reg_operand {setRd($1);setRn($3);setRs($5);};
 data_params_sr2: {current_context=READING_IMMEDIATE;} immediate {setInstructionI();} | reg_operand {setRs($1);};
 
+
+immediate_plot_x: immehex {setImmHexPlot($1,false);$$=$1;} | immedec {setImmDecPlot($1,false);$$=$1;};
+immediate_plot_y: immehex {setImmHexPlot($1,true);$$=$1;}  | immedec {setImmDecPlot($1,true);$$=$1;};
 
 reg_operand: {current_context=READING_OPERAND;} reg {$$=yylval.id;};
 
@@ -205,6 +219,27 @@ void setImmHex(std::string imm_hex){
   insertIntOnInstruction(imm_int);
 }
 
+void setImmHexPlot(std::string imm_hex,bool isSecondOperand){
+  int imm_int = (int)strtol(imm_hex.c_str(), 0, isSecondOperand?8:9);
+  std::string imm_str = isSecondOperand? std::bitset<8>(imm_int).to_string():std::bitset<9>(imm_int).to_string();
+  current_instruction.replace( 4 + isSecondOperand?9:0, isSecondOperand?8:9, imm_str);
+}
+void setImmDecPlot(std::string imm_dec,bool isSecondOperand){
+  imm_dec.erase(0,1);
+  int imm_int = atoi(imm_dec.c_str());
+  if (0 <= imm_int && imm_int <= 511 && !isSecondOperand || isSecondOperand && 0 <= imm_int && imm_int <= 255){
+    imm_int = imm_int;
+    std::string imm_str = isSecondOperand? std::bitset<8>(imm_int).to_string():std::bitset<9>(imm_int).to_string();
+    current_instruction.replace( 4 + (isSecondOperand?9:0), (isSecondOperand?8:9), imm_str);
+  }
+  else {
+    error_count++;
+    printt("Error: Immediate value outbounds \"" + imm_dec + "\".");
+  }
+
+}
+
+
 void setColor(std::string rgb_color){current_instruction.replace( 4, 3, rgb_color);}
 
 std::string RegisterToBinary(std::string r){ r.erase(0,1); return std::bitset<4>(atoi(r.c_str())).to_string();}
@@ -250,6 +285,7 @@ void verifyBranchCalls(){
     }
 
     if(error_count==0){
+      //fs<<current_instruction<<'\n';
       fs<<current_instruction.substr(0,8)<<'\n';
       fs<<current_instruction.substr(8,8)<<'\n';
       fs<<current_instruction.substr(16,8)<<'\n';
