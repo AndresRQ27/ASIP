@@ -35,7 +35,9 @@ std::string OP_PLOT = "0111";
 std::string OP_COL  = "1000";
 std::string OP_PLOTI= "1001";
 
-
+std::string bin_debug = " ";
+int dbg = 1;
+int index_debug = 0;
 
 
 int memCount=0;
@@ -115,7 +117,7 @@ context current_context;
 
 %%
 
-body: {current_context=READING_INSTRUCTION; } line nextline;
+body: {current_context=READING_INSTRUCTION; index_debug = 0; } line nextline;
 nextline: '\n' body | END;
 
 line:  
@@ -226,11 +228,15 @@ int immToInt(std::string imm_dec){
 void drawRect(int x, int y, int w, int h){
   for (int i = x; i < x+w;i++){
     buildPlotInstruction(i,y);
+    index_debug = 0;
     buildPlotInstruction(i,y+h);
+    index_debug = 0;
   }
   for (int i = y; i < y+h;i++){
     buildPlotInstruction(x,i);
+    index_debug = 0;
     buildPlotInstruction(x+w,i);
+    index_debug = 0;
   }
 
 }
@@ -238,6 +244,7 @@ void fillRect(int x, int y, int w, int h){
   for (int i = x; i < x+w;i++){
     for (int j = y; j < y+h;j++){
       buildPlotInstruction(i,j);
+      index_debug = 0;
     }
   }
 }
@@ -279,6 +286,7 @@ void bresenham(int x1,int y1, int x2, int y2){
 
     //printf("%d , %d\n", x, y);
     buildPlotInstruction(x,y);
+    index_debug = 0;
     int i = 1;
 
     while(i <= dx){
@@ -295,6 +303,7 @@ void bresenham(int x1,int y1, int x2, int y2){
             e = e+b;
         }
         buildPlotInstruction(x,y);
+        index_debug = 0;
         i+=1;
     }
 
@@ -312,12 +321,12 @@ void buildPlotInstruction(int x, int y){
 }
 
 
-void setInstructionI(){ current_instruction.replace(31,1,"1");}
-void setOp(std::string cmd){current_instruction.replace(0,4,cmd);}
+void setInstructionI(){ current_instruction.replace(31 + (++index_debug),1,"1");}
+void setOp(std::string cmd){current_instruction.replace(0,4,cmd + bin_debug);}
 
-void setRd(std::string Register){ current_instruction.replace( 4, 4,RegisterToBinary(Register)); }
-void setRn(std::string Register){ current_instruction.replace( 8, 4,RegisterToBinary(Register)); }
-void setRs(std::string Register){ current_instruction.replace(12, 4,RegisterToBinary(Register)); }
+void setRd(std::string Register){ current_instruction.replace( 4 + (dbg? ++index_debug: 0), 4,RegisterToBinary(Register) + bin_debug); }
+void setRn(std::string Register){ current_instruction.replace( 8 + (dbg? ++index_debug: 0), 4,RegisterToBinary(Register) + bin_debug); }
+void setRs(std::string Register){ current_instruction.replace(12 + (dbg? ++index_debug: 0), 4,RegisterToBinary(Register) + bin_debug); }
 
 void resetInstruction(){ current_instruction = DEFAULT_INSTRUCTION;}
 
@@ -329,7 +338,7 @@ void writeInstruction(){
 
 void insertIntOnInstruction(int imm_int){
   std::string imm_str = std::bitset<16>(imm_int).to_string();
-  current_instruction.replace( 12, 16, imm_str);
+  current_instruction.replace( 12+ (dbg? ++index_debug: 0), 16, imm_str + bin_debug);
 }
 
 void setImmDec(std::string imm_dec){
@@ -339,7 +348,7 @@ void setImmDec(std::string imm_dec){
     short is_negative = imm_int < 0;
     imm_int = is_negative?-1*imm_int:imm_int;
     insertIntOnInstruction(imm_int);
-    if(is_negative)current_instruction.replace( 12, 1, "1");
+    if(is_negative)current_instruction.replace( 12+ (dbg? ++index_debug: 0), 1, "1");
   }
   else {
     error_count++;
@@ -355,7 +364,7 @@ void setImmHex(std::string imm_hex){
 void setImmHexPlot(std::string imm_hex,bool isSecondOperand){
   int imm_int = (int)strtol(imm_hex.c_str(), 0, isSecondOperand?8:9);
   std::string imm_str = isSecondOperand? std::bitset<8>(imm_int).to_string():std::bitset<9>(imm_int).to_string();
-  current_instruction.replace( 4 + isSecondOperand?9:0, isSecondOperand?8:9, imm_str);
+  current_instruction.replace( 4 + (isSecondOperand?9:0) + (dbg? ++index_debug: 0) , isSecondOperand?8:9, imm_str + bin_debug);
 }
 void setImmDecPlot(std::string imm_dec,bool isSecondOperand){
   imm_dec.erase(0,1);
@@ -363,7 +372,7 @@ void setImmDecPlot(std::string imm_dec,bool isSecondOperand){
   if (0 <= imm_int && imm_int <= 511 && !isSecondOperand || isSecondOperand && 0 <= imm_int && imm_int <= 255){
     imm_int = imm_int;
     std::string imm_str = isSecondOperand? std::bitset<8>(imm_int).to_string():std::bitset<9>(imm_int).to_string();
-    current_instruction.replace( 4 + (isSecondOperand?9:0), (isSecondOperand?8:9), imm_str);
+    current_instruction.replace( 4 + (isSecondOperand?9:0) + (dbg? ++index_debug: 0), (isSecondOperand?8:9), imm_str + bin_debug);
   }
   else {
     error_count++;
@@ -373,7 +382,7 @@ void setImmDecPlot(std::string imm_dec,bool isSecondOperand){
 }
 
 
-void setColor(std::string rgb_color){current_instruction.replace( 4, 3, rgb_color);}
+void setColor(std::string rgb_color){current_instruction.replace( 4 + (dbg? ++index_debug: 0), 3, rgb_color + bin_debug);}
 
 std::string RegisterToBinary(std::string r){ r.erase(0,1); return std::bitset<4>(atoi(r.c_str())).to_string();}
 
@@ -430,7 +439,7 @@ void verifyBranchCalls(){
 
 void setBranchReference(int current_pos, int target_pos){
   std::string branch_target = std::bitset<8>(target_pos).to_string();
-  current_instruction.replace( 4, 8, branch_target);
+  current_instruction.replace( 4 + (dbg? ++index_debug: 0), 8, branch_target + bin_debug);
 }
 
 
